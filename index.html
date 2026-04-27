@@ -18,44 +18,26 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
 .brand-url{font-size:17px;color:#fbbf24;font-weight:800;letter-spacing:0.3px;margin-top:6px;display:flex;align-items:center;gap:7px;}
 .brand-url::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:#fbbf24;box-shadow:0 0 8px rgba(251,191,36,0.9);}
 .carousel{width:100%;height:100vh;}
-.slides-wrapper{display:flex;height:calc(100vh - 120px);transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);}
+.slides-wrapper{display:flex;height:calc(100vh - 90px);transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);}
 .slide{min-width:100vw;height:100%;padding:28px 48px;overflow-y:auto;display:flex;flex-direction:column;}
 .slide-fill{flex:1;display:flex;flex-direction:column;}
-.bottom-bar{position:fixed;bottom:0;left:0;right:0;min-height:120px;background:var(--white);border-top:2px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:6px 24px;z-index:100;}
-.progress-bar{position:fixed;bottom:120px;left:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--purple));transition:width 0.5s;z-index:101;}
+.bottom-bar{position:fixed;bottom:0;left:0;right:0;height:90px;background:var(--white);border-top:2px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 24px;z-index:100;}
+.progress-bar{position:fixed;bottom:90px;left:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--purple));transition:width 0.5s;z-index:101;}
 .slide-counter{font-size:15px;color:var(--text3);font-weight:600;min-width:70px;}
 .slide-counter span{color:var(--text);font-weight:800;font-size:20px;}
-.slide-dots{display:flex;flex-direction:column;gap:4px;flex:1;justify-content:center;align-items:center;max-height:116px;overflow:hidden;}
-.dots-row{display:flex;gap:2px;justify-content:center;flex-wrap:nowrap;}
-@media (max-width: 899px){
-  .bottom-bar{min-height:160px;}
-  .slides-wrapper{height:calc(100vh - 160px);}
-  .progress-bar{bottom:160px;}
-  .slide-dots{max-height:150px;}
-  .dot-item{min-width:38px;max-width:38px;}
-  .dot-bar{width:26px;}
-  .dot-label{max-width:36px;font-size:9px;}
-}
-.dot-item{display:flex;flex-direction:column;align-items:center;cursor:pointer;padding:4px 2px;border-radius:6px;transition:all 0.2s;min-width:44px;max-width:44px;}
+.slide-dots{display:flex;gap:2px 2px;flex:1;justify-content:center;flex-wrap:wrap;max-width:1700px;overflow:hidden;align-content:center;}
+.dot-item{display:flex;flex-direction:column;align-items:center;cursor:pointer;padding:6px 2px;border-radius:6px;transition:all 0.2s;min-width:52px;max-width:52px;}
 .dot-item:hover{background:var(--blue-bg);}
-.dot-bar{width:30px;height:5px;border-radius:3px;background:#d1d5db;transition:all 0.3s;margin-bottom:4px;}
-.dot-label{font-size:10px;color:var(--text3);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:42px;}
-.comm-card{display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 12px;text-decoration:none;color:inherit;text-align:center;}
-.comm-icon{font-size:28px;}
-.comm-name{font-size:13px;font-weight:700;color:var(--text2);}
-.comm-price{font-size:20px;font-weight:800;}
-.comm-chg{font-size:15px;font-weight:700;}
-.crypto-row{display:flex;align-items:center;padding:10px 16px;background:var(--white);border:1px solid var(--border);border-radius:10px;margin-bottom:6px;gap:12px;text-decoration:none;color:inherit;}
-.cr-sym{font-size:14px;font-weight:900;color:var(--cyan);min-width:48px;}
-.cr-name{flex:1;font-size:15px;font-weight:600;}
-.cr-val{font-size:16px;font-weight:700;min-width:110px;text-align:right;}
-.cr-pct{font-size:15px;font-weight:800;min-width:75px;text-align:right;}
+.dot-bar{width:36px;height:5px;border-radius:3px;background:#d1d5db;transition:all 0.3s;margin-bottom:5px;}
+.dot-label{font-size:10px;color:var(--text3);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:50px;}
+/* 섹터 방향 색상 (한국 관례: 상승=빨강, 하락=파랑) */
 .dot-item.sector-up .dot-bar{background:#dc2626;}
 .dot-item.sector-up .dot-label{color:#dc2626;}
 .dot-item.sector-down .dot-bar{background:#2563eb;}
 .dot-item.sector-down .dot-label{color:#2563eb;}
 .dot-item.sector-mixed .dot-bar{background:linear-gradient(90deg,#dc2626 50%,#2563eb 50%);}
 .dot-item.sector-mixed .dot-label{color:#7c3aed;}
+/* 현재 페이지 = 녹색 (섹터 색상 위에 override) */
 .dot-item.active .dot-bar{background:#059669 !important;width:46px;}
 .dot-item.active .dot-label{color:#059669 !important;font-weight:800;}
 .nav-buttons{display:flex;gap:8px;align-items:center;min-width:180px;justify-content:flex-end;}
@@ -81,7 +63,10 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
 .hero-title{font-size:80px;font-weight:900;letter-spacing:-3px;color:var(--text);margin-bottom:12px;}
 .hero-sub{font-size:32px;color:var(--text2);font-weight:400;margin-bottom:48px;}
 .hero-pills{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;}
-.hero-pill{background:var(--white);border:2px solid var(--border);border-radius:18px;padding:28px 36px;box-shadow:var(--shadow);min-width:240px;text-align:center;}
+.hero-pill{background:var(--white);border:2px solid var(--border);border-radius:18px;padding:28px 36px;box-shadow:var(--shadow);min-width:240px;text-align:center;text-decoration:none;color:inherit;cursor:pointer;transition:all 0.2s;}
+.hero-pill:hover{border-color:var(--blue);box-shadow:0 4px 16px rgba(37,99,235,0.15);}
+a.card{text-decoration:none;color:inherit;cursor:pointer;transition:all 0.2s;}
+a.card:hover{border-color:var(--blue);box-shadow:0 4px 16px rgba(37,99,235,0.15);}
 .hp-label{font-size:16px;color:var(--text3);margin-bottom:8px;font-weight:600;}
 .hp-val{font-size:38px;font-weight:900;} .hp-chg{font-size:20px;font-weight:700;margin-top:4px;}
 .idx-card{text-align:center;border-left:5px solid var(--up);}
@@ -110,13 +95,13 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
 .sector-badge{padding:8px 18px;border-radius:24px;font-size:20px;font-weight:800;}
 .sector-badge.up-b{background:var(--up-bg);color:var(--up);border:2px solid var(--up-border);}
 .sector-badge.dn-b{background:var(--down-bg);color:var(--down);border:2px solid var(--down-border);}
-.stock-row{display:flex;align-items:center;padding:10px 0;border-bottom:1px solid #f0f0f0;gap:10px;flex-wrap:nowrap;}
+.stock-row{display:flex;align-items:center;padding:12px 0;border-bottom:1px solid #f0f0f0;gap:14px;}
 .stock-row:last-child{border-bottom:none;}
-.stock-ticker{font-size:16px;font-weight:800;min-width:70px;flex-shrink:0;}
-.ticker-link{color:var(--blue);text-decoration:none;padding:2px 6px;background:var(--blue-bg);border-radius:6px;display:inline-block;transition:all 0.15s;font-size:13px;}
+.stock-ticker{font-size:20px;font-weight:800;width:90px;}
+.ticker-link{color:var(--blue);text-decoration:none;padding:2px 8px;background:var(--blue-bg);border-radius:6px;display:inline-block;transition:all 0.15s;}
 .ticker-link:hover{background:var(--blue);color:var(--white);}
-.stock-pct{font-size:16px;font-weight:800;min-width:70px;flex-shrink:0;}
-.stock-desc{flex:1;font-size:14px;color:var(--text2);line-height:1.4;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.stock-pct{font-size:20px;font-weight:800;width:100px;}
+.stock-desc{flex:1;font-size:17px;color:var(--text2);line-height:1.55;}
 .sector-analysis{margin-top:14px;padding:18px 22px;border-radius:12px;background:#f8fafc;font-size:18px;color:var(--text);line-height:1.75;border-left:5px solid var(--blue);font-weight:500;}
 .sector-analysis p{margin-bottom:6px;}
 .flow-card{border-left:5px solid var(--blue);padding:28px;}
@@ -125,15 +110,22 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
 .flow-text p{margin-bottom:8px;}
 .summary-box{border-left:5px solid var(--blue);padding:22px 26px;border-radius:12px;background:var(--white);font-size:20px;color:var(--text);line-height:1.8;font-weight:500;}
 .summary-box p{margin-bottom:8px;}
-.etf-row{display:flex;align-items:center;padding:18px 14px;background:var(--white);border:1px solid var(--border);border-radius:10px;margin-bottom:9px;gap:8px;flex-wrap:nowrap;text-decoration:none;color:inherit;}
-.er-ticker{font-size:13px;font-weight:800;color:var(--blue);min-width:48px;}
-.er-name{flex:1;font-size:14px;font-weight:600;}
-.er-cat{font-size:12px;color:var(--text3);min-width:70px;text-align:right;}
-.er-pct{font-size:15px;font-weight:800;min-width:60px;text-align:right;}
-.etf-name{font-size:15px;font-weight:600;min-width:80px;flex-shrink:0;}
-.etf-tick{font-size:13px;color:var(--text3);font-weight:600;min-width:50px;flex-shrink:0;}
-.etf-desc{font-size:13px;color:var(--text3);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.etf-pct{font-size:16px;font-weight:800;min-width:65px;text-align:right;flex-shrink:0;}
+.comm-card{text-align:center;padding:16px 12px;}
+.comm-card:hover{border-color:var(--blue);box-shadow:0 4px 16px rgba(37,99,235,0.15);}
+.comm-icon{font-size:28px;margin-bottom:6px;}
+.comm-name{font-size:14px;color:var(--text3);margin-bottom:4px;font-weight:600;}
+.comm-price{font-size:24px;font-weight:900;margin-bottom:4px;}
+.comm-chg{font-size:18px;font-weight:700;}
+.crypto-row{display:flex;align-items:center;padding:16px 24px;background:var(--white);border:2px solid var(--border);border-radius:14px;margin-bottom:10px;gap:16px;}
+.cr-sym{font-size:20px;font-weight:900;color:var(--purple);width:60px;}
+.cr-name{font-size:16px;color:var(--text3);width:80px;font-weight:500;}
+.cr-val{flex:1;font-size:26px;font-weight:800;}
+.cr-pct{font-size:20px;font-weight:800;min-width:80px;text-align:right;}
+.etf-row{display:flex;align-items:center;padding:20px 16px;background:var(--white);border:1px solid var(--border);border-radius:10px;margin-bottom:10px;gap:10px;}
+.etf-name{font-size:16px;font-weight:600;min-width:110px;}
+.etf-tick{font-size:14px;color:var(--text3);font-weight:600;width:55px;}
+.etf-desc{font-size:14px;color:var(--text3);flex:1;}
+.etf-pct{font-size:17px;font-weight:800;min-width:70px;text-align:right;}
 </style>
 </head>
 <body>
@@ -155,10 +147,10 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
   <div class="hero-title">미국 증시 마감 동향</div>
   <div class="hero-sub">2026년 04월 28일 (화)</div>
   <div class="hero-pills">
-    <div class="hero-pill"><div class="hp-label">다우존스</div><div class="hp-val">49,167.79</div><div class="hp-chg dn">▼ -62.92 (-0.13%)</div></div>
-    <div class="hero-pill"><div class="hp-label">나스닥</div><div class="hp-val">24,887.10</div><div class="hp-chg up">▲ +50.50 (+0.20%)</div></div>
-    <div class="hero-pill"><div class="hp-label">S&P 500</div><div class="hp-val">7,173.91</div><div class="hp-chg up">▲ +8.83 (+0.12%)</div></div>
-    <div class="hero-pill"><div class="hp-label">필라델피아 반도체</div><div class="hp-val">10,408.04</div><div class="hp-chg dn">▼ -105.63 (-1.00%)</div></div>
+    <a href="https://www.tradingview.com/chart/?symbol=DJI" target="_blank" class="hero-pill"><div class="hp-label">다우존스</div><div class="hp-val">49,167.79</div><div class="hp-chg up">▲ -62.92 (-0.13%)</div></a>
+    <a href="https://www.tradingview.com/chart/?symbol=IXIC" target="_blank" class="hero-pill"><div class="hp-label">나스닥</div><div class="hp-val">24,887.10</div><div class="hp-chg up">▲ +50.50 (+0.20%)</div></a>
+    <a href="https://www.tradingview.com/chart/?symbol=SPX" target="_blank" class="hero-pill"><div class="hp-label">S&P 500</div><div class="hp-val">7,173.91</div><div class="hp-chg up">▲ +8.83 (+0.12%)</div></a>
+    <a href="https://www.tradingview.com/chart/?symbol=SOX" target="_blank" class="hero-pill"><div class="hp-label">필라델피아 반도체</div><div class="hp-val">10,408.04</div><div class="hp-chg up">▲ -105.63 (-1.00%)</div></a>
   </div>
 </div>
 
@@ -168,15 +160,16 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
     <div class="stag blue">INDEX & INDICATORS</div>
     <div class="stitle">주요 지수 및 시장 지표</div>
     <div class="g4" style="margin-bottom:20px;">
-      <div class="card idx-card" style="border-left-color:var(--down);"><div class="idx-name">다우존스</div><div class="idx-val">49,167.79</div><div class="idx-chg dn">▼ -62.92 (-0.13%)</div></div>
-      <div class="card idx-card" style="border-left-color:var(--up);"><div class="idx-name">나스닥</div><div class="idx-val">24,887.10</div><div class="idx-chg up">▲ +50.50 (+0.20%)</div></div>
-      <div class="card idx-card" style="border-left-color:var(--up);"><div class="idx-name">S&P 500</div><div class="idx-val">7,173.91</div><div class="idx-chg up">▲ +8.83 (+0.12%)</div></div>
-      <div class="card idx-card" style="border-left-color:var(--down);"><div class="idx-name">필라델피아 반도체</div><div class="idx-val">10,408.04</div><div class="idx-chg dn">▼ -105.63 (-1.00%)</div></div>
+      <a href="https://www.tradingview.com/chart/?symbol=DJI" target="_blank" class="card idx-card"><div class="idx-name">다우존스</div><div class="idx-val">49,167.79</div><div class="idx-chg up">▲ -62.92 (-0.13%)</div></a>
+      <a href="https://www.tradingview.com/chart/?symbol=IXIC" target="_blank" class="card idx-card"><div class="idx-name">나스닥</div><div class="idx-val">24,887.10</div><div class="idx-chg up">▲ +50.50 (+0.20%)</div></a>
+      <a href="https://www.tradingview.com/chart/?symbol=SPX" target="_blank" class="card idx-card"><div class="idx-name">S&P 500</div><div class="idx-val">7,173.91</div><div class="idx-chg up">▲ +8.83 (+0.12%)</div></a>
+      <a href="https://www.tradingview.com/chart/?symbol=SOX" target="_blank" class="card idx-card"><div class="idx-name">필라델피아 반도체</div><div class="idx-val">10,408.04</div><div class="idx-chg up">▲ -105.63 (-1.00%)</div></a>
     </div>
     <div class="g4" style="margin-bottom:20px;">
-      <a href="https://www.tradingview.com/chart/?symbol=TVC:DXY" target="_blank" class="card ind-card"><div class="ind-icon" style="background:var(--gold-bg);">💵</div><div><div class="ind-label">달러인덱스</div><div class="ind-val">98.48 <span class="up" style="font-size:16px;"></span></div></div></a>
-      <a href="https://www.tradingview.com/chart/?symbol=CBOE:VIX" target="_blank" class="card ind-card"><div class="ind-icon" style="background:var(--down-bg);">🔥</div><div><div class="ind-label">VIX (공포지수)</div><div class="ind-val">18.02 <span class="dn" style="font-size:16px;">-0.67 (-3.58%)</span></div></div></a>
-      <a href="https://www.tradingview.com/chart/?symbol=TVC:USOIL" target="_blank" class="card ind-card"><div class="ind-icon" style="background:var(--cyan-bg);">🛢️</div><div><div class="ind-label">WTI 원유</div><div class="ind-val">$96.66 <span class="up" style="font-size:16px;">+1.41%</span></div></div></a>
+      <a href="https://www.tradingview.com/chart/?symbol=TVC:US10Y" target="_blank" class="card ind-card"><div class="ind-icon" style="background:var(--blue-bg);">📈</div><div><div class="ind-label">10Y 국채금리</div><div class="ind-val">4.29% <span class="dn" style="font-size:16px;">+0.05%</span></div></div></a>
+      <a href="https://www.tradingview.com/chart/?symbol=TVC:DXY" target="_blank" class="card ind-card"><div class="ind-icon" style="background:var(--gold-bg);">💵</div><div><div class="ind-label">달러인덱스</div><div class="ind-val">98.48 <span class="up" style="font-size:16px;">-0.26%</span></div></div></a>
+      <a href="https://www.tradingview.com/chart/?symbol=CBOE:VIX" target="_blank" class="card ind-card"><div class="ind-icon" style="background:var(--down-bg);">🔥</div><div><div class="ind-label">VIX (공포지수)</div><div class="ind-val">18.02 <span class="up" style="font-size:16px;">-7.37%</span></div></div></a>
+      <a href="https://www.tradingview.com/chart/?symbol=TVC:USOIL" target="_blank" class="card ind-card"><div class="ind-icon" style="background:var(--cyan-bg);">🛢️</div><div><div class="ind-label">WTI 원유</div><div class="ind-val">$98.25 <span class="dn" style="font-size:16px;">+1.09%</span></div></div></a>
     </div>
     <div class="summary-box flex1">
         <p>■ 채권 시장에서는 10년 만기 미국 국채 수익률이 4.34%로 전일 대비 3bp 상승하며 4.30%대를 회복했음.</p>
@@ -187,10 +180,6 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
         <p>■ 달러인덱스는 98.48로 소폭(+0.05%) 상승했으나 변동폭은 제한적이었음.</p>
         <p>■ 미국 경제 지표에 대한 기대감과 Fed의 점진적 금리 인하 기조가 균형을 이루면서 달러화 강세 모멘텀은 완만한 수준에 머물렀음.</p>
         <p>■ 향후 Fed 정책 방향성에 대한 불확실성이 지속되는 가운데, 이번 주 예정된 주요 경제 지표 발표와 FOMC 위원들의 발언이 달러화 방향성을 결정하는 중요한 변수가 될 것으로 전망됨.</p>
-        <p>■ 유가는 중동 지정학적 불안감과 OPEC+ 감산 연장에 대한 기대감으로 상승률을 보였다.</p>
-        <p>■ WTI유는 배럴당 96.66달러로 +1.41% 상승했으며, 브렌트유는 101.88달러로 +1.51% 상승했다.</p>
-        <p>■ 양쪽 모두 공급 차질에 대한 우려와 계절적 수요 증가가 가격 상승을 견인했다.</p>
-        <p>■ 금은 4694.80달러로 -0.95% 하락했고, 은도 75.39달러로 -1.27% 하락했다.</p>
     </div>
   </div>
 </div>
@@ -290,7 +279,7 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
       <div class="mover-row up-row flex1"><span class="m-rank">2</span><div style="flex:1"><div class="m-name">X-에너지 <a href="https://www.tradingview.com/chart/?symbol=XE" target="_blank" class="m-ticker-link">XE</a></div><div class="m-desc">원유가 상승세를 이어가면서 에너지 산업 관련주 강세. 중동 평화협상 진전 지연으로 에너지 시장 불확실성 확대에 따른 투자자 관심 집중</div></div><span class="m-pct up">+23.22%</span></div>
       <div class="mover-row up-row flex1"><span class="m-rank">3</span><div style="flex:1"><div class="m-name">엡사이 <a href="https://www.tradingview.com/chart/?symbol=ABSI" target="_blank" class="m-ticker-link">ABSI</a></div><div class="m-desc">헬스케어 섹터 중 바이오 임상 진행 긍정적 평가로 상승 추세 보였음</div></div><span class="m-pct up">+23.10%</span></div>
       <div class="mover-row up-row flex1"><span class="m-rank">4</span><div style="flex:1"><div class="m-name">로빈후드 벤처스 펀드 I <a href="https://www.tradingview.com/chart/?symbol=RVI" target="_blank" class="m-ticker-link">RVI</a></div><div class="m-desc">벤처캐피탈 펀드로서 기술주 강세 장세 혜택 및 스타트업 펀딩 시장 회복 신호 반영</div></div><span class="m-pct up">+17.05%</span></div>
-      <div class="mover-row up-row flex1"><span class="m-rank">5</span><div style="flex:1"><div class="m-name">오르가논 <a href="https://www.tradingview.com/chart/?symbol=OGN" target="_blank" class="m-ticker-link">OGN</a></div><div class="m-desc">제약사로서 배당 기대감 및 실적 개선 전망. 헬스케어 섹터 내 상대적 가치주로 재평가</div></div><span class="m-pct up">+16.87%</span></div>
+      <div class="mover-row up-row flex1"><span class="m-rank">5</span><div style="flex:1"><div class="m-name">오가논 <a href="https://www.tradingview.com/chart/?symbol=OGN" target="_blank" class="m-ticker-link">OGN</a></div><div class="m-desc">제약사로서 배당 기대감 및 실적 개선 전망. 헬스케어 섹터 내 상대적 가치주로 재평가</div></div><span class="m-pct up">+16.87%</span></div>
       <div class="mover-row up-row flex1"><span class="m-rank">6</span><div style="flex:1"><div class="m-name">미국 안티모니 <a href="https://www.tradingview.com/chart/?symbol=UAMY" target="_blank" class="m-ticker-link">UAMY</a></div><div class="m-desc">광산주로서 산업용 원자재 수요 증가. 기본 금속류 가격 상승 수혜 직결</div></div><span class="m-pct up">+14.78%</span></div>
       <div class="mover-row up-row flex1"><span class="m-rank">7</span><div style="flex:1"><div class="m-name">에이벡스 <a href="https://www.tradingview.com/chart/?symbol=AVEX" target="_blank" class="m-ticker-link">AVEX</a></div><div class="m-desc">산업 및 국방 관련 기업으로서 방위산업 투자 확대 및 경기 회복 신호에 따른 상승</div></div><span class="m-pct up">+14.31%</span></div>
       <div class="mover-row up-row flex1"><span class="m-rank">8</span><div style="flex:1"><div class="m-name">리튬 아메리카스 <a href="https://www.tradingview.com/chart/?symbol=LAC" target="_blank" class="m-ticker-link">LAC</a></div><div class="m-desc">전기차 배터리 산업 수요 회복 신호에 반응. 리튬 가격 안정화 및 장기 공급계약 체결 기대감으로 상승</div></div><span class="m-pct up">+13.15%</span></div>
@@ -328,10 +317,11 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
     <div class="stitle">미국 시총 TOP10 · 시스템 반도체</div>
     <div class="g2" style="flex:1;">
     <div class="card" style="display:flex;flex-direction:column;">
-      <div class="sector-header"><div class="sector-name">📊 미국 시총 TOP10</div><div class="sector-badge up-b">+0.19%</div></div>
+      <div class="sector-header"><div class="sector-name">📊 미국 시총 TOP10</div><div class="sector-badge up-b">+0.24%</div></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NVDA" target="_blank" class="ticker-link">NVDA</a></span><span class="stock-pct up fw8">+4.00%</span><span class="stock-desc">엔비디아 - AI 칩 수요 확대 지속으로 독주 강세 유지</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=GOOGL" target="_blank" class="ticker-link">GOOGL</a></span><span class="stock-pct up fw8">+1.72%</span><span class="stock-desc">알파벳 - 광범위한 AI 채택 확대로 성장 신호 강화</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=MSFT" target="_blank" class="ticker-link">MSFT</a></span><span class="stock-pct up fw8">+0.05%</span><span class="stock-desc">마이크로소프트 - 뉴스 없음</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=BRK-B" target="_blank" class="ticker-link">BRK-B</a></span><span class="stock-pct up fw8">+0.74%</span><span class="stock-desc">버크셔해서웨이 - 뉴스 없음</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=TSLA" target="_blank" class="ticker-link">TSLA</a></span><span class="stock-pct up fw8">+0.63%</span><span class="stock-desc">테슬라 - 뉴스 없음</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=META" target="_blank" class="ticker-link">META</a></span><span class="stock-pct up fw8">+0.53%</span><span class="stock-desc">메타 - 뉴스 없음</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=WMT" target="_blank" class="ticker-link">WMT</a></span><span class="stock-pct dn fw8">-1.79%</span><span class="stock-desc">월마트 - 30억 달러 규모 투자등급 채권 발행으로 자금조달 부담 반영</span></div>
@@ -635,12 +625,13 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
     <div class="stitle">전력인프라 · 연료전지</div>
     <div class="g2" style="flex:1;">
     <div class="card" style="display:flex;flex-direction:column;">
-      <div class="sector-header"><div class="sector-name">🔋 전력인프라</div><div class="sector-badge up-b">+0.33%</div></div>
+      <div class="sector-header"><div class="sector-name">🔋 전력인프라</div><div class="sector-badge up-b">+0.44%</div></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=PWR" target="_blank" class="ticker-link">PWR</a></span><span class="stock-pct up fw8">+1.99%</span><span class="stock-desc">웨스팅하우스 일렉트릭 - AI 데이터센터 전력 솔루션 수요 지속 확대로 중장기 수익성 강화</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=TLN" target="_blank" class="ticker-link">TLN</a></span><span class="stock-pct up fw8">+1.47%</span><span class="stock-desc">탈렌 에너지 - 고급 채권 발행으로 자본 구조 안정화 및 성장성 재평가</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=AGX" target="_blank" class="ticker-link">AGX</a></span><span class="stock-pct up fw8">+1.20%</span><span class="stock-desc">아르간 - 데이터센터 노출 확대와 자사주 매입 프로그램 확장으로 주가 지지</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ETN" target="_blank" class="ticker-link">ETN</a></span><span class="stock-pct dn fw8">-1.69%</span><span class="stock-desc">이톤 - 뉴스 없음</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=PCG" target="_blank" class="ticker-link">PCG</a></span><span class="stock-pct dn fw8">-1.32%</span><span class="stock-desc">PG&E - 규제 리스크와 수익성 개선 지연으로 투자심리 약화</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=CNP" target="_blank" class="ticker-link">CNP</a></span><span class="stock-pct dn fw8">+0.99%</span><span class="stock-desc">CNP - 뉴스 없음</span></div>
       <div class="sector-analysis" style="flex:1;">
         <p>■ GE 베르노바의 90% 급등이 기저가 되어 전력 인프라 전반에 매수세 유입.</p>
         <p>■ PWR이 AI 데이터센터 핵심 전력 공급자로서 중장기 수익 성장성 강조하며 강세 주도.</p>
@@ -671,11 +662,13 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
     <div class="stitle">방산/군수 · 산업재/기계/방위</div>
     <div class="g2" style="flex:1;">
     <div class="card" style="display:flex;flex-direction:column;">
-      <div class="sector-header"><div class="sector-name">📊 방산/군수</div><div class="sector-badge up-b">+0.14%</div></div>
+      <div class="sector-header"><div class="sector-name">📊 방산/군수</div><div class="sector-badge up-b">+0.04%</div></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=YSS" target="_blank" class="ticker-link">YSS</a></span><span class="stock-pct up fw8">+4.89%</span><span class="stock-desc">영스페이스 시스템 - SpaceX IPO 추진으로 우주산업 투자 수요 급증</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=KTOS" target="_blank" class="ticker-link">KTOS</a></span><span class="stock-pct up fw8">+3.10%</span><span class="stock-desc">크라토스 디펜스 - SpaceX 우주 인프라 공급망 다각화로 파트너십 기대감 확대</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=MOBX" target="_blank" class="ticker-link">MOBX</a></span><span class="stock-pct dn fw8">-3.77%</span><span class="stock-desc">모빅스 랩스 - 나스닥 규정 회복에도 최소 입찰가 유지로 신뢰도 약화</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=PSN" target="_blank" class="ticker-link">PSN</a></span><span class="stock-pct dn fw8">-3.65%</span><span class="stock-desc">파슨스 - 도로 인프라 프로젝트 진행도 건설 사이클 리스크 반영</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=LDOS" target="_blank" class="ticker-link">LDOS</a></span><span class="stock-pct dn fw8">-1.25%</span><span class="stock-desc">LDOS - 뉴스 없음</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=LHX" target="_blank" class="ticker-link">LHX</a></span><span class="stock-pct dn fw8">+0.93%</span><span class="stock-desc">LHX - 뉴스 없음</span></div>
       <div class="sector-analysis" style="flex:1;">
         <p>■ SpaceX IPO 추진과 아르테미스 프로그램 확대가 우주산업 공급망에 광범위한 재평가 기회 형성.</p>
         <p>■ YSS와 KTOS의 우주 인프라 공급 역할 강조로 중장기 성장 주기 인식 확산.</p>
@@ -701,17 +694,19 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
 </div>
 
 <!-- S17: 특징섹터 -->
-<div class="slide" data-label="우주·드론" data-sector-dir="up">
+<div class="slide" data-label="우주·드론" data-sector-dir="mixed">
   <div class="slide-fill">
-    <div class="stag green">특징섹터</div>
+    <div class="stag purple">특징섹터</div>
     <div class="stitle">우주항공산업 · 드론/UAM</div>
     <div class="g2" style="flex:1;">
     <div class="card" style="display:flex;flex-direction:column;">
-      <div class="sector-header"><div class="sector-name">✈️ 우주항공산업</div><div class="sector-badge up-b">+1.23%</div></div>
+      <div class="sector-header"><div class="sector-name">📊 우주항공산업</div><div class="sector-badge dn-b">-0.41%</div></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=MSS" target="_blank" class="ticker-link">MSS</a></span><span class="stock-pct up fw8">+9.40%</span><span class="stock-desc">메이슨 솔루션 - 역분할 공시로 유동성 문제 해소 신호 전송</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=YSS" target="_blank" class="ticker-link">YSS</a></span><span class="stock-pct up fw8">+4.89%</span><span class="stock-desc">YSS - SpaceX IPO 추진에 따른 우주산업 투자 심화</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=VSAT" target="_blank" class="ticker-link">VSAT</a></span><span class="stock-pct up fw8">-5.37%</span><span class="stock-desc">비아샛 - 방위 네트워크 솔루션 혁신도 전술 계약 지연 우려</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=IRDM" target="_blank" class="ticker-link">IRDM</a></span><span class="stock-pct dn fw8">-4.00%</span><span class="stock-desc">이리듐 - Q1 실적 부진으로 궤도 통신 성장성 의문</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=MDA" target="_blank" class="ticker-link">MDA</a></span><span class="stock-pct dn fw8">-3.78%</span><span class="stock-desc">MDA - 원웹 안테나 추가 수주도 수익화 속도 미흡</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=RDW" target="_blank" class="ticker-link">RDW</a></span><span class="stock-pct dn fw8">-3.62%</span><span class="stock-desc">RDW - 뉴스 없음</span></div>
       <div class="sector-analysis" style="flex:1;">
         <p>■ SpaceX IPO 추진이 우주산업 전반에 재평가 바람 확산시키며 12개 종목 상승 견인.</p>
         <p>■ MSS의 역분할이 기술 기업으로서의 유동성 개선 신호로 작용하고, 아르테미스 프로그램 수주 기대감 부각.</p>
@@ -719,10 +714,13 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
       </div>
     </div>
     <div class="card" style="display:flex;flex-direction:column;">
-      <div class="sector-header"><div class="sector-name">📊 드론/UAM</div><div class="sector-badge up-b">+4.32%</div></div>
+      <div class="sector-header"><div class="sector-name">📊 드론/UAM</div><div class="sector-badge up-b">+2.51%</div></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=JOBY" target="_blank" class="ticker-link">JOBY</a></span><span class="stock-pct up fw8">+6.35%</span><span class="stock-desc">조비 에비에이션 - NYC 첫 시범비행 성공으로 도시항공 모빌리티 상용화 실질 진전 입증</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ACHR" target="_blank" class="ticker-link">ACHR</a></span><span class="stock-pct up fw8">+3.51%</span><span class="stock-desc">아처 에비에이션 - 자율주행 기술 이전을 통한 개인용 자율항공기 개발 경로 구체화</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=KTOS" target="_blank" class="ticker-link">KTOS</a></span><span class="stock-pct up fw8">+3.10%</span><span class="stock-desc">KTOS - SpaceX 우주 인프라 공급으로 고마진 사업 기대 확대</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=EH" target="_blank" class="ticker-link">EH</a></span><span class="stock-pct dn fw8">-1.67%</span><span class="stock-desc">EH - 드론 서비스 시장 확대도 단기 수익화 미흡</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=BETA" target="_blank" class="ticker-link">BETA</a></span><span class="stock-pct dn fw8">+2.55%</span><span class="stock-desc">BETA - 하이브리드 수직이착륙기 기술 진전으로 상용화 가능성 부각</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=VTOL" target="_blank" class="ticker-link">VTOL</a></span><span class="stock-pct dn fw8">+1.24%</span><span class="stock-desc">VTOL - 뉴스 없음</span></div>
       <div class="sector-analysis" style="flex:1;">
         <p>■ JOBY의 NYC 시범비행 성공이 도시항공 모빌리티 상용화의 실질적 진전 증명하며 섹터 전반에 강한 매수 신호 전송.</p>
         <p>■ 자율주행 기술 이전과 장거리 항공 기술 개발이 산업 생태계 확대 반영하며 후발주들 지탱.</p>
@@ -740,9 +738,10 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
     <div class="stitle">자율주행 · 전기차/수소차</div>
     <div class="g2" style="flex:1;">
     <div class="card" style="display:flex;flex-direction:column;">
-      <div class="sector-header"><div class="sector-name">📊 자율주행</div><div class="sector-badge dn-b">-0.74%</div></div>
+      <div class="sector-header"><div class="sector-name">📊 자율주행</div><div class="sector-badge dn-b">-0.32%</div></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=HSAI" target="_blank" class="ticker-link">HSAI</a></span><span class="stock-pct up fw8">+4.79%</span><span class="stock-desc">헤사이 - Q1 실적 발표 임박과 2025 ESG 보고서 공시로 투명성 강화</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=WRD" target="_blank" class="ticker-link">WRD</a></span><span class="stock-pct up fw8">+2.64%</span><span class="stock-desc">WRD - 레노보와 글로벌 200만 대 자동차 배포 협력으로 상용화 가속</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=LYFT" target="_blank" class="ticker-link">LYFT</a></span><span class="stock-pct up fw8">+1.76%</span><span class="stock-desc">LYFT - 뉴스 없음</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=OUST" target="_blank" class="ticker-link">OUST</a></span><span class="stock-pct dn fw8">-4.61%</span><span class="stock-desc">아우스터 - 애틀랜타 신호 관리 프로젝트 수주에도 수익화 시간 지연 우려</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=INVZ" target="_blank" class="ticker-link">INVZ</a></span><span class="stock-pct dn fw8">-4.14%</span><span class="stock-desc">이노비즈 - 초장거리 라이다 출시도 판매 전환율 불명</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=MBLY" target="_blank" class="ticker-link">MBLY</a></span><span class="stock-pct dn fw8">-2.38%</span><span class="stock-desc">모빌아이 - Q1 손실 확대로 자율주행 실적화 의구심 반영</span></div>
@@ -753,7 +752,7 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
       </div>
     </div>
     <div class="card" style="display:flex;flex-direction:column;">
-      <div class="sector-header"><div class="sector-name">🔌 전기차/수소차</div><div class="sector-badge dn-b">-0.71%</div></div>
+      <div class="sector-header"><div class="sector-name">📊 전기차/수소차</div><div class="sector-badge dn-b">-0.71%</div></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=RIVN" target="_blank" class="ticker-link">RIVN</a></span><span class="stock-pct up fw8">+1.21%</span><span class="stock-desc">리비안 - R2 대량 생산 모델 출시로 가격 경쟁력 강화 전망</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=TSLA" target="_blank" class="ticker-link">TSLA</a></span><span class="stock-pct up fw8">+0.63%</span><span class="stock-desc">TSLA - 뉴스 없음</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NIO" target="_blank" class="ticker-link">NIO</a></span><span class="stock-pct up fw8">+0.32%</span><span class="stock-desc">NIO - 온세미 900V 반도체와 자체 칩셋 개발로 배터리 효율 경쟁력 강화</span></div>
@@ -789,7 +788,7 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
       </div>
     </div>
     <div class="card" style="display:flex;flex-direction:column;">
-      <div class="sector-header"><div class="sector-name">✈️ 항공/여행/카지노</div><div class="sector-badge dn-b">-1.44%</div></div>
+      <div class="sector-header"><div class="sector-name">📊 항공/여행/카지노</div><div class="sector-badge dn-b">-1.44%</div></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=LVS" target="_blank" class="ticker-link">LVS</a></span><span class="stock-pct up fw8">+3.14%</span><span class="stock-desc">라스베이거스 샌즈 - 마리나 베이 샌즈 VIP 수요 급증으로 분기 매출 28% 성장</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=MGM" target="_blank" class="ticker-link">MGM</a></span><span class="stock-pct up fw8">+2.55%</span><span class="stock-desc">MGM 리조트 - 노스필드 파크 운영 매각으로 자산 정리 및 현금화 진행</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=JBLU" target="_blank" class="ticker-link">JBLU</a></span><span class="stock-pct dn fw8">-6.26%</span><span class="stock-desc">제트블루 - 스피릿 항공 인수 논의 결과 경영 불확실성 가중</span></div>
@@ -818,6 +817,7 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=XNDU" target="_blank" class="ticker-link">XNDU</a></span><span class="stock-pct up fw8">-7.33%</span><span class="stock-desc">XNDU - 나노 대학원 CEO 성공담도 구체적 수익화 경로 부재</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=HOLO" target="_blank" class="ticker-link">HOLO</a></span><span class="stock-pct dn fw8">-9.90%</span><span class="stock-desc">홀로그램 - 비트코인 양자 내성 프로토콜 연구에도 시가총액 대비 과대평가 우려</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=BTQ" target="_blank" class="ticker-link">BTQ</a></span><span class="stock-pct dn fw8">-4.53%</span><span class="stock-desc">BTQ - 양자 알고리즘·오류 정정 이론 진전도 상용화 시간 간격 인식</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=LAES" target="_blank" class="ticker-link">LAES</a></span><span class="stock-pct dn fw8">-3.39%</span><span class="stock-desc">LAES - 뉴스 없음</span></div>
       <div class="sector-analysis" style="flex:1;">
         <p>■ IonQ의 양자 안전 네트워크 구축이 실용 양자 컴퓨팅 상용화의 구체적 경로 제시하며 부분 강세 기대감 형성.</p>
         <p>■ 하지만 HOLO와 XNDU의 급락은 과도한 기대치와 실제 수익화 경로의 괴리 드러내며 섹터 투자심리 악화.</p>
@@ -825,12 +825,13 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
       </div>
     </div>
     <div class="card" style="display:flex;flex-direction:column;">
-      <div class="sector-header"><div class="sector-name">📊 가상화폐/비트코인</div><div class="sector-badge dn-b">-1.92%</div></div>
+      <div class="sector-header"><div class="sector-name">📊 가상화폐/비트코인</div><div class="sector-badge dn-b">-2.03%</div></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=WULF" target="_blank" class="ticker-link">WULF</a></span><span class="stock-pct up fw8">+7.10%</span><span class="stock-desc">테라울프 - 보통주 공개 모금 완료로 데이터센터 확장 자금 확보</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=IREN" target="_blank" class="ticker-link">IREN</a></span><span class="stock-pct up fw8">-4.50%</span><span class="stock-desc">IREN - Q3 FY26 실적 발표 임박하나 채굴 이익률 악화 우려</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=CRCL" target="_blank" class="ticker-link">CRCL</a></span><span class="stock-pct dn fw8">-4.23%</span><span class="stock-desc">써클 - 원자력 발전소 IPO 트렌드에도 암호화폐 기반 스테이블코인 수요 의문</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=CLSK" target="_blank" class="ticker-link">CLSK</a></span><span class="stock-pct dn fw8">-4.00%</span><span class="stock-desc">클러스크 - 공매도 상위 종목으로 수익성 의심 심화</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=MARA" target="_blank" class="ticker-link">MARA</a></span><span class="stock-pct dn fw8">-3.95%</span><span class="stock-desc">마라톤 디지털 - Q1 500 BTC 매각으로 시장 신뢰도 약화</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=BLSH" target="_blank" class="ticker-link">BLSH</a></span><span class="stock-pct dn fw8">-2.60%</span><span class="stock-desc">BLSH - 뉴스 없음</span></div>
       <div class="sector-analysis" style="flex:1;">
         <p>■ 비트코인 채굴 이익률 붕괴가 채굴주 전반에 약세를 강요하며 섹터 침체 심화.</p>
         <p>■ WULF의 공개 모금 완료가 데이터센터 확장 자금 확보 신호이나, MARA와 CLSK의 연쇄 손절과 매각이 가격 방어 실패 반영.</p>
@@ -1162,7 +1163,7 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
     <div class="stitle">소매유통(대형마트/할인점 등) · 항공/저가항공사(LCC)</div>
     <div class="g2" style="flex:1;">
     <div class="card" style="display:flex;flex-direction:column;">
-      <div class="sector-header"><div class="sector-name">🏬 소매유통(대형마트/할인점 등)</div><div class="sector-badge dn-b">-2.34%</div></div>
+      <div class="sector-header"><div class="sector-name">📊 소매유통(대형마트/할인점 등)</div><div class="sector-badge dn-b">-2.34%</div></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=OLLI" target="_blank" class="ticker-link">OLLI</a></span><span class="stock-pct up fw8">+1.99%</span><span class="stock-desc">올리즈바겐아웃렛 - 아울렛 점포 확장 및 마진율 안정화</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=DLTR" target="_blank" class="ticker-link">DLTR</a></span><span class="stock-pct dn fw8">-5.54%</span><span class="stock-desc">달러트리 - 가솔린 가격 급등으로 소비자 실질 구매력 약화</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=PSMT" target="_blank" class="ticker-link">PSMT</a></span><span class="stock-pct dn fw8">-3.79%</span><span class="stock-desc">프라이스스마트 - Q2 2026 강한 실적에도 광범위한 낙폭</span></div>
@@ -1178,7 +1179,7 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
       </div>
     </div>
     <div class="card" style="display:flex;flex-direction:column;">
-      <div class="sector-header"><div class="sector-name">✈️ 항공/저가항공사(LCC)</div><div class="sector-badge dn-b">-1.93%</div></div>
+      <div class="sector-header"><div class="sector-name">📊 항공/저가항공사(LCC)</div><div class="sector-badge dn-b">-1.93%</div></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ALGT" target="_blank" class="ticker-link">ALGT</a></span><span class="stock-pct up fw8">+0.42%</span><span class="stock-desc">ALGT - 뉴스 없음</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=SKYW" target="_blank" class="ticker-link">SKYW</a></span><span class="stock-pct dn fw8">-2.97%</span><span class="stock-desc">스카이웨스트 - 제트유 가격 급등으로 운항 비용 압력 심화</span></div>
         <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ALK" target="_blank" class="ticker-link">ALK</a></span><span class="stock-pct dn fw8">-2.77%</span><span class="stock-desc">알래스카에어그룹 - 제트유 가격 상승으로 향후 운항 비용 우려 확대</span></div>
@@ -1345,53 +1346,22 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
   </div>
 </div>
 
-
-<!-- 원자재 -->
+<!-- Commodities -->
 <div class="slide" data-label="원자재">
   <div class="slide-fill">
     <div class="stag gold">COMMODITIES</div>
     <div class="stitle">원자재 시장</div>
     <div class="g3" style="margin-bottom:12px;">
-      <a href="https://www.tradingview.com/chart/?symbol=TVC:GOLD" target="_blank" class="card comm-card">
-        <div class="comm-icon">🥇</div>
-        <div class="comm-name">금 (Gold)</div>
-        <div class="comm-price">$4,694.80</div>
-        <div class="comm-chg dn">-0.95%</div>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=TVC:SILVER" target="_blank" class="card comm-card">
-        <div class="comm-icon">🥈</div>
-        <div class="comm-name">은 (Silver)</div>
-        <div class="comm-price">$75.39</div>
-        <div class="comm-chg dn">-1.27%</div>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=TVC:USOIL" target="_blank" class="card comm-card">
-        <div class="comm-icon">🛢️</div>
-        <div class="comm-name">WTI 원유</div>
-        <div class="comm-price">$96.66</div>
-        <div class="comm-chg up">+1.41%</div>
-      </a>
+      <a href="https://www.tradingview.com/chart/?symbol=COMEX:GC1!" target="_blank" class="card comm-card"><div class="comm-icon">🥇</div><div class="comm-name">금 (Gold)</div><div class="comm-price">$4694.80</div><div class="comm-chg up">▼ -0.95%</div></a>
+      <a href="https://www.tradingview.com/chart/?symbol=COMEX:SI1!" target="_blank" class="card comm-card"><div class="comm-icon">🥈</div><div class="comm-name">은 (Silver)</div><div class="comm-price">$75.39</div><div class="comm-chg up">▼ -1.27%</div></a>
+      <a href="https://www.tradingview.com/chart/?symbol=TVC:USOIL" target="_blank" class="card comm-card"><div class="comm-icon">🛢️</div><div class="comm-name">WTI 원유</div><div class="comm-price">$98.25</div><div class="comm-chg up">+1.09%</div></a>
     </div>
     <div class="g3" style="margin-bottom:12px;">
-      <a href="https://www.tradingview.com/chart/?symbol=TVC:UKOIL" target="_blank" class="card comm-card">
-        <div class="comm-icon">🛢️</div>
-        <div class="comm-name">브렌트유</div>
-        <div class="comm-price">$101.88</div>
-        <div class="comm-chg up">+1.51%</div>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=TVC:COPPER" target="_blank" class="card comm-card">
-        <div class="comm-icon">🔶</div>
-        <div class="comm-name">구리 (Copper)</div>
-        <div class="comm-price">$6.08</div>
-        <div class="comm-chg up">+0.30%</div>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=TVC:NATURALGAS" target="_blank" class="card comm-card">
-        <div class="comm-icon">🔥</div>
-        <div class="comm-name">천연가스</div>
-        <div class="comm-price">$2.73</div>
-        <div class="comm-chg up">+1.60%</div>
-      </a>
+      <a href="https://www.tradingview.com/chart/?symbol=TVC:UKOIL" target="_blank" class="card comm-card"><div class="comm-icon">🔥</div><div class="comm-name">브렌트유</div><div class="comm-price">$101.88</div><div class="comm-chg dn">▲ +1.51%</div></a>
+      <a href="https://www.tradingview.com/chart/?symbol=COMEX:HG1!" target="_blank" class="card comm-card"><div class="comm-icon">🟠</div><div class="comm-name">구리</div><div class="comm-price">$6.08/lb</div><div class="comm-chg up">▲ +0.30%</div></a>
+      <a href="https://www.tradingview.com/chart/?symbol=NYMEX:NG1!" target="_blank" class="card comm-card"><div class="comm-icon">💧</div><div class="comm-name">천연가스</div><div class="comm-price">$2.73</div><div class="comm-chg dn">▲ +1.60%</div></a>
     </div>
-    <div class="summary-box" style="border-left-color:var(--gold);margin-top:16px;">
+    <div class="summary-box" style="border-left-color:var(--gold);flex:1;">
         <p>■ 유가는 중동 지정학적 불안감과 OPEC+ 감산 연장에 대한 기대감으로 상승률을 보였음.</p>
         <p>■ WTI유는 배럴당 96.66달러로 +1.41% 상승했으며, 브렌트유는 101.88달러로 +1.51% 상승했음.</p>
         <p>■ 양쪽 모두 공급 차질에 대한 우려와 계절적 수요 증가가 가격 상승을 견인했음.</p>
@@ -1401,72 +1371,22 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
         <p>■ 산업용 금속은 제한적인 상승을 기록했음.</p>
         <p>■ 구리는 톤당 6.08달러로 +0.30% 소폭 상승했으며, 이는 글로벌 경기 회복 기대감과 전기차 수요 증가가 일부 지지했음.</p>
         <p>■ 천연가스는 2.73달러로 +1.60% 상승했으며, 이는 여름 냉방 수요 증가와 공급 측면에서의 제약 요인이 작용했음.</p>
-</div>
+    </div>
   </div>
 </div>
-<!-- 크립토 -->
+
+<!-- Crypto -->
 <div class="slide" data-label="크립토">
   <div class="slide-fill">
     <div class="stag cyan">CRYPTO MARKET</div>
     <div class="stitle">크립토 마켓</div>
-    <div class="g2" style="flex:1;overflow:hidden;gap:20px;">
-      <div style="display:flex;flex-direction:column;gap:8px;overflow-y:auto;">
-      <a href="https://www.tradingview.com/chart/?symbol=BINANCE:DOGEUSDT" target="_blank" class="crypto-row">
-        <span class="cr-sym">DOGE</span>
-        <span class="cr-name">도지코인</span>
-        <span class="cr-val">$0.10</span>
-        <span class="cr-pct dn">-1.20%</span>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=BITSTAMP:BTCUSD" target="_blank" class="crypto-row">
-        <span class="cr-sym">BTC</span>
-        <span class="cr-name">비트코인</span>
-        <span class="cr-val">$76,958</span>
-        <span class="cr-pct dn">-2.17%</span>
-      </a>
-      <a href="#" target="_blank" class="crypto-row">
-        <span class="cr-sym">ADA</span>
-        <span class="cr-name">카르다노</span>
-        <span class="cr-val">$0.25</span>
-        <span class="cr-pct dn">-2.50%</span>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=BITSTAMP:XRPUSD" target="_blank" class="crypto-row">
-        <span class="cr-sym">XRP</span>
-        <span class="cr-name">리플</span>
-        <span class="cr-val">$1.39</span>
-        <span class="cr-pct dn">-2.71%</span>
-      </a>
-      <a href="#" target="_blank" class="crypto-row">
-        <span class="cr-sym">LINK</span>
-        <span class="cr-name">체인링크</span>
-        <span class="cr-val">$9.21</span>
-        <span class="cr-pct dn">-2.93%</span>
-      </a>
-      <a href="#" target="_blank" class="crypto-row">
-        <span class="cr-sym">AVAX</span>
-        <span class="cr-name">아발란체</span>
-        <span class="cr-val">$9.18</span>
-        <span class="cr-pct dn">-2.96%</span>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=BINANCE:SOLUSDT" target="_blank" class="crypto-row">
-        <span class="cr-sym">SOL</span>
-        <span class="cr-name">솔라나</span>
-        <span class="cr-val">$84.20</span>
-        <span class="cr-pct dn">-3.16%</span>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=BITSTAMP:ETHUSD" target="_blank" class="crypto-row">
-        <span class="cr-sym">ETH</span>
-        <span class="cr-name">이더리움</span>
-        <span class="cr-val">$2,291.41</span>
-        <span class="cr-pct dn">-3.32%</span>
-      </a>
-      <a href="#" target="_blank" class="crypto-row">
-        <span class="cr-sym">DOT</span>
-        <span class="cr-name">폴카닷</span>
-        <span class="cr-val">$1.22</span>
-        <span class="cr-pct dn">-3.41%</span>
-      </a>
+    <div class="g2" style="flex:1;">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="crypto-row flex1"><span class="cr-sym">BTC</span><span class="cr-name">비트코인</span><span class="cr-val">$76,957.99</span><span class="cr-pct up">▼ -2.17%</span></div>
+        <div class="crypto-row flex1"><span class="cr-sym">ETH</span><span class="cr-name">이더리움</span><span class="cr-val">$2,291.41</span><span class="cr-pct up">▼ -3.32%</span></div>
+        <div class="crypto-row flex1"><span class="cr-sym">SOL</span><span class="cr-name">솔라나</span><span class="cr-val">$84.20</span><span class="cr-pct up">▼ -3.16%</span></div>
       </div>
-      <div class="summary-box" style="border-left-color:var(--cyan);overflow-y:auto;">
+      <div class="summary-box flex1" style="border-left-color:var(--cyan);">
         <p>■ 암호화폐 시장은 연방준비제도의 금리 인상 기대감과 규제 강화 우려로 광범위한 하락세를 보였음.</p>
         <p>■ 비트코인(BTC)은 76,957.99달러로 -2.17% 하락했으며, 이는 연준 관계자들의 금리 인상 전망 강화와 기관투자자들의 이익 실현에 따른 것이었음.</p>
         <p>■ 이더리움(ETH)은 2,291.41달러로 -3.32% 하락하며 더욱 약한 모습을 보였으며, 솔라나(SOL)도 84.20달러로 -3.16% 하락했음.</p>
@@ -1477,137 +1397,38 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
     </div>
   </div>
 </div>
+
 <!-- ETF -->
 <div class="slide" data-label="ETF">
   <div class="slide-fill">
     <div class="stag blue">ETF TRENDS</div>
     <div class="stitle">ETF 동향</div>
-    <div class="g2" style="flex:1;overflow:hidden;">
-      <div style="display:flex;flex-direction:column;overflow-y:auto;">
-        <div style="font-size:20px;font-weight:800;color:var(--up);margin-bottom:10px;">▲ 상승 ETF TOP 10</div>
-      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ:MSOS" target="_blank" class="etf-row">
-        <span class="er-ticker">MSOS</span>
-        <span class="er-name">미국 - 대마</span>
-        <span class="er-cat">테마ETF</span>
-        <span class="er-pct up">+10.04%</span>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ:XME" target="_blank" class="etf-row">
-        <span class="er-ticker">XME</span>
-        <span class="er-name">금속/광산</span>
-        <span class="er-cat">원자재ETF</span>
-        <span class="er-pct up">+2.05%</span>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ:UNG" target="_blank" class="etf-row">
-        <span class="er-ticker">UNG</span>
-        <span class="er-name">천연가스</span>
-        <span class="er-cat">원자재ETF</span>
-        <span class="er-pct up">+1.75%</span>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ:USO" target="_blank" class="etf-row">
-        <span class="er-ticker">USO</span>
-        <span class="er-name">원유</span>
-        <span class="er-cat">원자재ETF</span>
-        <span class="er-pct up">+1.75%</span>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ:LIT" target="_blank" class="etf-row">
-        <span class="er-ticker">LIT</span>
-        <span class="er-name">글로벌 - 2차전지</span>
-        <span class="er-cat">테마ETF</span>
-        <span class="er-pct up">+1.38%</span>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ:ARKG" target="_blank" class="etf-row">
-        <span class="er-ticker">ARKG</span>
-        <span class="er-name">글로벌 - 헬스케어</span>
-        <span class="er-cat">테마ETF</span>
-        <span class="er-pct up">+1.25%</span>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ:ARKX" target="_blank" class="etf-row">
-        <span class="er-ticker">ARKX</span>
-        <span class="er-name">우주 개발</span>
-        <span class="er-cat">테마ETF</span>
-        <span class="er-pct up">+0.82%</span>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ:XLF" target="_blank" class="etf-row">
-        <span class="er-ticker">XLF</span>
-        <span class="er-name">금융</span>
-        <span class="er-cat">원자재ETF</span>
-        <span class="er-pct up">+0.76%</span>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ:ARKQ" target="_blank" class="etf-row">
-        <span class="er-ticker">ARKQ</span>
-        <span class="er-name">글로벌 - 자율주행/로봇</span>
-        <span class="er-cat">테마ETF</span>
-        <span class="er-pct up">+0.74%</span>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ:DBA" target="_blank" class="etf-row">
-        <span class="er-ticker">DBA</span>
-        <span class="er-name">농산물</span>
-        <span class="er-cat">원자재ETF</span>
-        <span class="er-pct up">+0.66%</span>
-      </a>
+    <div class="g2" style="flex:1;">
+      <div style="display:flex;flex-direction:column;">
+        <div style="font-size:22px;font-weight:800;color:var(--up);margin-bottom:12px;">▲ 상승 ETF</div>
+        <div class="etf-row"><span class="etf-name">금속/광산</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=XME" target="_blank" class="ticker-link">XME</a></span><span class="etf-desc">대중금속 수요 회복에 따른 채광주의 동반 상승</span><span class="etf-pct up">+2.05%</span></div>
+        <div class="etf-row"><span class="etf-name">원유</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=USO" target="_blank" class="ticker-link">USO</a></span><span class="etf-desc">WTI유와 브렌트유 가격 상승에 동반 상승</span><span class="etf-pct up">+1.75%</span></div>
+        <div class="etf-row"><span class="etf-name">천연가스</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=UNG" target="_blank" class="ticker-link">UNG</a></span><span class="etf-desc">여름 냉방 수요 증가에 따른 에너지 수급 긴장</span><span class="etf-pct up">+1.75%</span></div>
+        <div class="etf-row"><span class="etf-name">금융</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=XLF" target="_blank" class="ticker-link">XLF</a></span><span class="etf-desc">금리 인상 기대감으로 금융권의 순이자마진(NIM) 개선 전망</span><span class="etf-pct up">+0.76%</span></div>
+        <div class="etf-row"><span class="etf-name">농산물</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=DBA" target="_blank" class="ticker-link">DBA</a></span><span class="etf-desc">계절적 파종 시기 도래에 따른 곡물 수급 우려 반영</span><span class="etf-pct up">+0.66%</span></div>
+        <div class="etf-row"><span class="etf-name">미국 대마</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=MSOS" target="_blank" class="ticker-link">MSOS</a></span><span class="etf-desc">바이든 행정부의 규제 완화 기대감 및 업체별 긍정적 실적 공시</span><span class="etf-pct up">+10.04%</span></div>
+        <div class="etf-row"><span class="etf-name">글로벌 2차전지</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=LIT" target="_blank" class="ticker-link">LIT</a></span><span class="etf-desc">전기차 시장 확대와 배터리 소재(리튬) 수요 증가</span><span class="etf-pct up">+1.38%</span></div>
+        <div class="etf-row"><span class="etf-name">글로벌 헬스케어</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=ARKG" target="_blank" class="ticker-link">ARKG</a></span><span class="etf-desc">의료기술 혁신과 고령화 대응 수요 증가</span><span class="etf-pct up">+1.25%</span></div>
+        <div class="etf-row"><span class="etf-name">우주 개발</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=ARKX" target="_blank" class="ticker-link">ARKX</a></span><span class="etf-desc">우주산업 상용화 진전과 위성통신 미래 가치 평가</span><span class="etf-pct up">+0.82%</span></div>
+        <div class="etf-row"><span class="etf-name">글로벌 자율주행/로봇</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=ARKQ" target="_blank" class="ticker-link">ARKQ</a></span><span class="etf-desc">AI 기술 고도화와 로봇공학 활용 범위 확대 기대감</span><span class="etf-pct up">+0.74%</span></div>
       </div>
-      <div style="display:flex;flex-direction:column;overflow-y:auto;">
-        <div style="font-size:20px;font-weight:800;color:var(--down);margin-bottom:10px;">▼ 하락 ETF TOP 10</div>
-      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ:BITQ" target="_blank" class="etf-row">
-        <span class="er-ticker">BITQ</span>
-        <span class="er-name">글로벌 - 가상화폐</span>
-        <span class="er-cat">테마ETF</span>
-        <span class="er-pct dn">-1.79%</span>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ:SOXX" target="_blank" class="etf-row">
-        <span class="er-ticker">SOXX</span>
-        <span class="er-name">반도체</span>
-        <span class="er-cat">섹터ETF</span>
-        <span class="er-pct dn">-1.34%</span>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ:XLP" target="_blank" class="etf-row">
-        <span class="er-ticker">XLP</span>
-        <span class="er-name">필수 소비재</span>
-        <span class="er-cat">섹터ETF</span>
-        <span class="er-pct dn">-1.07%</span>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ:ARKF" target="_blank" class="etf-row">
-        <span class="er-ticker">ARKF</span>
-        <span class="er-name">글로벌 - 핀텍</span>
-        <span class="er-cat">테마ETF</span>
-        <span class="er-pct dn">-0.98%</span>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ:ARKW" target="_blank" class="etf-row">
-        <span class="er-ticker">ARKW</span>
-        <span class="er-name">글로벌 - 차세대 인터넷</span>
-        <span class="er-cat">테마ETF</span>
-        <span class="er-pct dn">-0.91%</span>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ:GLD" target="_blank" class="etf-row">
-        <span class="er-ticker">GLD</span>
-        <span class="er-name">금</span>
-        <span class="er-cat">원자재ETF</span>
-        <span class="er-pct dn">-0.78%</span>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ:XLY" target="_blank" class="etf-row">
-        <span class="er-ticker">XLY</span>
-        <span class="er-name">재량 소비재</span>
-        <span class="er-cat">섹터ETF</span>
-        <span class="er-pct dn">-0.72%</span>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ:SLV" target="_blank" class="etf-row">
-        <span class="er-ticker">SLV</span>
-        <span class="er-name">은</span>
-        <span class="er-cat">원자재ETF</span>
-        <span class="er-pct dn">-0.67%</span>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ:BLOK" target="_blank" class="etf-row">
-        <span class="er-ticker">BLOK</span>
-        <span class="er-name">글로벌 - 블록체인</span>
-        <span class="er-cat">테마ETF</span>
-        <span class="er-pct dn">-0.55%</span>
-      </a>
-      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ:VNQ" target="_blank" class="etf-row">
-        <span class="er-ticker">VNQ</span>
-        <span class="er-name">부동산/REITs</span>
-        <span class="er-cat">섹터ETF</span>
-        <span class="er-pct dn">-0.55%</span>
-      </a>
+      <div style="display:flex;flex-direction:column;">
+        <div style="font-size:22px;font-weight:800;color:var(--down);margin-bottom:12px;">▼ 하락 ETF</div>
+        <div class="etf-row"><span class="etf-name">반도체</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=SOXX" target="_blank" class="ticker-link">SOXX</a></span><span class="etf-desc">글로벌 반도체 재고 조정과 수요 부진 우려</span><span class="etf-pct dn">-1.34%</span></div>
+        <div class="etf-row"><span class="etf-name">필수 소비재</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=XLP" target="_blank" class="ticker-link">XLP</a></span><span class="etf-desc">인플레이션 완화로 가치주 선호도 감소</span><span class="etf-pct dn">-1.07%</span></div>
+        <div class="etf-row"><span class="etf-name">재량 소비재</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=XLY" target="_blank" class="ticker-link">XLY</a></span><span class="etf-desc">금리 인상 기대감으로 경기민감주 약세</span><span class="etf-pct dn">-0.72%</span></div>
+        <div class="etf-row"><span class="etf-name">부동산/REITs</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=VNQ" target="_blank" class="ticker-link">VNQ</a></span><span class="etf-desc">금리 인상 우려로 저금리 혜택 소멸 시장 평가</span><span class="etf-pct dn">-0.55%</span></div>
+        <div class="etf-row"><span class="etf-name">글로벌 가상화폐</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=BITQ" target="_blank" class="ticker-link">BITQ</a></span><span class="etf-desc">비트코인, 이더리움 등 주요 암호화폐 동반 하락</span><span class="etf-pct dn">-1.79%</span></div>
+        <div class="etf-row"><span class="etf-name">글로벌 핀텍</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=ARKF" target="_blank" class="ticker-link">ARKF</a></span><span class="etf-desc">금리 인상으로 고금리 대출 상품 수요 감소 우려</span><span class="etf-pct dn">-0.98%</span></div>
+        <div class="etf-row"><span class="etf-name">글로벌 차세대 인터넷</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=ARKW" target="_blank" class="ticker-link">ARKW</a></span><span class="etf-desc">고성장 기술주의 밸류에이션 조정 압력</span><span class="etf-pct dn">-0.91%</span></div>
+        <div class="etf-row"><span class="etf-name">금</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=GLD" target="_blank" class="ticker-link">GLD</a></span><span class="etf-desc">달러 강세와 실질금리 상승으로 금 수요 약세</span><span class="etf-pct dn">-0.78%</span></div>
+        <div class="etf-row"><span class="etf-name">은</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=SLV" target="_blank" class="ticker-link">SLV</a></span><span class="etf-desc">귀금속 통상 약세 속 산업용 은 수요 부진</span><span class="etf-pct dn">-0.67%</span></div>
+        <div class="etf-row"><span class="etf-name">글로벌 블록체인</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=BLOK" target="_blank" class="ticker-link">BLOK</a></span><span class="etf-desc">암호화폐 시장 침체와 블록체인 기업 실적 부진</span><span class="etf-pct dn">-0.55%</span></div>
       </div>
     </div>
   </div>
@@ -1630,41 +1451,16 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
 let current=0,autoId=null;
 const w=document.getElementById('slidesWrapper'),slides=w.children,total=slides.length,pb=document.getElementById('progressBar'),dc=document.getElementById('dots');
 document.getElementById('tot').textContent=total;
-// 네비게이션 반응형 분할: 기본 2줄, 뷰포트 <900px 이면 3줄
-function buildDots(){
-  dc.innerHTML='';
-  const rowCount=window.innerWidth<900?3:2;
-  const rows=[];
-  for(let r=0;r<rowCount;r++){
-    const row=document.createElement('div');
-    row.className='dots-row';
-    rows.push(row);dc.appendChild(row);
-  }
-  // 앞 행부터 균등 분배 (나머지는 앞 행들에 1개씩 추가)
-  const base=Math.floor(total/rowCount);
-  const extra=total%rowCount;
-  const counts=[];
-  for(let r=0;r<rowCount;r++) counts.push(base+(r<extra?1:0));
-  let offset=0;
-  for(let r=0;r<rowCount;r++){
-    for(let k=0;k<counts[r];k++){
-      const i=offset+k;
-      if(i>=total) break;
-      const label=slides[i].getAttribute('data-label')||('S'+(i+1));
-      const dir=slides[i].getAttribute('data-sector-dir')||'';
-      const d=document.createElement('div');
-      d.className='dot-item'+(i===current?' active':'')+(dir?' sector-'+dir:'');
-      d.title=label;
-      d.innerHTML='<div class="dot-bar"></div><div class="dot-label">'+label+'</div>';
-      d.onclick=()=>go(i);
-      rows[r].appendChild(d);
-    }
-    offset+=counts[r];
-  }
+for(let i=0;i<total;i++){
+  const label=slides[i].getAttribute('data-label')||('S'+(i+1));
+  const dir=slides[i].getAttribute('data-sector-dir')||'';
+  const d=document.createElement('div');
+  d.className='dot-item'+(i===0?' active':'')+(dir?' sector-'+dir:'');
+  d.title=label;
+  d.innerHTML='<div class="dot-bar"></div><div class="dot-label">'+label+'</div>';
+  d.onclick=()=>go(i);
+  dc.appendChild(d);
 }
-buildDots();
-// 창 리사이즈 시 행 개수 재계산 (throttle)
-let _resizeT;window.addEventListener('resize',()=>{clearTimeout(_resizeT);_resizeT=setTimeout(buildDots,120);});
 function go(i){if(i<0)i=total-1;if(i>=total)i=0;current=i;w.style.transform='translateX(-'+(current*100)+'vw)';document.getElementById('cur').textContent=current+1;pb.style.width=(((current+1)/total)*100)+'%';document.querySelectorAll('.dot-item').forEach((d,j)=>d.classList.toggle('active',j===current));}
 function toggleAuto(){const b=document.getElementById('autoBtn');if(autoId){clearInterval(autoId);autoId=null;b.classList.remove('on');b.innerHTML='▶ Auto 10s';}else{autoId=setInterval(()=>go(current+1),10000);b.classList.add('on');b.innerHTML='■ Stop';}}
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();go(current+1);}if(e.key==='ArrowLeft'){e.preventDefault();go(current-1);}});
