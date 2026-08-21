@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>미국 증시 마감 동향 2026.08.22</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--bg:#eef1f6;--white:#ffffff;--card:#ffffff;--text:#111827;--text2:#374151;--text3:#6b7280;--up:#059669;--up-bg:#d1fae5;--up-border:#6ee7b7;--down:#dc2626;--down-bg:#fee2e2;--down-border:#fca5a5;--blue:#2563eb;--blue-bg:#dbeafe;--purple:#7c3aed;--purple-bg:#ede9fe;--gold:#d97706;--gold-bg:#fef3c7;--cyan:#0891b2;--cyan-bg:#cffafe;--border:#d1d5db;--shadow:0 2px 8px rgba(0,0,0,0.08);}
+html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);}
+.update-badge{position:fixed;top:16px;right:20px;z-index:200;font-size:12px;color:#fbbf24;background:#1e3a8a;padding:5px 14px;border-radius:8px;font-weight:600;pointer-events:none;border:1px solid rgba(251,191,36,0.5);}
+.carousel{width:100%;height:100vh;}
+.slides-wrapper{display:flex;height:calc(100vh - 90px);transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);}
+.slide{min-width:100vw;height:100%;padding:28px 48px;overflow-y:auto;display:flex;flex-direction:column;}
+.slide-fill{flex:1;display:flex;flex-direction:column;}
+.bottom-bar{position:fixed;bottom:0;left:0;right:0;height:90px;background:var(--white);border-top:2px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 24px;z-index:100;}
+.progress-bar{position:fixed;bottom:90px;left:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--purple));transition:width 0.5s;z-index:101;}
+.slide-counter{font-size:15px;color:var(--text3);font-weight:600;min-width:70px;}
+.slide-counter span{color:var(--text);font-weight:800;font-size:20px;}
+.slide-dots{display:flex;gap:2px 2px;flex:1;justify-content:center;flex-wrap:wrap;max-width:1700px;overflow:hidden;align-content:center;}
+.dot-item{display:flex;flex-direction:column;align-items:center;cursor:pointer;padding:6px 2px;border-radius:6px;transition:all 0.2s;min-width:52px;max-width:52px;}
+.dot-item:hover{background:var(--blue-bg);}
+.dot-bar{width:36px;height:5px;border-radius:3px;background:#d1d5db;transition:all 0.3s;margin-bottom:5px;}
+.dot-label{font-size:10px;color:var(--text3);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:50px;}
+/* 섹터 방향 색상 (한국 관례: 상승=빨강, 하락=파랑) */
+.dot-item.sector-up .dot-bar{background:#dc2626;}
+.dot-item.sector-up .dot-label{color:#dc2626;}
+.dot-item.sector-down .dot-bar{background:#2563eb;}
+.dot-item.sector-down .dot-label{color:#2563eb;}
+.dot-item.sector-mixed .dot-bar{background:linear-gradient(90deg,#dc2626 50%,#2563eb 50%);}
+.dot-item.sector-mixed .dot-label{color:#7c3aed;}
+/* 현재 페이지 = 녹색 (섹터 색상 위에 override) */
+.dot-item.active .dot-bar{background:#059669 !important;width:46px;}
+.dot-item.active .dot-label{color:#059669 !important;font-weight:800;}
+.nav-buttons{display:flex;gap:8px;align-items:center;min-width:180px;justify-content:flex-end;}
+.nav-btn{width:44px;height:44px;border-radius:10px;border:2px solid var(--border);background:var(--white);color:var(--text);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700;}
+.auto-btn{padding:8px 16px;border-radius:8px;border:2px solid var(--border);background:var(--white);color:var(--text2);font-size:13px;cursor:pointer;font-family:inherit;font-weight:600;}
+.auto-btn.on{background:var(--blue-bg);border-color:var(--blue);color:var(--blue);}
+.stag{font-size:14px;text-transform:uppercase;letter-spacing:3px;font-weight:800;padding:6px 16px;border-radius:6px;display:inline-block;margin-bottom:8px;}
+.stag.blue{background:var(--blue-bg);color:var(--blue);}
+.stag.green{background:var(--up-bg);color:var(--up);}
+.stag.red{background:var(--down-bg);color:var(--down);}
+.stag.purple{background:var(--purple-bg);color:var(--purple);}
+.stag.gold{background:var(--gold-bg);color:var(--gold);}
+.stag.cyan{background:var(--cyan-bg);color:var(--cyan);}
+.stitle{font-size:38px;font-weight:900;margin-bottom:20px;line-height:1.2;}
+.highlight{color:#dc2626;font-weight:800;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:var(--shadow);}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.up{color:var(--up);} .dn{color:var(--down);}
+.fw8{font-weight:800;} .flex1{flex:1;}
+.title-slide{justify-content:center;align-items:center;text-align:center;background:linear-gradient(135deg,#e0e7ff 0%,#f3e8ff 40%,#d1fae5 100%);}
+.hero-title{font-size:80px;font-weight:900;letter-spacing:-3px;color:var(--text);margin-bottom:12px;}
+.hero-sub{font-size:32px;color:var(--text2);font-weight:400;margin-bottom:48px;}
+.hero-pills{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;}
+.hero-pill{background:var(--white);border:2px solid var(--border);border-radius:18px;padding:28px 36px;box-shadow:var(--shadow);min-width:240px;text-align:center;text-decoration:none;color:inherit;cursor:pointer;transition:all 0.2s;}
+.hero-pill:hover{border-color:var(--blue);box-shadow:0 4px 16px rgba(37,99,235,0.15);}
+a.card{text-decoration:none;color:inherit;cursor:pointer;transition:all 0.2s;}
+a.card:hover{border-color:var(--blue);box-shadow:0 4px 16px rgba(37,99,235,0.15);}
+.hp-label{font-size:16px;color:var(--text3);margin-bottom:8px;font-weight:600;}
+.hp-val{font-size:38px;font-weight:900;} .hp-chg{font-size:20px;font-weight:700;margin-top:4px;}
+.idx-card{text-align:center;border-left:5px solid var(--up);}
+.idx-name{font-size:18px;color:var(--text3);margin-bottom:10px;font-weight:600;}
+.idx-val{font-size:42px;font-weight:900;margin-bottom:6px;}
+.idx-chg{font-size:20px;font-weight:700;}
+.ind-card{display:flex;align-items:center;gap:16px;padding:20px 24px;}
+.ind-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;}
+.ind-label{font-size:15px;color:var(--text3);font-weight:500;}
+.ind-val{font-size:26px;font-weight:800;}
+.issue-card{display:flex;gap:20px;align-items:flex-start;padding:22px 26px;}
+.issue-num{width:48px;height:48px;border-radius:12px;background:var(--blue-bg);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;flex-shrink:0;}
+.issue-title{font-size:24px;font-weight:800;margin-bottom:10px;}
+.issue-desc{font-size:18px;color:var(--text2);line-height:1.75;}
+.issue-desc p{margin-bottom:6px;}
+.mover-row{display:flex;align-items:center;padding:14px 20px;border-radius:12px;margin-bottom:6px;gap:14px;}
+.mover-row.up-row{background:var(--up-bg);} .mover-row.dn-row{background:var(--down-bg);}
+.m-rank{font-size:16px;color:var(--text3);font-weight:800;width:28px;text-align:center;}
+.m-name{font-size:17px;font-weight:700;}
+.m-ticker-link{color:var(--blue);text-decoration:none;font-weight:700;}
+.m-ticker-link:hover{text-decoration:underline;}
+.m-desc{font-size:14px;color:var(--text2);margin-top:3px;line-height:1.5;}
+.m-pct{font-size:20px;font-weight:800;min-width:90px;text-align:right;}
+.sector-header{display:flex;align-items:center;justify-content:space-between;padding-bottom:14px;border-bottom:2px solid var(--border);margin-bottom:14px;}
+.sector-name{font-size:26px;font-weight:900;}
+.sector-badge{padding:8px 18px;border-radius:24px;font-size:20px;font-weight:800;}
+.sector-badge.up-b{background:var(--up-bg);color:var(--up);border:2px solid var(--up-border);}
+.sector-badge.dn-b{background:var(--down-bg);color:var(--down);border:2px solid var(--down-border);}
+.stock-row{display:flex;align-items:center;padding:12px 0;border-bottom:1px solid #f0f0f0;gap:14px;}
+.stock-row:last-child{border-bottom:none;}
+.stock-ticker{font-size:20px;font-weight:800;width:90px;}
+.ticker-link{color:var(--blue);text-decoration:none;padding:2px 8px;background:var(--blue-bg);border-radius:6px;display:inline-block;transition:all 0.15s;}
+.ticker-link:hover{background:var(--blue);color:var(--white);}
+.stock-pct{font-size:20px;font-weight:800;width:100px;}
+.stock-desc{flex:1;font-size:17px;color:var(--text2);line-height:1.55;}
+.sector-analysis{margin-top:14px;padding:18px 22px;border-radius:12px;background:#f8fafc;font-size:18px;color:var(--text);line-height:1.75;border-left:5px solid var(--blue);font-weight:500;}
+.sector-analysis p{margin-bottom:6px;}
+.flow-card{border-left:5px solid var(--blue);padding:28px;}
+.flow-title{font-size:26px;font-weight:800;margin-bottom:14px;}
+.flow-text{font-size:20px;color:var(--text);line-height:1.75;font-weight:500;}
+.flow-text p{margin-bottom:8px;}
+.summary-box{border-left:5px solid var(--blue);padding:22px 26px;border-radius:12px;background:var(--white);font-size:20px;color:var(--text);line-height:1.8;font-weight:500;}
+.summary-box p{margin-bottom:8px;}
+.comm-card{text-align:center;padding:16px 12px;}
+.comm-card:hover{border-color:var(--blue);box-shadow:0 4px 16px rgba(37,99,235,0.15);}
+.comm-icon{font-size:28px;margin-bottom:6px;}
+.comm-name{font-size:14px;color:var(--text3);margin-bottom:4px;font-weight:600;}
+.comm-price{font-size:24px;font-weight:900;margin-bottom:4px;}
+.comm-chg{font-size:18px;font-weight:700;}
+.crypto-row{display:flex;align-items:center;padding:16px 24px;background:var(--white);border:2px solid var(--border);border-radius:14px;margin-bottom:10px;gap:16px;transition:all 0.2s;}
+.crypto-row:hover{border-color:var(--cyan);box-shadow:0 4px 16px rgba(8,145,178,0.15);}
+.cr-sym{font-size:20px;font-weight:900;color:var(--purple);width:60px;}
+.cr-name{font-size:16px;color:var(--text3);width:80px;font-weight:500;}
+.cr-val{flex:1;font-size:26px;font-weight:800;}
+.cr-pct{font-size:20px;font-weight:800;min-width:80px;text-align:right;}
+.etf-row{display:flex;align-items:center;padding:20px 16px;background:var(--white);border:1px solid var(--border);border-radius:10px;margin-bottom:10px;gap:10px;}
+.etf-name{font-size:16px;font-weight:600;min-width:110px;}
+.etf-tick{font-size:14px;color:var(--text3);font-weight:600;width:55px;}
+.etf-desc{font-size:14px;color:var(--text3);flex:1;}
+.etf-pct{font-size:17px;font-weight:800;min-width:70px;text-align:right;}
+</style>
+</head>
+<body>
+
+<div class="update-badge">업데이트: 2026-08-22 06:10</div>
+
+<div class="carousel">
+  <div class="progress-bar" id="progressBar"></div>
+  <div class="slides-wrapper" id="slidesWrapper">
+
+<!-- S1: Title -->
+<div class="slide title-slide" data-label="타이틀">
+  <div class="hero-title">미국 증시 마감 동향</div>
+  <div class="hero-sub">2026년 08월 22일 (토)</div>
+  <div class="hero-pills">
+    <a href="https://www.tradingview.com/chart/?symbol=DJI" target="_blank" class="hero-pill"><div class="hp-label">다우존스</div><div class="hp-val">53,277.01</div><div class="hp-chg up">▲ +517.80 (+0.98%)</div></a>
+    <a href="https://www.tradingview.com/chart/?symbol=IXIC" target="_blank" class="hero-pill"><div class="hp-label">나스닥</div><div class="hp-val">26,180.46</div><div class="hp-chg up">▲ +113.29 (+0.43%)</div></a>
+    <a href="https://www.tradingview.com/chart/?symbol=SPX" target="_blank" class="hero-pill"><div class="hp-label">S&P 500</div><div class="hp-val">7,674.37</div><div class="hp-chg up">▲ +33.21 (+0.43%)</div></a>
+    <a href="https://www.tradingview.com/chart/?symbol=SOX" target="_blank" class="hero-pill"><div class="hp-label">필라델피아 반도체</div><div class="hp-val">11,740.37</div><div class="hp-chg up">▲ -59.64 (-0.51%)</div></a>
+  </div>
+</div>
+
+<!-- S2: Index + Indicators -->
+<div class="slide" data-label="지수·지표">
+  <div class="slide-fill">
+    <div class="stag blue">INDEX & INDICATORS</div>
+    <div class="stitle">주요 지수 및 시장 지표</div>
+    <div class="g4" style="margin-bottom:20px;">
+      <a href="https://www.tradingview.com/chart/?symbol=DJI" target="_blank" class="card idx-card"><div class="idx-name">다우존스</div><div class="idx-val">53,277.01</div><div class="idx-chg up">▲ +517.80 (+0.98%)</div></a>
+      <a href="https://www.tradingview.com/chart/?symbol=IXIC" target="_blank" class="card idx-card"><div class="idx-name">나스닥</div><div class="idx-val">26,180.46</div><div class="idx-chg up">▲ +113.29 (+0.43%)</div></a>
+      <a href="https://www.tradingview.com/chart/?symbol=SPX" target="_blank" class="card idx-card"><div class="idx-name">S&P 500</div><div class="idx-val">7,674.37</div><div class="idx-chg up">▲ +33.21 (+0.43%)</div></a>
+      <a href="https://www.tradingview.com/chart/?symbol=SOX" target="_blank" class="card idx-card"><div class="idx-name">필라델피아 반도체</div><div class="idx-val">11,740.37</div><div class="idx-chg up">▲ -59.64 (-0.51%)</div></a>
+    </div>
+    <div class="g4" style="margin-bottom:20px;">
+      <a href="https://www.tradingview.com/chart/?symbol=TVC:US10Y" target="_blank" class="card ind-card"><div class="ind-icon" style="background:var(--blue-bg);">📈</div><div><div class="ind-label">10Y 국채금리</div><div class="ind-val">4.74% <span class="dn" style="font-size:16px;">▲ +4bp</span></div></div></a>
+      <a href="https://www.tradingview.com/chart/?symbol=TVC:DXY" target="_blank" class="card ind-card"><div class="ind-icon" style="background:var(--gold-bg);">💵</div><div><div class="ind-label">달러인덱스</div><div class="ind-val">98.86 <span class="up" style="font-size:16px;">▲ +0.12%</span></div></div></a>
+      <a href="https://www.tradingview.com/chart/?symbol=CBOE:VIX" target="_blank" class="card ind-card"><div class="ind-icon" style="background:var(--down-bg);">🔥</div><div><div class="ind-label">VIX (공포지수)</div><div class="ind-val">15.13 <span class="up" style="font-size:16px;">▼ -5.50%</span></div></div></a>
+      <a href="https://www.tradingview.com/chart/?symbol=TVC:USOIL" target="_blank" class="card ind-card"><div class="ind-icon" style="background:var(--cyan-bg);">🛢️</div><div><div class="ind-label">WTI 원유</div><div class="ind-val">$86.77 <span class="dn" style="font-size:16px;">▲ +0.36%</span></div></div></a>
+    </div>
+    <div class="summary-box flex1">
+        <p>■ <span class="highlight">채권 시장:</span> 10년물 국채금리가 4.74%로 4bp 상승하며 채권 시장 불안이 지속되었음.</p>
+        <p>■ 재무부가 채권 매입 확대 등 금리 억제 노력을 기울였으나 효과는 단기에 그쳤으며, 30년물 금리도 재차 상승 압력을 받았음.</p>
+        <p>■ 국채 매입 발표 직후 일시적으로 금리가 하락했다가 장중 거의 모든 낙폭을 반납한 것으로 나타났음.</p>
+        <p>■ 채권 시장의 셀오프(sell-off) 흐름이 주간 내내 이어지며 주식 시장의 주간 손실을 야기한 핵심 원인으로 작용했음.</p>
+        <p>■ Ray Dalio는 채권 매도·금 및 비트코인 매수를 권고하며 부채 위기 가능성을 경고, 채권에 대한 투자 심리 악화를 부추겼음.</p>
+        <p>■ <span class="highlight">환율 동향:</span> 달러인덱스(DXY)는 98.86으로 소폭(+0.12%) 강세를 보였음.</p>
+        <p>■ 미국 재무부의 채권 매입 확대 정책이 달러 약세 압력을 유발할 수 있다는 우려가 제기되었으나, 실제 달러 움직임은 제한적이었음.</p>
+        <p>■ 일본 대비 미국의 국채 매입 확대 조치가 엔화 강세 유도 정책과 비교되며 달러 하방 압력 논의로 이어졌음.</p>
+        <p>■ <span class="highlight">VIX:</span> VIX는 15.13으로 전일 대비 0.88p(-5.50%) 급락하며 투자자들의 단기 공포심이 크게 완화되었음.</p>
+        <p>■ 금요일 주가 반등 및 크립토 랠리 등이 심리 개선에 기여한 것으로 분석됨.</p>
+        <p>■ 다만 VIX 하락이 지속적인 안정세를 의미하는지에 대해서는 Jackson Hole 연설 등 향후 이벤트를 앞두고 불확실성이 남아 있음.</p>
+        <p>■ <span class="highlight">Fed 정책 전망:</span> Allspring의 밀레티는 잭슨홀 심포지엄을 Nvidia보다 더 큰 시장 리스크 요인으로 지목했음.</p>
+        <p>■ 채권 금리 상승세가 이어지는 가운데 연준의 금리 경로에 대한 시장의 민감도가 높아진 상황임.</p>
+    </div>
+  </div>
+</div>
+
+<!-- S3: Market Flow -->
+<div class="slide" data-label="시장흐름">
+  <div class="slide-fill">
+    <div class="stag blue">MARKET FLOW</div>
+    <div class="stitle">시장 흐름</div>
+    <div class="g3" style="flex:1;">
+      <div class="card flow-card" style="display:flex;flex-direction:column;">
+        <div class="flow-title">📊 전반적 분위기</div>
+        <div class="flow-text flex1">
+        <p>■ 금요일 미국 증시는 다우지수 기준 500포인트 이상 급등하며 강세로 마감했으나, 주간 기준으로는 다우·나스닥·S&P500 모두 2주 연속 손실을 기록했음.</p>
+        <p>■ 채권 시장의 셀오프와 이란 지정학적 불안이 주간 내내 매물 압력을 가한 가운데, 금요일에는 비트코인 랠리와 크립토 모멘텀이 위험 선호 심리를 자극하며 지수 반등을 이끌었음.</p>
+        <p>■ Tesla의 라스베이거스 로보택시 허가 소식, SEC의 새로운 크립토 규제 프레임워크 발표, 캐나다 관세 협상 타결 임박 등 개별 이슈들이 복합적으로 매수세를 유인했음.</p>
+        <p>■ 다만 나스닥100은 5일 연속 하락을 금요일에 겨우 멈춘 것이며, 주간 전체로는 여전히 하락 마감하였음.</p>
+        <p>■ 크립토·테크 섹터가 강세를 보였으며, 비트코인 급등이 관련 자산 전반의 상승을 견인했음.</p>
+        </div>
+      </div>
+      <div class="card flow-card" style="display:flex;flex-direction:column;">
+        <div class="flow-title">💰 섹터별 흐름</div>
+        <div class="flow-text flex1">
+        <p>■ Tesla는 라스베이거스 자율주행 로보택시 사업 승인 소식에 주가가 급등하며 소비재 섹터 내 강세 종목으로 부각되었음.</p>
+        <p>■ 반면 필라델피아 반도체 지수가 -0.51% 하락하며 반도체 섹터는 약세를 보였음.</p>
+        <p>■ Micron(MU)을 둘러싸고 AI 고성능 메모리 기업 vs.</p>
+        <p>■ 범용 상품 기업이라는 밸류에이션 논쟁이 지속되며 투자자 의견이 갈렸음.</p>
+        <p>■ 에너지·원자재 섹터에서는 이상기후로 인한 곡물 가격 급등이 주목받았으며, 금과 비트코인이 인플레이션 헤지 수단으로 재조명되었음.</p>
+        </div>
+      </div>
+      <div class="card flow-card" style="display:flex;flex-direction:column;">
+        <div class="flow-title">📈 거래량 및 심리</div>
+        <div class="flow-text flex1">
+        <p>■ 금융 섹터에서는 SEC의 내부자 거래 기소(BofA 전직 임원 Satsky) 및 Fannie Mae 임원 대거 이탈 소식이 불안 요소로 작용했음.</p>
+        <p>■ VIX의 큰 폭 하락(-5.50%)이 보여주듯 금요일 하루만 놓고 보면 시장 심리는 뚜렷하게 개선되었음.</p>
+        <p>■ 그러나 주간 기준 2주 연속 손실이라는 결과와 채권 금리 상승 기조가 여전히 시장의 구조적 부담으로 남아 있었음.</p>
+        <p>■ 미국 주식형 펀드에는 시장 하락 압력에도 불구하고 자금 유입이 유지된 것으로 나타났으며, Kalshi 예측 시장에서는 비트코인이 연말까지 현 수준 근방을 유지할 것이라는 베팅이 우세했음.</p>
+        <p>■ 잭슨홀 심포지엄을 앞두고 투자자들의 Fed 발언 경계감이 높아진 상태이며, 이란 이슈와 채권 시장 변동성이 다음 주 시장 심리에 영향을 줄 주요 변수로 부각되었음.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S4: Key Issues -->
+<div class="slide" data-label="주요이슈">
+  <div class="slide-fill">
+    <div class="stag purple">KEY ISSUES</div>
+    <div class="stitle">주요 이슈 및 시장 변동 요인</div>
+    <div style="display:flex;flex-direction:column;gap:12px;flex:1;">
+
+      <div class="card issue-card flex1">
+        <div class="issue-num">1</div>
+        <div><div class="issue-title">채권 금리 상승과 재무부 개입 효과 제한</div>
+        <div class="issue-desc">
+        <p>■ 미국 10년물 국채금리가 4.74%로 4bp 추가 상승하며 채권 시장의 셀오프가 지속되었음.</p>
+        <p>■ 재무부가 채권 매입 확대를 통해 장기금리를 억제하려 했으나, 그 효과는 장중에 거의 모두 반납될 정도로 일시적이었음.</p>
+        <p>■ 30년물 금리 역시 재무부 개입 이후 잠깐 하락했다가 다시 상승세를 재개했음.</p>
+        <p>■ Ray Dalio는 이 같은 흐름을 배경으로 채권 매도를 강하게 권고하며 금·비트코인 등 대체 자산으로의 이동을 촉구했음.</p>
+        <p>■ 채권 시장의 구조적 불안은 주식 시장의 주간 손실을 야기한 핵심 배경으로 평가되었으며, 잭슨홀 이후 Fed 스탠스에 따라 금리 경로가 재조정될지 여부가 시장의 최대 관심사로 남았음.</p>
+        </div></div>
+      </div>
+      <div class="card issue-card flex1">
+        <div class="issue-num">2</div>
+        <div><div class="issue-title">Tesla 라스베이거스 로보택시 사업 승인</div>
+        <div class="issue-desc">
+        <p>■ Tesla가 라스베이거스에서의 로보택시 서비스 운영 허가를 획득했다는 소식이 전해지며 주가가 강하게 반등했음.</p>
+        <p>■ 자율주행 상용화에 대한 규제 당국의 승인은 Tesla의 완전자율주행(FSD) 수익화 시간표가 앞당겨질 수 있다는 기대감을 시장에 심어주었음.</p>
+        <p>■ 로보택시 사업은 Tesla의 중장기 성장 내러티브에서 핵심 축으로, 이번 승인이 다른 도시 및 지역으로의 확대 가능성을 높인다는 분석이 우세했음.</p>
+        <p>■ 자율주행·로봇 섹터 전반에 긍정적 모멘텀을 제공했으며, Serve Robotics의 Grubhub 파트너십 체결 소식과 맞물려 로봇·AI 섹터 투자 심리를 고조시켰음.</p>
+        </div></div>
+      </div>
+      <div class="card issue-card flex1">
+        <div class="issue-num">3</div>
+        <div><div class="issue-title">SEC의 암호화폐 규제 프레임워크 발표 및 크립토 랠리</div>
+        <div class="issue-desc">
+        <p>■ SEC가 새로운 암호화폐 규제 프레임워크를 공개하면서 동시에 IPO 시장 활성화 기대감이 맞물렸음.</p>
+        <p>■ 규제 명확성 제공이 크립토 섹터에 대한 기관 투자자의 참여 장벽을 낮출 수 있다는 해석이 나오며 비트코인이 급등했음.</p>
+        <p>■ Kalshi 예측 시장에서는 비트코인이 연말까지 현 수준 근방을 유지할 것이라는 베팅이 집중되었음.</p>
+        <p>■ 크립토 강세는 나스닥100의 5일 연속 하락 마감을 저지하는 데 기여했으며, 금요일 주식 시장 전반의 반등을 이끈 주요 동력 중 하나로 작용했음.</p>
+        <p>■ Shein의 IPO 준비 보도와 함께 위험자산 선호 심리가 일시적으로 회복되는 모습을 보였음.</p>
+        </div></div>
+      </div>
+      <div class="card issue-card flex1">
+        <div class="issue-num">4</div>
+        <div><div class="issue-title">캐나다 관세 협상 타결 임박</div>
+        <div class="issue-desc">
+        <p>■ 미국과 캐나다 간 관세 협상이 '매우 근접(very close)'한 상태이며 캐나다 측의 양보가 테이블 위에 올라와 있다는 보도가 나왔음.</p>
+        <p>■ 협상 타결 기대감은 북미 무역 불확실성 완화 신호로 해석되며 시장 심리 개선에 기여했음.</p>
+        <p>■ 트럼프 행정부가 쇠고기 수입 확대를 통한 물가 인하 전략을 병행 추진 중인 상황과 맞물려, 무역 정책 전반에 걸친 협상 모멘텀이 부각되었음.</p>
+        <p>■ 다만 구체적인 합의 조건이 확정되지 않은 만큼 시장에 완전히 반영되기까지는 추가 확인이 필요한 상황이었음.</p>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S5: Top Movers Up -->
+<div class="slide" data-label="상승특징주">
+  <div class="slide-fill">
+    <div class="stag green">TOP MOVERS</div>
+    <div class="stitle">▲ 상승 특징주 TOP 10</div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:4px;">
+      <div class="mover-row up-row flex1"><span class="m-rank">1</span><div style="flex:1"><div class="m-name">크리티컬 메탈스 <a href="https://www.tradingview.com/chart/?symbol=CCRML" target="_blank" class="m-ticker-link">CCRML</a></div><div class="m-desc">기초소재 부문 희소금속 채굴사로 공급 병목 현상 심화에 따른 코발트·구리 등 희소금속 수급 불균형이 호재로 작용했음.</div></div><span class="m-pct up">+22.59%</span></div>
+      <div class="mover-row up-row flex1"><span class="m-rank">2</span><div style="flex:1"><div class="m-name">아르투르스 테라퓨틱스 <a href="https://www.tradingview.com/chart/?symbol=AARCT" target="_blank" class="m-ticker-link">AARCT</a></div><div class="m-desc">헬스케어 부문 바이오 치료제 개발사로 진행 중인 파이프라인에 대한 임상 진전 기대감이 반영되었음.</div></div><span class="m-pct up">+22.38%</span></div>
+      <div class="mover-row up-row flex1"><span class="m-rank">3</span><div style="flex:1"><div class="m-name">TMC 메탈스 컴퍼니 <a href="https://www.tradingview.com/chart/?symbol=TTMC" target="_blank" class="m-ticker-link">TTMC</a></div><div class="m-desc">해양 광물 채굴 기술 개발사로 심해 자원 개발의 상용화 가능성이 부각되면서 강세를 보였음.</div></div><span class="m-pct up">+20.65%</span></div>
+      <div class="mover-row up-row flex1"><span class="m-rank">4</span><div style="flex:1"><div class="m-name">엘멧 그룹 <a href="https://www.tradingview.com/chart/?symbol=EELMT" target="_blank" class="m-ticker-link">EELMT</a></div><div class="m-desc">산업재 부문 기업으로 기초 금속 가격 상승과 주문 증가에 따른 실적 개선 기대감이 작용했음.</div></div><span class="m-pct up">+19.29%</span></div>
+      <div class="mover-row up-row flex1"><span class="m-rank">5</span><div style="flex:1"><div class="m-name">셀라스 라이프 사이언스 <a href="https://www.tradingview.com/chart/?symbol=SSLS" target="_blank" class="m-ticker-link">SSLS</a></div><div class="m-desc">헬스케어 부문 바이오 기업으로 신약 임상 데이터 진전에 따른 긍정적 평가가 반영되었음.</div></div><span class="m-pct up">+15.37%</span></div>
+      <div class="mover-row up-row flex1"><span class="m-rank">6</span><div style="flex:1"><div class="m-name">아이큐엠 퀀텀 컴퓨터 <a href="https://www.tradingview.com/chart/?symbol=IIQMX" target="_blank" class="m-ticker-link">IIQMX</a></div><div class="m-desc">기술 부문 양자컴퓨팅 전문사로 AI 및 고성능 컴퓨팅 수요 급증에 따른 기술 혁신 기대감이 부각되었음.</div></div><span class="m-pct up">+14.77%</span></div>
+      <div class="mover-row up-row flex1"><span class="m-rank">7</span><div style="flex:1"><div class="m-name">호라이즌 퀀텀 홀딩스 <a href="https://www.tradingview.com/chart/?symbol=HHQ" target="_blank" class="m-ticker-link">HHQ</a></div><div class="m-desc">기술 부문 양자컴퓨팅 기업으로 동일 기술 섹터의 강세 추세에 동반 상승했음.</div></div><span class="m-pct up">+14.54%</span></div>
+      <div class="mover-row up-row flex1"><span class="m-rank">8</span><div style="flex:1"><div class="m-name">박트 <a href="https://www.tradingview.com/chart/?symbol=BBKKT" target="_blank" class="m-ticker-link">BBKKT</a></div><div class="m-desc">기술 부문 암호화폐 거래 플랫폼으로 비트코인 랠리에 따른 직접적 수혜와 SEC의 새로운 크립토 규제 프레임워크 발표로 산업 투명성 개선 기대감이 작용했음.</div></div><span class="m-pct up">+14.53%</span></div>
+      <div class="mover-row up-row flex1"><span class="m-rank">9</span><div style="flex:1"><div class="m-name">우라늄 에너지 <a href="https://www.tradingview.com/chart/?symbol=UUEC" target="_blank" class="m-ticker-link">UUEC</a></div><div class="m-desc">에너지 부문 우라늄 채굴사로 AI 데이터센터 전력 수요 급증에 따른 원전 재평가 추세가 호재로 작용했음.</div></div><span class="m-pct up">+14.44%</span></div>
+      <div class="mover-row up-row flex1"><span class="m-rank">10</span><div style="flex:1"><div class="m-name">리튬 아르헨티나 <a href="https://www.tradingview.com/chart/?symbol=LLAR" target="_blank" class="m-ticker-link">LLAR</a></div><div class="m-desc">기초소재 부문 리튬 채굴사로 전기차 배터리 수요 지속과 리튬 공급 부족 심화, 에너지 저장장치 수요 증가가 긍정적 요인으로 평가되었음.</div></div><span class="m-pct up">+14.21%</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- S6: Top Movers Down -->
+<div class="slide" data-label="하락특징주">
+  <div class="slide-fill">
+    <div class="stag red">TOP MOVERS</div>
+    <div class="stitle">▼ 하락 특징주 TOP 10</div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:4px;">
+      <div class="mover-row dn-row flex1"><span class="m-rank">1</span><div style="flex:1"><div class="m-name">집리크루터 <a href="https://www.tradingview.com/chart/?symbol=ZZIP" target="_blank" class="m-ticker-link">ZZIP</a></div><div class="m-desc">통신서비스 부문 채용 플랫폼으로 미국 고용 시장 악화에 따른 직접적 타격을 받았으며, 구직 활동 감소로 플랫폼 사용량 및 매출 부진 우려가 반영되었음.</div></div><span class="m-pct dn">-18.57%</span></div>
+      <div class="mover-row dn-row flex1"><span class="m-rank">2</span><div style="flex:1"><div class="m-name">뉴 에라 에너지 앤 디지털 <a href="https://www.tradingview.com/chart/?symbol=NNUAI" target="_blank" class="m-ticker-link">NNUAI</a></div><div class="m-desc">기술 부문 에너지 디지털화 기업으로 기술주 조정장에서 낙폭을 기록했음.</div></div><span class="m-pct dn">-12.84%</span></div>
+      <div class="mover-row dn-row flex1"><span class="m-rank">3</span><div style="flex:1"><div class="m-name">씨브릿지 골드 <a href="https://www.tradingview.com/chart/?symbol=SSA" target="_blank" class="m-ticker-link">SSA</a></div><div class="m-desc">기초소재 부문 금 채굴사로 채권 수익률 상승에 따른 금 가격 약세가 직접적 영향을 미쳤으며, 실질금리 상승으로 현물 금의 투자 매력도가 하락했음.</div></div><span class="m-pct dn">-9.35%</span></div>
+      <div class="mover-row dn-row flex1"><span class="m-rank">4</span><div style="flex:1"><div class="m-name">다꼬 뉴에너지 <a href="https://www.tradingview.com/chart/?symbol=DDQ" target="_blank" class="m-ticker-link">DDQ</a></div><div class="m-desc">기술 부문 태양광 패널 제조사로 중국 태양광 산업 공급 과잉 및 가격 하락에 따른 수익성 악화 우려가 반영되었음.</div></div><span class="m-pct dn">-9.35%</span></div>
+      <div class="mover-row dn-row flex1"><span class="m-rank">5</span><div style="flex:1"><div class="m-name">허트 8 코퍼레이션 <a href="https://www.tradingview.com/chart/?symbol=HHUT" target="_blank" class="m-ticker-link">HHUT</a></div><div class="m-desc">금융 부문 비트코인 채굴사로 전기료 상승과 채굴 난이도 증가에 따른 채산성 악화 우려가 작용했음.</div></div><span class="m-pct dn">-8.79%</span></div>
+      <div class="mover-row dn-row flex1"><span class="m-rank">6</span><div style="flex:1"><div class="m-name">알리바바 그룹 <a href="https://www.tradingview.com/chart/?symbol=BBABA" target="_blank" class="m-ticker-link">BBABA</a></div><div class="m-desc">소비자순환 부문으로 중국 경제 약세에 따른 소비 부진이 반영되었으며, 중국 소비자들이 고가 제품에서 저가 상품으로 선회하는 소비 심화 추세가 영향을 미쳤음.</div></div><span class="m-pct dn">-8.57%</span></div>
+      <div class="mover-row dn-row flex1"><span class="m-rank">7</span><div style="flex:1"><div class="m-name">사이퍼 디지털 <a href="https://www.tradingview.com/chart/?symbol=CCIFR" target="_blank" class="m-ticker-link">CCIFR</a></div><div class="m-desc">기술 부문 암호화폐 관련 기업으로 규제 우려와 기술주 조정 영향을 받았음.</div></div><span class="m-pct dn">-8.40%</span></div>
+      <div class="mover-row dn-row flex1"><span class="m-rank">8</span><div style="flex:1"><div class="m-name">코제트 커뮤니케이션즈 <a href="https://www.tradingview.com/chart/?symbol=CCCOI" target="_blank" class="m-ticker-link">CCCOI</a></div><div class="m-desc">통신서비스 부문 인터넷 서비스 제공사로 금리 인상에 따른 자본 비용 상승 및 소비 심화 약세가 부정적 요인으로 작용했음.</div></div><span class="m-pct dn">-8.39%</span></div>
+      <div class="mover-row dn-row flex1"><span class="m-rank">9</span><div style="flex:1"><div class="m-name">카프리코르 테라퓨틱스 <a href="https://www.tradingview.com/chart/?symbol=CCAPR" target="_blank" class="m-ticker-link">CCAPR</a></div><div class="m-desc">헬스케어 부문 바이오 기업으로 임상시험 결과 부진 또는 규제 우려에 따른 약세를 기록했음.</div></div><span class="m-pct dn">-7.97%</span></div>
+      <div class="mover-row dn-row flex1"><span class="m-rank">10</span><div style="flex:1"><div class="m-name">아이오반스 바이오테라퓨틱스 <a href="https://www.tradingview.com/chart/?symbol=IIOVA" target="_blank" class="m-ticker-link">IIOVA</a></div><div class="m-desc">헬스케어 부문 면역세포 치료제 개발사로 임상 데이터 부진 또는 경쟁사 제품 진전에 따른 상대적 약세를 보였음.</div></div><span class="m-pct dn">-7.79%</span></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- S7: 특징섹터 -->
+<div class="slide" data-label="미국·미국" data-sector-dir="up">
+  <div class="slide-fill">
+    <div class="stag green">특징섹터</div>
+    <div class="stitle">미국 시총 TOP10 · 미국 시총 11-20위</div>
+    <div class="g2" style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 미국 시총 TOP10</div><div class="sector-badge up-b">+0.97%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=TSLA" target="_blank" class="ticker-link">TSLA</a></span><span class="stock-pct up fw8">+5.14%</span><span class="stock-desc">테슬라 - 세미 출시 및 로보택시 사업 확대 가속화로 강세</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=SPCX" target="_blank" class="ticker-link">SPCX</a></span><span class="stock-pct up fw8">+2.22%</span><span class="stock-desc">스페이스엑스 - 대규모 IPO 성공 및 대학 펀드 대량 수요 반영</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=GOOGL" target="_blank" class="ticker-link">GOOGL</a></span><span class="stock-pct up fw8">+1.22%</span><span class="stock-desc">알파벳 - Waymo의 로보택시 시장 추가 확보로 자율주행 리더십 재평가</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=AVGO" target="_blank" class="ticker-link">AVGO</a></span><span class="stock-pct up fw8">+1.21%</span><span class="stock-desc">브로드컴 - TSMC의 NVIDIA AI 칩 수요 테스트 성공 신호 작용</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=META" target="_blank" class="ticker-link">META</a></span><span class="stock-pct up fw8">+0.75%</span><span class="stock-desc">메타 - Microsoft의 대형 AI 고객 확보 소식으로 AI 인프라 투자 심화</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=MSFT" target="_blank" class="ticker-link">MSFT</a></span><span class="stock-pct up fw8">+0.43%</span><span class="stock-desc">마이크로소프트 - AI 엔터프라이즈 고객 확대 및 클라우드 수요 증대 반영</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NVDA" target="_blank" class="ticker-link">NVDA</a></span><span class="stock-pct dn fw8">-0.98%</span><span class="stock-desc">NVIDIA - DeepSeek의 독립 AI 칩 개발로 프리미엄 칩 수요 우려</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=LLY" target="_blank" class="ticker-link">LLY</a></span><span class="stock-pct dn fw8">+0.88%</span><span class="stock-desc">릴리 - 뉴스 없음</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=AAPL" target="_blank" class="ticker-link">AAPL</a></span><span class="stock-pct dn fw8">-0.63%</span><span class="stock-desc">애플 - 뉴스 없음</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=AMZN" target="_blank" class="ticker-link">AMZN</a></span><span class="stock-pct dn fw8">-0.57%</span><span class="stock-desc">아마존 - 뉴스 없음</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 로보택시 상용화와 데이터센터 AI 인프라 투자 두 축이 시장을 주도하며 정점 종목의 쏠림 현상 심화.</p>
+        <p>■ TSLA는 세미·로보택시·FSD의 트리플 촉매로 상승 강도 최고조였고, GOOGL·AVGO는 인하우스 AI 칩 개발 경쟁 구도로 NVDA의 독점 지위 약화 신호 확산.</p>
+        <p>■ DeepSeek의 등장이 NVDA 프리미엄 가치 축소 우려 작용하며 약세로 돌아선 것으로 분석됨.</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 미국 시총 11-20위</div><div class="sector-badge up-b">+0.05%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=V" target="_blank" class="ticker-link">V</a></span><span class="stock-pct up fw8">+1.45%</span><span class="stock-desc">비자 - 에이전틱 결제 연합 표준화 추진과 $98B 주주 환원의 가치 평가</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=MA" target="_blank" class="ticker-link">MA</a></span><span class="stock-pct up fw8">+1.18%</span><span class="stock-desc">마스터카드 - 차세대 결제 규격 리더십으로 구조적 수익성 개선 기대</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=JNJ" target="_blank" class="ticker-link">JNJ</a></span><span class="stock-pct up fw8">+1.07%</span><span class="stock-desc">존슨앤존슨 - 제약 성장성 재평가 및 배당주 수익성 강조</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=AMD" target="_blank" class="ticker-link">AMD</a></span><span class="stock-pct up fw8">+0.81%</span><span class="stock-desc">AMD - NVIDIA 실적 테스트 앞 AI 칩 경쟁력 재조명</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=JPM" target="_blank" class="ticker-link">JPM</a></span><span class="stock-pct up fw8">+0.01%</span><span class="stock-desc">JPMorgan - 뉴스 없음</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=INTC" target="_blank" class="ticker-link">INTC</a></span><span class="stock-pct dn fw8">-2.24%</span><span class="stock-desc">인텔 - 메모리 칩 가격 약세 및 AI 칩 경쟁력 우려 심화</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=MU" target="_blank" class="ticker-link">MU</a></span><span class="stock-pct dn fw8">-0.77%</span><span class="stock-desc">마이크론 - DRAM·낸드 가격 하락세 반영, 상품화 우려로 평가 축소</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=XOM" target="_blank" class="ticker-link">XOM</a></span><span class="stock-pct dn fw8">-0.63%</span><span class="stock-desc">엑손모빌 - 뉴스 없음</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=BRK-B" target="_blank" class="ticker-link">BRK-B</a></span><span class="stock-pct dn fw8">-0.21%</span><span class="stock-desc">버크셔 해서웨이 - 미국 부동산 시장 약세 우려 반영</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=WMT" target="_blank" class="ticker-link">WMT</a></span><span class="stock-pct dn fw8">-0.13%</span><span class="stock-desc">월마트 - Apple Pay·Google Pay 추가 제공으로 수수료 압박 가능성</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 메모리 칩 가격 약세가 정반대 방향으로 작동하며, 반도체 약세 대비 금융·결제 부문은 수익성 전환 신호 포착.</p>
+        <p>■ INTC는 Micron의 메모리 가격 베팅 논란이 동반하락 심화시켰고, V·MA는 에이전틱 결제 표준 리더십과 $98B 규모 배당 정책으로 장기 성장성 재평가 작용함.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- S8: 특징섹터 -->
+<div class="slide" data-label="시스·메모" data-sector-dir="down">
+  <div class="slide-fill">
+    <div class="stag red">특징섹터</div>
+    <div class="stitle">시스템 반도체 · 메모리/플래시/SSD/HDD</div>
+    <div class="g2" style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">⚙️ 시스템 반도체</div><div class="sector-badge dn-b">-0.73%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=AVGO" target="_blank" class="ticker-link">AVGO</a></span><span class="stock-pct up fw8">+1.21%</span><span class="stock-desc">브로드컴 - TSMC AI 칩 수요 테스트 신호</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ARM" target="_blank" class="ticker-link">ARM</a></span><span class="stock-pct dn fw8">-2.95%</span><span class="stock-desc">ARM - NVIDIA의 $2.3B AI 칩 스타트업 인수 검토로 아키텍처 경쟁 심화</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=INTC" target="_blank" class="ticker-link">INTC</a></span><span class="stock-pct dn fw8">-2.24%</span><span class="stock-desc">인텔 - Micron 메모리 가격 베팅 연쇄 약세</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=AMD" target="_blank" class="ticker-link">AMD</a></span><span class="stock-pct dn fw8">+0.81%</span><span class="stock-desc">AMD - NVIDIA 실적 테스트 기대감과 AI 칩 수요 재평가</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=TXN" target="_blank" class="ticker-link">TXN</a></span><span class="stock-pct dn fw8">-0.47%</span><span class="stock-desc">TXN - 뉴스 없음</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ Google·NVIDIA 등 대형 기술기업의 독립 AI 칩 개발 전략이 확산되며 ARM의 라이선스 모델 가치 축소 우려 심화.</p>
+        <p>■ 특히 Nvidia의 경쟁사 AI 칩 인수 검토 뉴스가 ARM을 대락률 최강 약세로 주도하며, INTC는 메모리 가격 부진 연쇄로 반도체 부진 대표 주자 위상.</p>
+        <p>■ AVGO는 인하우스 칩 제조사 TSMC의 AI 수요 확대 신호 반영.</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">💾 메모리/플래시/SSD/HDD</div><div class="sector-badge dn-b">-0.68%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=WDC" target="_blank" class="ticker-link">WDC</a></span><span class="stock-pct dn fw8">-2.05%</span><span class="stock-desc">웨스턴디지털 - 높은 수익률에도 주가 약세 지속</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=MU" target="_blank" class="ticker-link">MU</a></span><span class="stock-pct dn fw8">-0.77%</span><span class="stock-desc">마이크론 - DRAM·낸드 가격 베팅 심화, 상품화 우려</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=SNDK" target="_blank" class="ticker-link">SNDK</a></span><span class="stock-pct dn fw8">-0.28%</span><span class="stock-desc">SanDisk - AI 다음 붐 기회 부분 상쇄</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NTAP" target="_blank" class="ticker-link">NTAP</a></span><span class="stock-pct dn fw8">-0.28%</span><span class="stock-desc">Netapp - SanDisk 계약 저평가 평가에도 약보합</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=STX" target="_blank" class="ticker-link">STX</a></span><span class="stock-pct dn fw8">-0.03%</span><span class="stock-desc">Seagate - AI 하드웨어 호재에도 보합권</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 메모리 칩 가격 지속 약세와 높은 금리 환경이 전 종목을 압박하며, AI 데이터센터 수요 기대감도 가격 약세 모멘텀 역전에 충분하지 않음을 시사.</p>
+        <p>■ SNDK의 AI 붐 차익 기대감이 부분적 지지선 형성했으나 전체 섹터 약세 흐름 반전 미흡.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- S9: 특징섹터 -->
+<div class="slide" data-label="파운·반도" data-sector-dir="mixed">
+  <div class="slide-fill">
+    <div class="stag purple">특징섹터</div>
+    <div class="stitle">파운드리 · 반도체 장비(1)</div>
+    <div class="g2" style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 파운드리</div><div class="sector-badge up-b">+0.59%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=UMC" target="_blank" class="ticker-link">UMC</a></span><span class="stock-pct up fw8">+1.89%</span><span class="stock-desc">UMC - GF Securities AI 주식 반발 재평가, Tradr 레버리지 펀드 신규 출시</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=GFS" target="_blank" class="ticker-link">GFS</a></span><span class="stock-pct up fw8">+1.52%</span><span class="stock-desc">GlobalFoundries - 미국 공급망 리더십 강화 및 정책 지원 기대</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=TSM" target="_blank" class="ticker-link">TSM</a></span><span class="stock-pct up fw8">+0.71%</span><span class="stock-desc">TSMC - NVIDIA AI 칩 수요 테스트 신호 작용</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=AMKR" target="_blank" class="ticker-link">AMKR</a></span><span class="stock-pct dn fw8">-1.18%</span><span class="stock-desc">Amkor - 중국 사업 부분 매각 검토 우려</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ASX" target="_blank" class="ticker-link">ASX</a></span><span class="stock-pct dn fw8">+0.00%</span><span class="stock-desc">ASX - 월간 순 수익 공시에도 추가 모멘텀 부족</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 글로벌파운드리의 미국 공급망 강화 전략과 UMC의 AI 경기 회복 기대감이 긍정 신호로 작용하며, 특히 UMC는 금융권 AI 투자 재개 신호 반영.</p>
+        <p>■ AMKR은 중국 지정학 이슈와 사업 구조 변화 우려가 약세 주도하는 대조적 흐름 형성.</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">⚙️ 반도체 장비(1)</div><div class="sector-badge dn-b">-2.02%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=LRCX" target="_blank" class="ticker-link">LRCX</a></span><span class="stock-pct up fw8">+1.12%</span><span class="stock-desc">Larcx - 소수 강세 섹터 리드</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=MRVL" target="_blank" class="ticker-link">MRVL</a></span><span class="stock-pct dn fw8">-5.57%</span><span class="stock-desc">Marvell - Wedbush의 "AI 스토리 변화" 평가로 심각한 가치 축소</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=AEIS" target="_blank" class="ticker-link">AEIS</a></span><span class="stock-pct dn fw8">-2.32%</span><span class="stock-desc">Advanced Energy - 배당 발표 및 컨퍼런스 참석에도 지지 미흡</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=TER" target="_blank" class="ticker-link">TER</a></span><span class="stock-pct dn fw8">-1.93%</span><span class="stock-desc">Teradyne - 2028년까지 신규 촉매 없다는 하향조정 신호</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ONTO" target="_blank" class="ticker-link">ONTO</a></span><span class="stock-pct dn fw8">-1.84%</span><span class="stock-desc">Onto - KLAC 수익률 투자 공략에도 동반 약세</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=CLS" target="_blank" class="ticker-link">CLS</a></span><span class="stock-pct dn fw8">-1.80%</span><span class="stock-desc">Cohu - 전자제조 주식 급등 뉴스에 역행</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NVMI" target="_blank" class="ticker-link">NVMI</a></span><span class="stock-pct dn fw8">-1.79%</span><span class="stock-desc">Nverni - 뉴스 없음</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ Google의 독립 AI 칩 제조 전략이 본격화되면서 반도체 장비업체의 핵심 성장 전망 약화.</p>
+        <p>■ 특히 Marvell은 Google 자체 칩 개발의 구조적 경쟁 우려로 2일간 상승 후 급락하며, Teradyne의 2028년 촉매 부재 하향조정도 장비 섹터 성장성 의심 신호 확산.</p>
+        <p>■ 광범위한 약세 속 극소수 종목만 버티는 양극화 현상 심화.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- S10: 특징섹터 -->
+<div class="slide" data-label="반도·전력" data-sector-dir="mixed">
+  <div class="slide-fill">
+    <div class="stag purple">특징섹터</div>
+    <div class="stitle">반도체 장비(2) · 전력반도체</div>
+    <div class="g2" style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">⚙️ 반도체 장비(2)</div><div class="sector-badge up-b">+1.30%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=UCTT" target="_blank" class="ticker-link">UCTT</a></span><span class="stock-pct up fw8">+4.68%</span><span class="stock-desc">Ultra Clean - Q2 기록 매출 및 컨퍼런스 참석 기대감</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ICHR" target="_blank" class="ticker-link">ICHR</a></span><span class="stock-pct up fw8">+2.26%</span><span class="stock-desc">Ichor - Q2 순증장 15% 및 매출 초과달성</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=PDFS" target="_blank" class="ticker-link">PDFS</a></span><span class="stock-pct up fw8">+1.87%</span><span class="stock-desc">PDF Solutions - 기록 백로그 및 19% 매출 성장 신호</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ACLS" target="_blank" class="ticker-link">ACLS</a></span><span class="stock-pct up fw8">+1.68%</span><span class="stock-desc">Axcelis - Q2 매출·EPS 초과달성 및 장비 수요 회복 신호</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=AEHR" target="_blank" class="ticker-link">AEHR</a></span><span class="stock-pct dn fw8">-4.00%</span><span class="stock-desc">Aehr Test - 52주 고점 경계 및 실적 고평가 우려</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 장비 섹터(1) 대비 극명한 대조를 이루며, Q2 실적 기록 경신과 매출 초과달성 기업들 중심 상승 집중.</p>
+        <p>■ UCTT·ICHR·PDFS의 순증장 기대감과 기록 백로그가 재고 회복 신호로 작용하며, AEHR는 고점 경계 및 밸류에이션 우려로 고립 약세로 나뉨.</p>
+        <p>■ 선별적 실적 주도 상승세 전개.</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">⚙️ 전력반도체</div><div class="sector-badge dn-b">-0.08%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=STM" target="_blank" class="ticker-link">STM</a></span><span class="stock-pct up fw8">+1.28%</span><span class="stock-desc">STMicro - Malaysia 조립·테스트 사이트 확대 및 반기 회계 공시</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NXPI" target="_blank" class="ticker-link">NXPI</a></span><span class="stock-pct up fw8">+1.16%</span><span class="stock-desc">NXP - Malaysia 거점 확대 전략 및 아시아 제조 구조 강화</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ADI" target="_blank" class="ticker-link">ADI</a></span><span class="stock-pct up fw8">+0.77%</span><span class="stock-desc">Analog Devices - AI 배당주 투자 기대감 및 전력 반도체 수요 기대</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=WOLF" target="_blank" class="ticker-link">WOLF</a></span><span class="stock-pct dn fw8">-2.24%</span><span class="stock-desc">Wolfspeed - Q4 기대치 초과 손실로 실적 부진 심화</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=QRVO" target="_blank" class="ticker-link">QRVO</a></span><span class="stock-pct dn fw8">-0.78%</span><span class="stock-desc">Qorvo - MaxLinear 실적 미스매치 및 광학 칩 중국 우려</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ON" target="_blank" class="ticker-link">ON</a></span><span class="stock-pct dn fw8">-0.67%</span><span class="stock-desc">ON - 뉴스 없음</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ Wolfspeed의 예상 외 손실 급증이 섹터 약세 주도하는 가운데, STM·NXPI는 아시아 거점 확대와 차세대 전력관리 칩 수요로 부분 상쇄.</p>
+        <p>■ Qorvo는 중국 광학 칩 우려로 약세 심화되며 기업별 사업 구조 차이에 따른 양극화 심화.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- S11: 특징섹터 -->
+<div class="slide" data-label="반도·네트" data-sector-dir="up">
+  <div class="slide-fill">
+    <div class="stag green">특징섹터</div>
+    <div class="stitle">반도체(기타) · 네트워크 장비</div>
+    <div class="g2" style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">⚙️ 반도체(기타)</div><div class="sector-badge up-b">+2.17%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=DIOD" target="_blank" class="ticker-link">DIOD</a></span><span class="stock-pct up fw8">+3.64%</span><span class="stock-desc">Diodes - $325M 전환사채 개인배치 공시로 자본 확충 신호</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=PI" target="_blank" class="ticker-link">PI</a></span><span class="stock-pct up fw8">+3.64%</span><span class="stock-desc">Impinj - Q2 기록 매출 및 EBITDA 달성</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=SIMO" target="_blank" class="ticker-link">SIMO</a></span><span class="stock-pct up fw8">+3.49%</span><span class="stock-desc">Silicon Motion - $1.15B 전환사채 상향 공시로 수요 회복 확인</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=AXTI" target="_blank" class="ticker-link">AXTI</a></span><span class="stock-pct up fw8">-3.25%</span><span class="stock-desc">Axcelis - 예상 외 AI 칩 우승 기대감도 동반 약세</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=IP" target="_blank" class="ticker-link">IP</a></span><span class="stock-pct up fw8">+2.80%</span><span class="stock-desc">IP - 뉴스 없음</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=SITM" target="_blank" class="ticker-link">SITM</a></span><span class="stock-pct up fw8">+2.68%</span><span class="stock-desc">SITM - 뉴스 없음</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 자본 조달 규모 확대와 Q2 실적 초과달성이 재고 회복 및 수요 회복 신호로 작용하며 긍정 자산군 형성.</p>
+        <p>■ PI·SIMO의 기록 매출 및 대규모 채권 발행은 메모리·로직 칩 수요 회복 신호 확산.</p>
+        <p>■ AXTI는 예상 외 AI 기회 평가에도 기업 실적 약세 우려로 고립 약세로 나뉘는 양극화 현상.</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 네트워크 장비</div><div class="sector-badge up-b">+1.35%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ANET" target="_blank" class="ticker-link">ANET</a></span><span class="stock-pct up fw8">+2.67%</span><span class="stock-desc">Arista - AI 하드웨어 6개 선정 우량주로 복합 성장성 인정</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=CSCO" target="_blank" class="ticker-link">CSCO</a></span><span class="stock-pct up fw8">+1.32%</span><span class="stock-desc">Cisco - Dell 가치 체인 저렴 구간 고도화 및 엔터프라이즈 AI 투자</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ERIC" target="_blank" class="ticker-link">ERIC</a></span><span class="stock-pct up fw8">+1.09%</span><span class="stock-desc">Ericsson - Vonage Max Factory 고객 기반 100% 확대 신호</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=HPE" target="_blank" class="ticker-link">HPE</a></span><span class="stock-pct up fw8">+1.06%</span><span class="stock-desc">HPE - Gartner Magic Quadrant 리더 평가 및 엔터프라이즈 스토리지 강화</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NOK" target="_blank" class="ticker-link">NOK</a></span><span class="stock-pct up fw8">+0.59%</span><span class="stock-desc">Nokia - JPMorgan의 AI 기회 과소평가 지적, 100% 상승여력 평가</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ AI 데이터센터 인프라 투자 확대와 차세대 AI 거래 전환 기대감이 섹터 전반 균형잡힌 상승 주도.</p>
+        <p>■ 특히 NOK는 JPMorgan의 독립적 AI 기회 인정으로 통신장비 섹터의 새로운 성장축 평가받으며, ANET은 AI 하드웨어 투자 핵심 플레이어로 재평가됨.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- S12: 특징섹터 -->
+<div class="slide" data-label="광통·냉각" data-sector-dir="down">
+  <div class="slide-fill">
+    <div class="stag red">특징섹터</div>
+    <div class="stitle">광통신 · 냉각시스템</div>
+    <div class="g2" style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 광통신</div><div class="sector-badge dn-b">-1.43%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=APH" target="_blank" class="ticker-link">APH</a></span><span class="stock-pct up fw8">+2.55%</span><span class="stock-desc">Amphenol - AI 하드웨어 6개 선정으로 연결자 수요 회복</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=LWLG" target="_blank" class="ticker-link">LWLG</a></span><span class="stock-pct up fw8">+1.48%</span><span class="stock-desc">Lightwave Logic - 뉴스 없음</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=MRVL" target="_blank" class="ticker-link">MRVL</a></span><span class="stock-pct dn fw8">-5.57%</span><span class="stock-desc">Marvell - Google AI 칩 경쟁 신호로 광통신 마진 우려 심화</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=AAOI" target="_blank" class="ticker-link">AAOI</a></span><span class="stock-pct dn fw8">-3.32%</span><span class="stock-desc">Aamphenom - AI 붐 구축 평가에도 광학 칩 중국 우려로 역행</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=OCC" target="_blank" class="ticker-link">OCC</a></span><span class="stock-pct dn fw8">-1.91%</span><span class="stock-desc">OCC - BofA 컴플라이언스 리스크 지적</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=FN" target="_blank" class="ticker-link">FN</a></span><span class="stock-pct dn fw8">-1.84%</span><span class="stock-desc">Fenix - NVIDIA 공급사이나 데이터센터 무궁무진 수요에도 약세</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ Marvell의 Google AI 칩 경쟁 우려가 광통신 공급망 전반에 파급되며, 특히 AAOI는 "AI 붐 기반 구축" 평가에도 중국 광학 우려로 주가 부진 심화.</p>
+        <p>■ APH는 AI 데이터센터 연결자 수요 증가로 회복세 형성하나 전체 섹터는 비용 압박 및 경쟁 구도 재편 신호 지배적.</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 냉각시스템</div><div class="sector-badge dn-b">-0.11%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=MOD" target="_blank" class="ticker-link">MOD</a></span><span class="stock-pct up fw8">+3.64%</span><span class="stock-desc">Modine - Hunterbrook의 Google $4B 데이터센터 냉각 거래 보도로 수주 확대 기대</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=SMCI" target="_blank" class="ticker-link">SMCI</a></span><span class="stock-pct up fw8">+2.03%</span><span class="stock-desc">Supermicro - CEO 조사 해제로 법적 불확실성 완화, 창업자 재판 분리</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=DLR" target="_blank" class="ticker-link">DLR</a></span><span class="stock-pct dn fw8">-1.89%</span><span class="stock-desc">Digital Realty - REIT 금리 상승 우려 반영</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=EQIX" target="_blank" class="ticker-link">EQIX</a></span><span class="stock-pct dn fw8">-1.59%</span><span class="stock-desc">Equinix - 위와 동일 REIT 금리 부담</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NVT" target="_blank" class="ticker-link">NVT</a></span><span class="stock-pct dn fw8">-1.50%</span><span class="stock-desc">nVent Electric - Atkore Prysmian 인수 파급 영향</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=EME" target="_blank" class="ticker-link">EME</a></span><span class="stock-pct dn fw8">-1.37%</span><span class="stock-desc">EME - 뉴스 없음</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ Google의 대규모 AI 데이터센터 냉각 거래 기대감이 MOD의 강세 주도하며, SMCI의 CEO 조사 해제도 법적 불확실성 제거로 부분 상쇄 작용.</p>
+        <p>■ 다만 REIT 부문은 금리 상승 환경에서 독립적 약세 지속하며, 산업별 이질적 수급 신호 형성.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- S13: 특징섹터 -->
+<div class="slide" data-label="소프·석유" data-sector-dir="up">
+  <div class="slide-fill">
+    <div class="stag green">특징섹터</div>
+    <div class="stitle">소프트웨어 · 석유/정유</div>
+    <div class="g2" style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">💻 소프트웨어</div><div class="sector-badge up-b">+3.37%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NET" target="_blank" class="ticker-link">NET</a></span><span class="stock-pct up fw8">+5.10%</span><span class="stock-desc">Cloudflare - Cathie Wood ARK 신규 ETF 대량 매입으로 성장주 재평가</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=SNOW" target="_blank" class="ticker-link">SNOW</a></span><span class="stock-pct up fw8">+3.58%</span><span class="stock-desc">Snowflake - Palantir 포지션 규모 논의 및 UBS Buy 평가, AI 데이터 동력</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=PLTR" target="_blank" class="ticker-link">PLTR</a></span><span class="stock-pct up fw8">+3.44%</span><span class="stock-desc">Palantir - AI 데이터 분석 가치 재평가 및 Cathie Wood 관심</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ORCL" target="_blank" class="ticker-link">ORCL</a></span><span class="stock-pct up fw8">+3.10%</span><span class="stock-desc">Oracle - VA 계약 $17B 확대로 클라우드·AI 인프라 수요 증대</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=XYZ" target="_blank" class="ticker-link">XYZ</a></span><span class="stock-pct up fw8">+2.60%</span><span class="stock-desc">Block - Cathie Wood의 암호화폐·핀테크 노출 확대</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=PANW" target="_blank" class="ticker-link">PANW</a></span><span class="stock-pct up fw8">+2.38%</span><span class="stock-desc">Palo Alto - 뉴스 없음</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ Cathie Wood의 신규 ETF 구성 및 적극적 매입이 소프트웨어 섹터 전반 상승 기대감 형성하며, SNOW·PLTR의 AI 데이터 분석 플랫폼 수익성 전환 신호 작용.</p>
+        <p>■ ORCL의 VA 계약 대폭 확대는 엔터프라이즈 클라우드 및 AI 인프라 투자 가속 신호 반영하며, 성장 기술주 복귀 추세 견고.</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 석유/정유</div><div class="sector-badge up-b">+4.69%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=DK" target="_blank" class="ticker-link">DK</a></span><span class="stock-pct up fw8">+11.60%</span><span class="stock-desc">Delek - 가솔린 가격 $4/갤론 이상에 공공 공개 공시</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=PARR" target="_blank" class="ticker-link">PARR</a></span><span class="stock-pct up fw8">+9.08%</span><span class="stock-desc">Par Pacific - Q2 기록 정유 마진 달성 및 수익성 극대화</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=DINO" target="_blank" class="ticker-link">DINO</a></span><span class="stock-pct up fw8">+4.96%</span><span class="stock-desc">Diamondback - 에너지 주식 강세 및 $5B 파이프라인 승인</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=VLO" target="_blank" class="ticker-link">VLO</a></span><span class="stock-pct up fw8">+2.15%</span><span class="stock-desc">Valero - ExxonMobil의 유가 쇼크 신호 확인, 정유 가격 상승국면</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=PSX" target="_blank" class="ticker-link">PSX</a></span><span class="stock-pct up fw8">+1.20%</span><span class="stock-desc">Phillips 66 - 정유 주식 지속 수익성 강조</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=BP" target="_blank" class="ticker-link">BP</a></span><span class="stock-pct dn fw8">-0.84%</span><span class="stock-desc">BP - 뉴스 없음</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 가솔린 가격이 $4/갤론 이상으로 급등하며 정유 마진 개선이 극대화되고 있는 상황.</p>
+        <p>■ DK·PARR은 분기별 기록 마진 달성 및 공공 발표로 수익성 극대화 신호 확산, DINO는 정유 투자 확대 및 대규모 파이프라인 승인으로 장기 현금흐름 증대 기대.</p>
+        <p>■ 트럼프 정부의 휘발유 정책 신호까지 겹치며 정유 섹터 광범위 강세 지속.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- S14: 특징섹터 -->
+<div class="slide" data-label="원자·신재" data-sector-dir="mixed">
+  <div class="slide-fill">
+    <div class="stag purple">특징섹터</div>
+    <div class="stitle">원자력 · 신재생에너지</div>
+    <div class="g2" style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 원자력</div><div class="sector-badge up-b">+2.43%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=CCJ" target="_blank" class="ticker-link">CCJ</a></span><span class="stock-pct up fw8">+7.24%</span><span class="stock-desc">Cameco - F4의 Kelic Lake 드릴 프로젝트 진전 및 우라늄 수급 강화</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=IMSR" target="_blank" class="ticker-link">IMSR</a></span><span class="stock-pct up fw8">+5.69%</span><span class="stock-desc">Terrestrial Energy - 평생 매출 29% 증가 및 Texas A&M·DOE 연료 프로그램 진전</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=SMR" target="_blank" class="ticker-link">SMR</a></span><span class="stock-pct up fw8">+3.64%</span><span class="stock-desc">Standard Nuclear - SMR 상용화 일정 진전 및 정책 지원 기대감</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NNE" target="_blank" class="ticker-link">NNE</a></span><span class="stock-pct up fw8">+3.40%</span><span class="stock-desc">NanoNuclear - HALEU 핵연료 공급 전략 MOU 체결</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=EXC" target="_blank" class="ticker-link">EXC</a></span><span class="stock-pct dn fw8">-2.84%</span><span class="stock-desc">Exelon - PG&E 입법 캘린더 리스크 및 규제 불확실성</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ETR" target="_blank" class="ticker-link">ETR</a></span><span class="stock-pct dn fw8">-2.53%</span><span class="stock-desc">Entergy - 뉴스 없음</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 소형 모듈형 원전(SMR) 상용화 기대감과 정책 지원 신호가 연료·건설업체 전반에 매수세 유입하는 구도 형성.</p>
+        <p>■ CCJ는 우라늄 공급망 강화, IMSR·SMR은 차세대 원전 기술 진전, NNE는 HALEU 핵연료 공급 전략 확보로 장기 성장성 재평가.</p>
+        <p>■ EXC는 규제·입법 리스크 우려로 고립 약세 지속.</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 신재생에너지</div><div class="sector-badge dn-b">-1.55%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=TE" target="_blank" class="ticker-link">TE</a></span><span class="stock-pct up fw8">+1.38%</span><span class="stock-desc">T1 Energy - Bernhard의 NMGC 인수 및 Q2 기록 생산량 달성</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=CSIQ" target="_blank" class="ticker-link">CSIQ</a></span><span class="stock-pct up fw8">-1.22%</span><span class="stock-desc">Crystalline - SolarEdge 약세 확대로 동반 약세</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=SHLS" target="_blank" class="ticker-link">SHLS</a></span><span class="stock-pct dn fw8">-3.80%</span><span class="stock-desc">Shoals - Q2 실적 공시에도 1.1GW 그리드 연결 배터리 프로젝트 부분 상쇄</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=RUN" target="_blank" class="ticker-link">RUN</a></span><span class="stock-pct dn fw8">-2.14%</span><span class="stock-desc">Sunrun - Tesla와 동일 시장 방향성 공유, Voltus 에너지 용량 제공</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NXT" target="_blank" class="ticker-link">NXT</a></span><span class="stock-pct dn fw8">-1.91%</span><span class="stock-desc">NextPower - NX PowerMerge 태양광 기술 특허 및 2GW 백로그 확대 미흡</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NEE" target="_blank" class="ticker-link">NEE</a></span><span class="stock-pct dn fw8">-1.62%</span><span class="stock-desc">NextEra - PG&E 입법 캘린더 리스크 및 규제 불확실성</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ AI 데이터센터 에너지 수요 확대와 태양광·배터리 기술 혁신이 부분 견인하나, 높은 금리 환경과 규제 불확실성이 전체 섹터 약세 주도하는 양극화 현상.</p>
+        <p>■ SHLS의 기록 배터리 프로젝트 규모에도 금리 부담 심화, TE의 기록 생산량 달성만이 혼조 상황에서 긍정 신호로 작용하는 국면.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- S15: 특징섹터 -->
+<div class="slide" data-label="양자·가상" data-sector-dir="up">
+  <div class="slide-fill">
+    <div class="stag green">특징섹터</div>
+    <div class="stitle">양자컴퓨팅 · 가상화폐/비트코인</div>
+    <div class="g2" style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 양자컴퓨팅</div><div class="sector-badge up-b">+12.84%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=HQ" target="_blank" class="ticker-link">HQ</a></span><span class="stock-pct up fw8">+14.54%</span><span class="stock-desc">호라이즌 퀀텀 - 상용 플랫폼 조기 출시 및 $113M 현금 보유로 투자자 신뢰도 제고</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=INFQ" target="_blank" class="ticker-link">INFQ</a></span><span class="stock-pct up fw8">+12.51%</span><span class="stock-desc">인플렉션 - 미국 광물 안보 사업으로 정책 수혜 확대</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=RGTI" target="_blank" class="ticker-link">RGTI</a></span><span class="stock-pct up fw8">+11.48%</span><span class="stock-desc">리게티 - 고베타 기술주 랠리에 연쇄</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 아이온Q와 D-웨이브의 실적 호조 이후 소형 양자 스타트업에 투자자 관심이 집중되며 14개 종목 전수 상승 (+5.87%)을 기록했습니다.</p>
+        <p>■ 호라이즌 퀀텀의 상용 플랫폼 조기 출시와 강화된 재무 위치는 단기 성장 가능성 재평가로 작용했고, 인플렉션의 광물 안보 인프라 사업 전개는 국방/에너지 정책 수혜주로 포지셔닝을 강화했습니다.</p>
+        <p>■ 전반적인 고베타 기술주 랠리 가운데 양자 산업화 전망이 긍정적으로 재평가되는 추세가 형성됐습니다.</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 가상화폐/비트코인</div><div class="sector-badge up-b">+4.90%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=HOOD" target="_blank" class="ticker-link">HOOD</a></span><span class="stock-pct up fw8">+13.70%</span><span class="stock-desc">로빈후드 - 비트코인 급등에 따른 개인 투자자 거래량 폭증</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=COIN" target="_blank" class="ticker-link">COIN</a></span><span class="stock-pct up fw8">+8.20%</span><span class="stock-desc">코인베이스 - 암호자산 규제 우호 법안 발의로 기관 수요 신호</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=MSTR" target="_blank" class="ticker-link">MSTR</a></span><span class="stock-pct up fw8">+6.10%</span><span class="stock-desc">마이크로스트래티지 - 비트코인 현물 확대 보유로 평가이익 증가</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=CIFR" target="_blank" class="ticker-link">CIFR</a></span><span class="stock-pct dn fw8">-8.40%</span><span class="stock-desc">사이퍼 디지털 - 채산성 악화와 영업권 감손에 따른 밸류에이션 재검토</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 비트코인이 $71K에서 $77K 돌파하며 암호자산 생태계 전반에 매수세가 유입됐습니다.</p>
+        <p>■ 로빈후드는 개인 거래 수요 회복으로 +13.70%를 기록했고, 코인베이스는 상원의 우호 법안 발의 소식에 기관 투자자 진입 신호가 반영됐습니다.</p>
+        <p>■ 비트코인 현물 확보와 채굴 사업 확대 기업들의 수익성 개선이 평가되는 가운데 극소수 채산성 악화 기업만 하락 압력을 받았습니다.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- S16: 특징섹터 -->
+<div class="slide" data-label="제약·비만" data-sector-dir="up">
+  <div class="slide-fill">
+    <div class="stag green">특징섹터</div>
+    <div class="stitle">제약/바이오 · 비만치료제</div>
+    <div class="g2" style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 제약/바이오</div><div class="sector-badge up-b">+4.53%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=MRNA" target="_blank" class="ticker-link">MRNA</a></span><span class="stock-pct up fw8">+8.86%</span><span class="stock-desc">모더나 - mRNA 암 치료제 임상 성공 가능성 재평가</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=MRK" target="_blank" class="ticker-link">MRK</a></span><span class="stock-pct up fw8">+2.39%</span><span class="stock-desc">머크 - 암 백신 파이프라인 진전으로 차세대 성장동력 확보</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=BMY" target="_blank" class="ticker-link">BMY</a></span><span class="stock-pct up fw8">+2.35%</span><span class="stock-desc">브리스톨마이어스 스퀴브 - 파이프라인 다각화 및 실적 기대치 상향</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ mRNA 기술을 활용한 암 치료제 개발 움직임 가속화로 제약/바이오 섹터가 17개 종목 전수 상승 (+1.68%)을 기록했습니다.</p>
+        <p>■ 모더나의 암 임상 진행 소식이 투자자 기대감을 자극해 +8.86% 낙폭 회복을 이루었고, 머크와 길리어드 등 대형 제약사들의 백신 파이프라인 강화 계획 공시가 섹터 성장성을 제고했습니다.</p>
+        <p>■ 노바티스, 산피 등 글로벌 제약사들의 Q2 실적 호조 발표가 섹터 전반의 매수 심리 형성에 작용했습니다.</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 비만치료제</div><div class="sector-badge up-b">+4.22%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=GUTS" target="_blank" class="ticker-link">GUTS</a></span><span class="stock-pct up fw8">+13.87%</span><span class="stock-desc">프랙틸 헬스 - GLP-1 사용 후 체중 유지를 위한 시술형 치료제 상용화 전략 발표</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=HIMS" target="_blank" class="ticker-link">HIMS</a></span><span class="stock-pct up fw8">+6.03%</span><span class="stock-desc">힘스 앤 허스 - 원격의료 플랫폼 기반 GLP-1 처방 수요 지속</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ALT" target="_blank" class="ticker-link">ALT</a></span><span class="stock-pct up fw8">+5.42%</span><span class="stock-desc">알티뮨 - MASH 및 알코올 중독 치료 파이프라인 확대</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=GPCR" target="_blank" class="ticker-link">GPCR</a></span><span class="stock-pct dn fw8">-2.83%</span><span class="stock-desc">지펙알 - 기존 GLP-1 경쟁 심화로 차별성 약화</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=VKTX" target="_blank" class="ticker-link">VKTX</a></span><span class="stock-pct dn fw8">-1.37%</span><span class="stock-desc">바이킹 테라퓨틱스 - 차세대 비만 치료제 개발 리스크 재평가</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ GLP-1 계열 약제 시장 성숙 이후 차세대 비만 치료 생태계로의 전환이 가속화되고 있습니다.</p>
+        <p>■ 프랙틀 헬스의 시술형 치료제(Revita) 상용화 전략은 GLP-1 복용 후 체중 재증가 우려를 해소할 신규 솔루션으로 평가돼 +13.87%의 큰 상승을 기록했습니다.</p>
+        <p>■ 힘스 앤 허스의 원격의료 거래량 증가와 알티뮨의 지방간 및 알코올 중독 파이프라인 확대가 비만 치료 시장의 성장성을 뒷받침하는 가운데 기존 GLP-1 경쟁사들은 차별성 약화로 하락 압력을 받았습니다.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- S17: 특징섹터 -->
+<div class="slide" data-label="은행·중국" data-sector-dir="mixed">
+  <div class="slide-fill">
+    <div class="stag purple">특징섹터</div>
+    <div class="stitle">은행 · 중국기업</div>
+    <div class="g2" style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 은행</div><div class="sector-badge up-b">+2.34%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=GS" target="_blank" class="ticker-link">GS</a></span><span class="stock-pct up fw8">+3.73%</span><span class="stock-desc">골드만삭스 - 금리 인상 사이클로 순이자마진 확대 전망</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=MS" target="_blank" class="ticker-link">MS</a></span><span class="stock-pct up fw8">+3.25%</span><span class="stock-desc">모건스탠리 - 금 포트폴리오 강화 및 투자은행 수수료 증가</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=SAN" target="_blank" class="ticker-link">SAN</a></span><span class="stock-pct up fw8">+2.67%</span><span class="stock-desc">산탄데르 - 미국 지역은행 Webster $12.2B 인수 완료로 미국 영토 확대</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=BAC" target="_blank" class="ticker-link">BAC</a></span><span class="stock-pct dn fw8">-0.27%</span><span class="stock-desc">뱅크 오브 아메리카 - 뉴스 없음</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 미국 금리 인상 사이클 개시 기대감이 형성되며 투자은행의 순이자마진 확대와 M&A 수수료 증가 전망이 은행 섹터 전반에 매수세를 유입했습니다.</p>
+        <p>■ 골드만삭스와 모건스탠리 같은 투자은행들이 순이자마진 확대 기대와 M&A 수수료 수익 성장으로 각각 +3.73%, +3.25%의 큰 상승을 기록했습니다.</p>
+        <p>■ 산탄데르의 미국 지역은행 대규모 인수 완료는 글로벌 은행의 미국 시장 진출 가속화 신호로 평가돼 은행 섹터 13개 종목 전수 상승을 주도했습니다.</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 중국기업</div><div class="sector-badge dn-b">-0.33%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NTES" target="_blank" class="ticker-link">NTES</a></span><span class="stock-pct up fw8">+6.98%</span><span class="stock-desc">넷이즈 - Q2 게임 매출 호조 및 마진율 개선 실적 발표</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=BIDU" target="_blank" class="ticker-link">BIDU</a></span><span class="stock-pct up fw8">+1.35%</span><span class="stock-desc">바이두 - 무인택시 아폴로고 글로벌 확대(Dubai 우버 파트너십)로 AI 상용화 진전</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=BABA" target="_blank" class="ticker-link">BABA</a></span><span class="stock-pct dn fw8">-8.57%</span><span class="stock-desc">알리바바 - AI 산업화 지체와 기업문화 부실 평가로 투자자 심리 급락</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=PDD" target="_blank" class="ticker-link">PDD</a></span><span class="stock-pct dn fw8">-1.27%</span><span class="stock-desc">PDD홀딩스 - 뉴스 없음</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=JD" target="_blank" class="ticker-link">JD</a></span><span class="stock-pct dn fw8">-0.14%</span><span class="stock-desc">징동닷컴 - EU 규제 조사 진행으로 불확실성 확대</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 중국 기업들이 AI 상용화 진전도와 게임/전자상거래 업종별로 뚜렷한 양극화를 보였습니다.</p>
+        <p>■ 넷이즈는 Q2 게임 매출 회복 및 마진율 개선으로 +6.98%의 큰 상승을 기록했고, 바이두는 무인택시 서비스의 Dubai 우버 파트너십 확대로 AI 상용화 진전이 긍정 평가됐습니다.</p>
+        <p>■ 반면 알리바바는 AI 산업화 지체 우려와 기업문화 부실 평가로 투자자 신뢰도가 급락해 -8.57%의 큰 낙폭을 기록했고, 징동닷컴의 EU 규제 조사는 글로벌 전자상거래 확장에 제약 요인으로 작용했습니다.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- S18: 특징섹터 -->
+<div class="slide" data-label="광산·금" data-sector-dir="up">
+  <div class="slide-fill">
+    <div class="stag green">특징섹터</div>
+    <div class="stitle">광산 · 금</div>
+    <div class="g2" style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 광산</div><div class="sector-badge up-b">+4.29%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=FCX" target="_blank" class="ticker-link">FCX</a></span><span class="stock-pct up fw8">+7.64%</span><span class="stock-desc">Freeport-McMoRan - 신고가 수준까지 상승, 7개월 전부터 가시화된 강세 흐름이 본격화</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=TECK" target="_blank" class="ticker-link">TECK</a></span><span class="stock-pct up fw8">+4.59%</span><span class="stock-desc">Teck Resources - 구리 회수 기술 시범 등 산업 호황세 반영</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=BHP" target="_blank" class="ticker-link">BHP</a></span><span class="stock-pct up fw8">+3.63%</span><span class="stock-desc">BHP - 애리조나 광산의 구리 회수 기술 시범 참여로 경영 효율화 기대감 확대</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=RIO" target="_blank" class="ticker-link">RIO</a></span><span class="stock-pct up fw8">+3.06%</span><span class="stock-desc">Rio Tinto - 지정학적 리스크 논의에도 불구하고 광물 수급 불균형 신호 작용</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=VALE" target="_blank" class="ticker-link">VALE</a></span><span class="stock-pct up fw8">+2.53%</span><span class="stock-desc">Vale - 브라질 철광석 광산 자동화 확대 협력 발표로 원가 경쟁력 강화 전망</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 기본금속과 철광석 수요 회복 신호가 자원주 전반의 매수 심화로 작용.</p>
+        <p>■ FCX의 신고가 돌파, 구리 회수 기술 시범 등은 산업 구조 개선에 대한 기대감을 반영했음.</p>
+        <p>■ 브라질 자동화 협력 확대, 광산 기술 고도화 소식 등이 자원 공급 효율성 개선과 미래 수익성 확대 신호로 해석되며 매수세 확대.</p>
+        <p>■ 전 종목의 동반 상승으로 섹터 수급이 매우 긍정적임을 의미.</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 금</div><div class="sector-badge up-b">+5.92%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=EGO" target="_blank" class="ticker-link">EGO</a></span><span class="stock-pct up fw8">+7.20%</span><span class="stock-desc">Eldorado Gold - Skouries 제련소 97% 완성 임박, Prem Watsa 주요 투자 대상으로 선정되며 주목도 확대</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=HMY" target="_blank" class="ticker-link">HMY</a></span><span class="stock-pct up fw8">+6.90%</span><span class="stock-desc">Harmony Gold - 반기 실적 강세, 장기 수익률 개선 가시화로 마진 확대 기대감 형성</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=AU" target="_blank" class="ticker-link">AU</a></span><span class="stock-pct up fw8">+5.28%</span><span class="stock-desc">AngloGold Ashanti - NSW 채굴 전략 및 파트너십 강화로 성장성 입증</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=GFI" target="_blank" class="ticker-link">GFI</a></span><span class="stock-pct up fw8">+5.19%</span><span class="stock-desc">Gold Fields - 신규 프로젝트 지분 확대, 금값 신고가 전망으로 수익성 기대감 상승</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=WPM" target="_blank" class="ticker-link">WPM</a></span><span class="stock-pct up fw8">+5.01%</span><span class="stock-desc">Wheaton Precious Metals - 2분기 기록적 수익 달성, 채굴 기업 마진율 개선 흐름 강화</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 금값의 신고가 수준 진입과 맞물려 주요 채굴 기업들의 실적 개선이 본격화되며 섹터 매수세 확대.</p>
+        <p>■ Eldorado의 제련소 완성 임박, Harmony의 반기 실적 강세 발표 등은 이미 금값 상승으로 인한 마진율 확대 신호를 확인한 시장의 강한 기대감 반영.</p>
+        <p>■ Wheaton의 기록적 수익 달성은 채굴 사이클의 최상단 진입을 의미하며, 안전자산 수요와 맞물린 순환적 매수 형성.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- S19: 특징섹터 -->
+<div class="slide" data-label="소비·전력" data-sector-dir="mixed">
+  <div class="slide-fill">
+    <div class="stag purple">특징섹터</div>
+    <div class="stitle">소비재 · 전력</div>
+    <div class="g2" style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 소비재</div><div class="sector-badge up-b">+2.66%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=EL" target="_blank" class="ticker-link">EL</a></span><span class="stock-pct up fw8">+6.02%</span><span class="stock-desc">Estée Lauder - 4분기 실적 강세 마감, 연중 실적 개선으로 프리미엄 미용 수요 회복 입증</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=LULU" target="_blank" class="ticker-link">LULU</a></span><span class="stock-pct up fw8">+4.65%</span><span class="stock-desc">Lululemon - 스포츠캐주얼 시장 강세, 경쟁사 대비 우수한 마진율 기대감</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=CL" target="_blank" class="ticker-link">CL</a></span><span class="stock-pct up fw8">+1.54%</span><span class="stock-desc">Colgate-Palmolive - 이란 정부의 미국과의 전쟁 종료 호출 등 지정학 리스크 완화</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NKE" target="_blank" class="ticker-link">NKE</a></span><span class="stock-pct up fw8">+1.37%</span><span class="stock-desc">Nike - 뉴스 없음</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=PG" target="_blank" class="ticker-link">PG</a></span><span class="stock-pct up fw8">+1.20%</span><span class="stock-desc">Procter & Gamble - 안전자산 특성의 배당주로서 변동성 장에 수요 유지</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=UL" target="_blank" class="ticker-link">UL</a></span><span class="stock-pct up fw8">+1.17%</span><span class="stock-desc">Unilever - 뉴스 없음</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 프리미엄 소비재 기업의 실적 강세 신호가 부의 효과(wealth effect) 확대와 맞물려 섹터 매수 가속화.</p>
+        <p>■ Estée Lauder의 분기 실적 호조, Lululemon의 브랜드 가치 재평가로 럭셀리 세그먼트 수요 회복이 가시화.</p>
+        <p>■ 지정학적 불확실성 완화 신호도 소비 심리 개선 요인으로 작용.</p>
+        <p>■ 다만 일부 종목의 저조한 실적 논란에도 불구하고 섹터 전반의 구조적 수요 확대로 전 종목 동반 상승.</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">🔋 전력</div><div class="sector-badge dn-b">-2.59%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=AEP" target="_blank" class="ticker-link">AEP</a></span><span class="stock-pct dn fw8">-3.79%</span><span class="stock-desc">American Electric Power - AI 부문 정책 역풍, 에너지 수급 불안 우려 반영</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=EXC" target="_blank" class="ticker-link">EXC</a></span><span class="stock-pct dn fw8">-2.84%</span><span class="stock-desc">Exelon - PG&E와 유사하게 규제 달력의 영향을 받으며 정책 불확실성 확대</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=SO" target="_blank" class="ticker-link">SO</a></span><span class="stock-pct dn fw8">-2.72%</span><span class="stock-desc">Southern Company - 규제 리스크와 미래 설비 투자 기대감 부재로 약세 심화</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=DUK" target="_blank" class="ticker-link">DUK</a></span><span class="stock-pct dn fw8">-2.31%</span><span class="stock-desc">Duke Energy - 2041년까지 태양광 18.5GW 신규 설치 목표도 투자 부담 선반영</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=D" target="_blank" class="ticker-link">D</a></span><span class="stock-pct dn fw8">-1.29%</span><span class="stock-desc">Edison International - 경쟁사 대비 성과 미흡 신호로 개별 약세</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ AI 데이터센터 확대에 따른 전력 수요 우려와 규제 리스크의 이중 악재가 유틸리티주 약세 형성.</p>
+        <p>■ Peter Thiel의 에너지 부문 집중 투자 회귀에도 불구하고 전기 공급업체들의 설비 투자 부담과 규제 불확실성이 평가 인하 요인으로 작용.</p>
+        <p>■ 대규모 태양광 설치 계획 등 저탄소 전환 의무가 단기 이익을 압박하며 투자자 이탈 심화.</p>
+        <p>■ 전 종목의 동반 하락으로 섹터 펀더멘털에 대한 시장 평가 하향 신호 전달.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- S20: 특징섹터 -->
+<div class="slide" data-label="로봇·SN" data-sector-dir="up">
+  <div class="slide-fill">
+    <div class="stag green">특징섹터</div>
+    <div class="stitle">로봇/스마트팩토리 · SNS</div>
+    <div class="g2" style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 로봇/스마트팩토리</div><div class="sector-badge up-b">+3.20%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=AMR" target="_blank" class="ticker-link">AMR</a></span><span class="stock-pct up fw8">+8.09%</span><span class="stock-desc">Alpha Metallurgical Resources - Mohnish Pabrai의 포트폴리오 조정에도 불구하고 2분기 원가 관리 성과 기대감</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=RR" target="_blank" class="ticker-link">RR</a></span><span class="stock-pct up fw8">+6.25%</span><span class="stock-desc">Rolls-Royce - 분기 실적 긍정 신호, 재무 개선 흐름 강화</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=SERV" target="_blank" class="ticker-link">SERV</a></span><span class="stock-pct up fw8">+5.06%</span><span class="stock-desc">Serve Robotics - Uber Eats 이탈 후 Grubhub 독점 협력 발표로 배달로봇 사업화 가속화</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ARBE" target="_blank" class="ticker-link">ARBE</a></span><span class="stock-pct dn fw8">-4.54%</span><span class="stock-desc">Arbe Robotics - 반도체·통신 컨퍼런스 참여 발표에도 불구하고 2분기 실적 부진 신호</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ZBRA" target="_blank" class="ticker-link">ZBRA</a></span><span class="stock-pct dn fw8">+2.22%</span><span class="stock-desc">Zebra Technologies - 어려운 시장에서도 성장성 유지하는 양질 기업 평가</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=KITT" target="_blank" class="ticker-link">KITT</a></span><span class="stock-pct dn fw8">+2.13%</span><span class="stock-desc">Kitura - 뉴스 없음</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 배달로봇의 실용화 단계 진입이 수익화 모델 구체화로 이어지며 섹터 수요 회복.</p>
+        <p>■ Serve Robotics의 Grubhub 독점 협력은 배달 로봇 사업의 상용화 신호로 작용하며 생태계 구축 가속화 기대감 형성.</p>
+        <p>■ Rolls-Royce의 실적 개선, Zebra Technologies의 경쟁력 유지 등은 스마트팩토리 자동화 투자가 중단되지 않음을 의시.</p>
+        <p>■ 다만 Arbe의 실적 부진으로 인한 개별 약세는 업체 간 기술 격차 심화를 반영.</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 SNS</div><div class="sector-badge up-b">+1.69%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=DJT" target="_blank" class="ticker-link">DJT</a></span><span class="stock-pct up fw8">+6.93%</span><span class="stock-desc">Trump Media - 주가 회생 신호 본격화, 정치적 영향력 재평가로 거래량 증가</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=RDDT" target="_blank" class="ticker-link">RDDT</a></span><span class="stock-pct up fw8">+1.98%</span><span class="stock-desc">Reddit - AI 학습 데이터로서의 가치 재평가, S&P 500 포함 부스트 효과 지속</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=GRND" target="_blank" class="ticker-link">GRND</a></span><span class="stock-pct dn fw8">-0.83%</span><span class="stock-desc">Grindr - 2분기 실적 발표, HIV 예방 전략 공표에도 개별 약세</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=META" target="_blank" class="ticker-link">META</a></span><span class="stock-pct dn fw8">+0.75%</span><span class="stock-desc">Meta - 엔비디아의 향후 전략 소개에서 거론, 개별 약세는 상대 위치 미흡</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=PINS" target="_blank" class="ticker-link">PINS</a></span><span class="stock-pct dn fw8">+0.73%</span><span class="stock-desc">Pinterest - Reddit 대비 사용자당 수익성 개선, 주가 조정에 매수 기회</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=SNAP" target="_blank" class="ticker-link">SNAP</a></span><span class="stock-pct dn fw8">+0.58%</span><span class="stock-desc">Snap - 뉴스 없음</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ Trump Media의 주가 회생과 함께 SNS 플랫폼들의 AI 학습 데이터로서의 가치 재평가가 섹터 상승 주도.</p>
+        <p>■ Google의 Spirit Airlines 데이터 구입 소식(1,000만 달러)이 AI 산업의 학습 데이터 수급 경합을 노출시키며 Reddit 등 방대한 사용자 생성 컨텐츠 보유 기업에 대한 재평가 형성.</p>
+        <p>■ Trump Media는 정치 환경 변화와 실시간 정보 피드 경쟁력으로 개별 강세.</p>
+        <p>■ 전반적으로 소셜 미디어 플랫폼의 AI 시대 새로운 가치 발견으로 인한 수급 개선.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- S21: 특징섹터 -->
+<div class="slide" data-label="게임·구리" data-sector-dir="up">
+  <div class="slide-fill">
+    <div class="stag green">특징섹터</div>
+    <div class="stitle">게임 · 구리</div>
+    <div class="g2" style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 게임</div><div class="sector-badge up-b">+1.56%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NTES" target="_blank" class="ticker-link">NTES</a></span><span class="stock-pct up fw8">+6.98%</span><span class="stock-desc">NetEase - 2분기 게임 실적 강세, 마진율 개선 본격화로 실적주 재평가</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=SONY" target="_blank" class="ticker-link">SONY</a></span><span class="stock-pct up fw8">+1.44%</span><span class="stock-desc">Sony - TSMC와의 이미지센서 합작 본격화(6조 엔화 규모), 일본 반도체 투자 확대 신호</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=GME" target="_blank" class="ticker-link">GME</a></span><span class="stock-pct up fw8">+0.94%</span><span class="stock-desc">GameStop - 뉴스 없음</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=RBLX" target="_blank" class="ticker-link">RBLX</a></span><span class="stock-pct dn fw8">-0.67%</span><span class="stock-desc">Roblox - 가이던스 불변으로 성장 둔화 신호, Take-Two 대비 약세</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=MSFT" target="_blank" class="ticker-link">MSFT</a></span><span class="stock-pct dn fw8">+0.43%</span><span class="stock-desc">Microsoft - 주요 AI 고객사 선정 뉴스에도 불구하고 상대 약세</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=SE" target="_blank" class="ticker-link">SE</a></span><span class="stock-pct dn fw8">+0.25%</span><span class="stock-desc">Sea Limited - 뉴스 없음</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 중국 게임주 NetEase의 분기 실적 호조가 글로벌 게임 시장 수익성 개선 신호로 작용하며 섹터 저점 반등 형성.</p>
+        <p>■ TSMC-Sony의 이미지센서 합작은 게임·카메라 기기의 반도체 경쟁력 강화로 이어지며 하드웨어 사이클 회복 기대감 형성.</p>
+        <p>■ 다만 Roblox의 가이던스 불변은 메타버스 사업의 수익화 지연을 반영하며 개별 약세.</p>
+        <p>■ 전반적으로 게임 산업의 경기순환적 회복과 하드웨어 고도화에 따른 수익 확대 기대감 주도.</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 구리</div><div class="sector-badge up-b">+8.31%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ERO" target="_blank" class="ticker-link">ERO</a></span><span class="stock-pct up fw8">+9.44%</span><span class="stock-desc">에로 구리 - Q2 2026 운영실적 발표 및 상반기 투자 수익 업데이트</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=SCCO" target="_blank" class="ticker-link">SCCO</a></span><span class="stock-pct up fw8">+8.69%</span><span class="stock-desc">스콧코 - 기술적 신호와 단기 공매압박 가능성 반영</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=HBM" target="_blank" class="ticker-link">HBM</a></span><span class="stock-pct up fw8">+6.79%</span><span class="stock-desc">휴스베이 광업 - 광산 전체 지질 재평가 완료 및 구리 광맥 신규 타겟 확인</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 전기차 배터리 및 재생에너지 인프라 투자 확대에 따른 구리 수요 증가 기대감이 매수세를 견인했습니다.</p>
+        <p>■ 주요 채광 기업들의 실적 개선 신호와 새로운 광맥 발견 뉴스가 동시에 나오며 공급 부족 시나리오에 대한 시장 확신 형성.</p>
+        <p>■ 글로벌 인프라 재편 시대에 기초 금속으로서의 전략적 가치 인식이 섹터 전반의 강세를 주도했습니다.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- S22: 특징섹터 -->
+<div class="slide" data-label="철강·항공" data-sector-dir="up">
+  <div class="slide-fill">
+    <div class="stag green">특징섹터</div>
+    <div class="stitle">철강 · 항공/저가항공사(LCC)</div>
+    <div class="g2" style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 철강</div><div class="sector-badge up-b">+2.75%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=CLF" target="_blank" class="ticker-link">CLF</a></span><span class="stock-pct up fw8">+4.93%</span><span class="stock-desc">클리블랜드-클리프스 - 워싱턴 정책 결정에서 우호적 입장 표명 및 JD Vance 지지층의 긍정 평가</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=STLD" target="_blank" class="ticker-link">STLD</a></span><span class="stock-pct up fw8">+4.42%</span><span class="stock-desc">스틸 다이나믹스 - 강한 기술적 모멘텀 및 인프라 투자 수혜 평가</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=EAF" target="_blank" class="ticker-link">EAF</a></span><span class="stock-pct up fw8">+2.25%</span><span class="stock-desc">그래프테크 - Q2 2026 실적 발표 및 성장 모멘텀 지속 신호</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=RS" target="_blank" class="ticker-link">RS</a></span><span class="stock-pct up fw8">+1.99%</span><span class="stock-desc">렐리언스 스틸 - 인도 시장 확장 전략 진행</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=CMC" target="_blank" class="ticker-link">CMC</a></span><span class="stock-pct up fw8">+1.58%</span><span class="stock-desc">상업금속 - 2026년 장기 재무 목표 발표 및 6억 달러 자사주 매입 승인</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NUE" target="_blank" class="ticker-link">NUE</a></span><span class="stock-pct up fw8">+1.31%</span><span class="stock-desc">뉴코어 - 뉴스 없음</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 미국 국내 철강 제조사들이 인프라 투자 기대감과 트럼프 정부의 보호주의 정책 전환 신호에 편승했습니다.</p>
+        <p>■ 정치권의 지역 산업 지지 입장과 향후 수입 관세 재협상 가능성이 기존의 과잉공급 우려를 상쇄하는 긍정 요인 작용.</p>
+        <p>■ 채산성 개선 기대와 배당 정책 강화 발표가 매수세 확대로 이어지며 섹터 전반의 강세 형성.</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 항공/저가항공사(LCC)</div><div class="sector-badge up-b">+2.82%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ALGT" target="_blank" class="ticker-link">ALGT</a></span><span class="stock-pct up fw8">+7.12%</span><span class="stock-desc">알레지언트 - 9개 신규 논스톱 항로 개설 발표 및 고객 신뢰도 상승</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ULCC" target="_blank" class="ticker-link">ULCC</a></span><span class="stock-pct up fw8">+3.47%</span><span class="stock-desc">얼티메이트 항공 - 무제한 항공권 $199 프로모션 및 Q2 실적 호조</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=RYAAY" target="_blank" class="ticker-link">RYAAY</a></span><span class="stock-pct up fw8">+2.37%</span><span class="stock-desc">라이언에어 - 중동 공급 감소로 운영 경쟁력 강화 및 AI 기반 확장 전략</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=LTM" target="_blank" class="ticker-link">LTM</a></span><span class="stock-pct up fw8">+2.10%</span><span class="stock-desc">라탐항공 - Q2 매출 전년 대비 28% 증가로 실적 회복 신호</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=CPA" target="_blank" class="ticker-link">CPA</a></span><span class="stock-pct up fw8">+1.29%</span><span class="stock-desc">코파항공 - Q2 실적 발표, 연료비 상승에도 수익성 견고성 입증</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ALK" target="_blank" class="ticker-link">ALK</a></span><span class="stock-pct up fw8">+0.57%</span><span class="stock-desc">알래스카항공 - 뉴스 없음</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 저가항공사들의 적극적인 마케팅 활동과 신규 노선 개설이 수요 회복 신호 전달.</p>
+        <p>■ 중동 지역 공급 감소로 국제 노선의 가용성 우위 형성되며 수익성 개선 기대감 확산.</p>
+        <p>■ 여름 성수기 이후 추석·가을 여행 수요 본격화 국면에서 저가 항공권의 가성비 선택 확대 예상으로 매수세 집중.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- S23: 특징섹터 -->
+<div class="slide" data-label="소매·천연" data-sector-dir="mixed">
+  <div class="slide-fill">
+    <div class="stag purple">특징섹터</div>
+    <div class="stitle">소매유통(대형마트/할인점) · 천연가스</div>
+    <div class="g2" style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 소매유통(대형마트/할인점)</div><div class="sector-badge up-b">+3.90%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=FIVE" target="_blank" class="ticker-link">FIVE</a></span><span class="stock-pct up fw8">+5.89%</span><span class="stock-desc">파이브 빌로우 - 백투스쿨 시즌 이후 지속 성장 가능성 평가 및 주가 신고가 형성</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=BJ" target="_blank" class="ticker-link">BJ</a></span><span class="stock-pct up fw8">+5.61%</span><span class="stock-desc">BJ 홀세일 - Q2 회원 수 기록 달성 및 지속적 멤버십 확대</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ROST" target="_blank" class="ticker-link">ROST</a></span><span class="stock-pct up fw8">+4.39%</span><span class="stock-desc">로스 스토어스 - 강한 거래 모멘텀 및 할인점 우위성 입증</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=KR" target="_blank" class="ticker-link">KR</a></span><span class="stock-pct up fw8">+2.81%</span><span class="stock-desc">크로거 - 약국 서비스 강화 및 규제 합의 완료</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=DLTR" target="_blank" class="ticker-link">DLTR</a></span><span class="stock-pct up fw8">+2.36%</span><span class="stock-desc">달러트리 - 월마트 부진 속 상대적 강세 위치 확보</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=DG" target="_blank" class="ticker-link">DG</a></span><span class="stock-pct up fw8">+2.35%</span><span class="stock-desc">달러 제너럴 - 뉴스 없음</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 여름 성수기를 지나 백투스쿨 시즌으로의 소비 전환이 할인점 업체들의 고객 집중도 상승 견인.</p>
+        <p>■ 대형마트 대비 할인점의 가격 경쟁력이 소비자 선택 전환을 야기하며 회원 기반 확대 신호 전달.</p>
+        <p>■ 기업별 실적 개선과 배당 정책 강화 발표가 누적되며 매수세 확산으로 섹터 전반의 강세 형성.</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 천연가스</div><div class="sector-badge dn-b">-1.20%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=CMS" target="_blank" class="ticker-link">CMS</a></span><span class="stock-pct dn fw8">-2.23%</span><span class="stock-desc">컨슈머스 에너지 - 미시건 광역 신뢰성 업그레이드 투자 발표했으나 비용 부담 반영</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=KMI" target="_blank" class="ticker-link">KMI</a></span><span class="stock-pct dn fw8">-1.99%</span><span class="stock-desc">키미더 - Phillips 66 주도 Western Gateway Pipeline 50억 달러 승인 및 파이프라인 인수 뉴스에도 약세</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NEXT" target="_blank" class="ticker-link">NEXT</a></span><span class="stock-pct dn fw8">+1.71%</span><span class="stock-desc">NextDecade - Rio Grande LNG 진행률 업데이트 및 사업 전개 신호로 유일 상승 지점</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=WMB" target="_blank" class="ticker-link">WMB</a></span><span class="stock-pct dn fw8">-1.66%</span><span class="stock-desc">윌리엄스 컴퍼니 - Q2 실적 호조 및 가이던스 상향·배당 인상 발표했으나 하락세</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=TRP" target="_blank" class="ticker-link">TRP</a></span><span class="stock-pct dn fw8">-1.60%</span><span class="stock-desc">TC 에너지 - Q2 EBITDA 강성장 및 강건한 현금흐름 발표 무색하게 약세</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NGL" target="_blank" class="ticker-link">NGL</a></span><span class="stock-pct dn fw8">-1.41%</span><span class="stock-desc">NGL 에너지 파트너스 - Q1 기록적 수량 달성에도 수요 약세에 발목</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 파이프라인 및 LNG 인프라 투자 호재가 지속 나오고 있음에도 천연가스 수요 약세와 가격 하락이 종목 전반의 약세를 결정했습니다.</p>
+        <p>■ 여름 난방 수요 감소와 재고 과잉 우려가 선물 가격 하락 압박.</p>
+        <p>■ 장기 인프라 가치에도 불구하고 단기 실적 실망과 배당 지속성 우려가 매도세 주도하며 섹터 전반의 약세 심화.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- S24: 특징섹터 -->
+<div class="slide" data-label="철강·구리" data-sector-dir="up">
+  <div class="slide-fill">
+    <div class="stag green">특징섹터</div>
+    <div class="stitle">철강 하위 · 구리 채광</div>
+    <div class="g2" style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 철강 하위</div><div class="sector-badge up-b">+2.75%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=CLF" target="_blank" class="ticker-link">CLF</a></span><span class="stock-pct up fw8">+4.93%</span><span class="stock-desc">클리블랜드-클리프스 - 워싱턴 정책 결정 우호 및 정치권 지지층 확대</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=STLD" target="_blank" class="ticker-link">STLD</a></span><span class="stock-pct up fw8">+4.42%</span><span class="stock-desc">스틸 다이나믹스 - 인프라 수혜 기대감 및 기술적 모멘텀</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=EAF" target="_blank" class="ticker-link">EAF</a></span><span class="stock-pct up fw8">+2.25%</span><span class="stock-desc">그래프테크 - Q2 실적 발표 및 산업 성장 신호</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=RS" target="_blank" class="ticker-link">RS</a></span><span class="stock-pct up fw8">+1.99%</span><span class="stock-desc">렐리언스 스틸 - 국제 마켓 확장 진행</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=CMC" target="_blank" class="ticker-link">CMC</a></span><span class="stock-pct up fw8">+1.58%</span><span class="stock-desc">상업금속 - 장기 전략 수립 및 자사주 매입 강화</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NUE" target="_blank" class="ticker-link">NUE</a></span><span class="stock-pct up fw8">+1.31%</span><span class="stock-desc">뉴코어 - 뉴스 없음</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 미국 국내 철강 제조사들에 대한 정치권의 우호 입장이 주가에 긍정 작용했으나, 에너지 비용 상승과 인프라 투자 시간차 등에 대한 우려가 고점에서의 상승 제한 요인.</p>
+        <p>■ 트럼프 정부의 관세 정책 방향성 변화와 지역 산업 지원 약속이 단기 주가 상승 주도하되, 글로벌 경쟁 심화와 에너지 비용 불확실성이 상승률 제한.</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 구리 채광</div><div class="sector-badge up-b">+8.31%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ERO" target="_blank" class="ticker-link">ERO</a></span><span class="stock-pct up fw8">+9.44%</span><span class="stock-desc">에로 구리 - Q2 운영실적 개선 및 상반기 투자 수익률 상향</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=SCCO" target="_blank" class="ticker-link">SCCO</a></span><span class="stock-pct up fw8">+8.69%</span><span class="stock-desc">스콧코 - 장기 기술적 신호와 단기 공매압박 가능성 복합 작용</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=HBM" target="_blank" class="ticker-link">HBM</a></span><span class="stock-pct up fw8">+6.79%</span><span class="stock-desc">휴스베이 광업 - 광산 전체 지질 재평가 완료, 신규 구리 타겟 다수 확인</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 전기차 배터리 및 재생에너지 인프라 투자 확대에 따른 구리 수요 급증이 공급 부족 우려 형성.</p>
+        <p>■ 주요 채광 기업들의 실적 개선 소식과 신규 광맥 발견이 동시 다발로 나오며 향후 구리 가격 상승 시나리오 강화.</p>
+        <p>■ 기초 금속으로서의 전략적 가치 인식 확대로 섹터 전반의 매수세 집중과 강세 형성.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- S25: 특징섹터 -->
+<div class="slide" data-label="LN·석유" data-sector-dir="down">
+  <div class="slide-fill">
+    <div class="stag red">특징섹터</div>
+    <div class="stitle">LNG(액화천연가스) · 석유화학</div>
+    <div class="g2" style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 LNG(액화천연가스)</div><div class="sector-badge dn-b">-1.50%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NFE" target="_blank" class="ticker-link">NFE</a></span><span class="stock-pct dn fw8">-8.33%</span><span class="stock-desc">뉴 포트리스 에너지 - Q2 실적 발표했으나 경영진 신탁의무 위반 의혹으로 급락</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NEXT" target="_blank" class="ticker-link">NEXT</a></span><span class="stock-pct dn fw8">+1.71%</span><span class="stock-desc">NextDecade - Rio Grande LNG 진행률 업데이트 및 사업 확대 신호로 유일 상승</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NGL" target="_blank" class="ticker-link">NGL</a></span><span class="stock-pct dn fw8">-1.41%</span><span class="stock-desc">NGL 에너지 파트너스 - Q1 기록적 수량 달성했으나 부문 약세에 동반 하락</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=VG" target="_blank" class="ticker-link">VG</a></span><span class="stock-pct dn fw8">-0.56%</span><span class="stock-desc">Venture Global - Q2 거의 50% 수익 증가 달성했으나 하락세</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=DVN" target="_blank" class="ticker-link">DVN</a></span><span class="stock-pct dn fw8">-0.41%</span><span class="stock-desc">Devon Energy - Solitude Pipeline System FID 승인 및 Delaware Basin 통합 진행도 약세</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=EE" target="_blank" class="ticker-link">EE</a></span><span class="stock-pct dn fw8">-0.03%</span><span class="stock-desc">EE - 뉴스 없음</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ New Fortress Energy의 경영진 신탁의무 위반 의혹 터출이 LNG 부문 전반의 신뢰 약화 촉발했습니다.</p>
+        <p>■ NextDecade의 Rio Grande LNG 진행률 업데이트와 각 기업의 기록적 실적 달성 뉴스에도 부정적 심리가 지배적.</p>
+        <p>■ 에너지 인프라 투자 긍정 평가에도 불구하고 거버넌스 리스크와 천연가스 수요 약세 복합 작용으로 섹터 전반의 약세 심화.</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 석유화학</div><div class="sector-badge dn-b">-0.75%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=HUN" target="_blank" class="ticker-link">HUN</a></span><span class="stock-pct dn fw8">-1.87%</span><span class="stock-desc">헌츠만 - Q2 실적 발표했으나 주주 거래 공정성 의문 제기로 하락</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=LYB" target="_blank" class="ticker-link">LYB</a></span><span class="stock-pct dn fw8">-0.84%</span><span class="stock-desc">라이온델바셀 - 분기 배당금 발표했으나 원유 가격 약세 영향</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=CE" target="_blank" class="ticker-link">CE</a></span><span class="stock-pct dn fw8">-0.38%</span><span class="stock-desc">셀라니스 - VIGOR와 전략 파트너십 체결 및 경쟁사 대비 아웃퍼폼 평가에도 약세</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=WLK" target="_blank" class="ticker-link">WLK</a></span><span class="stock-pct dn fw8">+0.10%</span><span class="stock-desc">웨스트레이크 - NYSE Texas 이중 상장 발표 및 분기 배당금 선언</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 석유화학 기업들의 실적 개선과 배당 강화 발표가 나왔음에도 원유 및 천연가스 가격 약세가 상품 마진 하락 우려 증폭.</p>
+        <p>■ Huntsman의 주주 거래 공정성 의혹으로 기업 거버넌스에 대한 시장 신뢰도 저하.</p>
+        <p>■ 전략적 파트너십 강화와 자본 정책 개선 신호에도 원재료 가격 하락이 대수익성 약화 신호로 작용하며 섹터 전반의 약세 심화.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- S26: 특징섹터 -->
+<div class="slide" data-label="담배·우라" data-sector-dir="mixed">
+  <div class="slide-fill">
+    <div class="stag purple">특징섹터</div>
+    <div class="stitle">담배 · 우라늄</div>
+    <div class="g2" style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 담배</div><div class="sector-badge dn-b">-1.56%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=TPB" target="_blank" class="ticker-link">TPB</a></span><span class="stock-pct dn fw8">-3.84%</span><span class="stock-desc">탐불리 펙 - 신흥시장 담배 사업 실적 개선 발표했으나 규제 강화 우려 반영</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=MO" target="_blank" class="ticker-link">MO</a></span><span class="stock-pct dn fw8">-1.27%</span><span class="stock-desc">알트리아 - 안전 자산 평가 기사에도 불구하고 업황 약세 동반</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=UVV" target="_blank" class="ticker-link">UVV</a></span><span class="stock-pct dn fw8">-1.14%</span><span class="stock-desc">유니버설 코퍼레이션 - Q1 실적 발표했으나 장기 산업 구조 약화 우려</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=RLX" target="_blank" class="ticker-link">RLX</a></span><span class="stock-pct dn fw8">+0.00%</span><span class="stock-desc">알엑스 - Q2 국제 확장으로 14% 수익 증가 달성했으나 제자리</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 담배 산업의 장기 수요 감소 추세와 각국의 규제 강화 움직임이 기업들의 실적 개선 노력을 압도했습니다.</p>
+        <p>■ 성인용 니코틴 제품 다양화와 국제 시장 확장 전략에도 선진국 중심의 담배 소비 위축 우려 선행.</p>
+        <p>■ 배당 지속성에 대한 시장 불안감과 산업 구조적 약화가 섹터 전반의 약세 기조를 주도.</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 우라늄</div><div class="sector-badge up-b">+10.27%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=UUUU" target="_blank" class="ticker-link">UUUU</a></span><span class="stock-pct up fw8">+8.92%</span><span class="stock-desc">Energy Fuels - 테르븀 산화물 일본 대형 자석 제조사 승인으로 희토류 수급 개선 전망</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=DNN" target="_blank" class="ticker-link">DNN</a></span><span class="stock-pct up fw8">+11.46%</span><span class="stock-desc">Denison Mines - Phoenix ISR 우라늄 광산 건설 초기 진전과 Q2 실적 호조</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=UEC" target="_blank" class="ticker-link">UEC</a></span><span class="stock-pct up fw8">+14.44%</span><span class="stock-desc">Uranium Energy Corp - AI 데이터센터 전력 수요 급증에 따른 원전 투자 확대 기대</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NXE" target="_blank" class="ticker-link">NXE</a></span><span class="stock-pct up fw8">+6.26%</span><span class="stock-desc">Nexgen Energy - 뉴스 없음</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ AI 데이터센터 확산에 따른 전력 수요 급증이 원전 리바이벌 논리로 작용하며 우라늄 업체들의 생산 개발 소식이 매수세 유입을 형성.</p>
+        <p>■ 글로벌 희토류 공급망 우려까지 겹치며 에너지·희토류 복합 수혜 구도로 평가.</p>
+        <p>■ Q2 실적 발표를 통한 실적 개선 신호와 상업 생산 일정 명확화가 강세 지속의 근거로 작용하고 있음.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- S27: 특징섹터 -->
+<div class="slide" data-label="리튬·유리" data-sector-dir="up">
+  <div class="slide-fill">
+    <div class="stag green">특징섹터</div>
+    <div class="stitle">리튬 · 유리 기판</div>
+    <div class="g2" style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 리튬</div><div class="sector-badge up-b">+8.54%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=LAR" target="_blank" class="ticker-link">LAR</a></span><span class="stock-pct up fw8">+14.21%</span><span class="stock-desc">Lithium Argentina - Q2 기록적 EBITDA 마진과 비용 30% 감소로 단위당 수익성 개선</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=SGML" target="_blank" class="ticker-link">SGML</a></span><span class="stock-pct up fw8">+11.56%</span><span class="stock-desc">Sigma Lithium - Q2 EBITDA 마진 47% 달성 및 비용 구조 개선 소식</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ALB" target="_blank" class="ticker-link">ALB</a></span><span class="stock-pct up fw8">+6.75%</span><span class="stock-desc">Albemarle - 경쟁력 강화 및 남미 세슘 프로젝트 진전</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=LAC" target="_blank" class="ticker-link">LAC</a></span><span class="stock-pct up fw8">+5.72%</span><span class="stock-desc">Lithium Americas - 뉴스 없음</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=SQM" target="_blank" class="ticker-link">SQM</a></span><span class="stock-pct up fw8">+4.47%</span><span class="stock-desc">Sociedad Química y Minera - 뉴스 없음</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 리튬 광산 주요 업체들이 Q2 실적에서 기록적 수익성을 시현하며 채산성 개선 신뢰도 상승.</p>
+        <p>■ 비용 절감과 EBITDA 마진 확대가 동반되며 공급 효율화 진전을 반영.</p>
+        <p>■ 장기 계약(TAC) 협상 진행 등 가격 경색 국면 속에서도 스스로의 비용 경쟁력 강화가 리튬 수급 개선 전망으로 평가되고 있음.</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 유리 기판</div><div class="sector-badge up-b">+6.79%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=HBM" target="_blank" class="ticker-link">HBM</a></span><span class="stock-pct up fw8">+6.79%</span><span class="stock-desc">Hancock Prospecting - 광산 자산 재평가를 통한 구리·칼륨 광맥 발견 및 고급 탐사 표적 확인</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 광산 자산의 체계적 지질학 재평가를 통해 미활용 탐사 지역에서의 광물 부존량 확인이 자산 가치 상향으로 작용.</p>
+        <p>■ 지표 탐사 데이터 누적과 고급 표적 식별로 향후 생산 확대 경로가 명확화되며 투자 가치 재평가 모멘텀 형성.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- S28: 특징섹터 -->
+<div class="slide" data-label="2차·AI" data-sector-dir="mixed">
+  <div class="slide-fill">
+    <div class="stag purple">특징섹터</div>
+    <div class="stitle">2차전지(전고체) · AI 챗봇/LLM</div>
+    <div class="g2" style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 2차전지(전고체)</div><div class="sector-badge up-b">+4.11%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=QS" target="_blank" class="ticker-link">QS</a></span><span class="stock-pct up fw8">+4.91%</span><span class="stock-desc">QuantumScape - 뉴스 없음</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=SES" target="_blank" class="ticker-link">SES</a></span><span class="stock-pct up fw8">+6.15%</span><span class="stock-desc">SES AI Corp - 이사진 전문성 강화 및 애널리스트 포트폴리오 업그레이드</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=SLDP" target="_blank" class="ticker-link">SLDP</a></span><span class="stock-pct up fw8">+3.49%</span><span class="stock-desc">Solid Power - Q2 실적 발표 및 전고체 배터리 상용화 진전</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ENVX" target="_blank" class="ticker-link">ENVX</a></span><span class="stock-pct up fw8">+3.36%</span><span class="stock-desc">Enovix - 한국 드론 배터리 생산 용량 확대로 고부가가치 시장 진출</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=MVST" target="_blank" class="ticker-link">MVST</a></span><span class="stock-pct up fw8">+2.64%</span><span class="stock-desc">Microvast Holdings - 뉴스 없음</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 전고체 배터리 기술 개발사들이 생산 확대 소식을 이어가며 상용화 가시성 제고.</p>
+        <p>■ 엔비닉스의 한국 고객사 생산 용량 확대, SES의 주요 애널리스트 커버리지 업그레이드 등이 기술 수준 신뢰도 상승을 반영.</p>
+        <p>■ 차세대 배터리 기술로서의 위상 재확인과 기업별 확장 계획이 업계 전반의 낙관심 형성 중.</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">🤖 AI 챗봇/LLM</div><div class="sector-badge dn-b">-3.86%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=PLTR" target="_blank" class="ticker-link">PLTR</a></span><span class="stock-pct up fw8">+3.44%</span><span class="stock-desc">Palantir Technologies - 뉴스 없음</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=LPSN" target="_blank" class="ticker-link">LPSN</a></span><span class="stock-pct up fw8">+3.28%</span><span class="stock-desc">LivePerson - SoundHound AI 인수 거래 투표 진행으로 거래 완료 기대</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=AIXI" target="_blank" class="ticker-link">AIXI</a></span><span class="stock-pct dn fw8">-18.29%</span><span class="stock-desc">Xiao-I Corporation - NASDAQ 상장 결함 공시 및 ADS 비율 변경으로 기업 신용 이슈</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ AIXI의 NASDAQ 상장 결함 공시가 챗봇·LLM 섹터 수익 실현 신호로 작용하며 포지션 정리 압박 형성.</p>
+        <p>■ PLTR의 대량 포지션 리스크 경고도 동반되어 섹터 모멘텀 약화를 견인.</p>
+        <p>■ LPSN의 SoundHound AI 인수 거래가 진행 중이나 거래 완료 일정 불확실성이 긍정 신호를 상쇄하는 중.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- S29: 특징섹터 -->
+<div class="slide" data-label="네오·대체" data-sector-dir="down">
+  <div class="slide-fill">
+    <div class="stag red">특징섹터</div>
+    <div class="stitle">네오클라우드 · 대체육/배양육</div>
+    <div class="g2" style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">☁️ 네오클라우드</div><div class="sector-badge dn-b">-2.54%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=APLD" target="_blank" class="ticker-link">APLD</a></span><span class="stock-pct dn fw8">-5.03%</span><span class="stock-desc">Applause - 폐지되는 사업 매출로 평가되며 자산 가치 훼손</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=CRWV" target="_blank" class="ticker-link">CRWV</a></span><span class="stock-pct dn fw8">-2.13%</span><span class="stock-desc">CoreWeave - Pharma Bro Martin Shkreli의 숏 포지션 청산 뉴스도 주가 약세 지속</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NBIS" target="_blank" class="ticker-link">NBIS</a></span><span class="stock-pct dn fw8">-0.45%</span><span class="stock-desc">Nebius - AI 인프라 확장을 위한 $5B 컨버터블 채권 발행으로 희석 우려</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ APLD의 자산 가치 평가 절하가 네오클라우드 섹터 전반의 신뢰도 약화로 파급.</p>
+        <p>■ CRWV는 주요 숏 포지션 청산 뉴스에도 약세 지속되며 펀드의 수익 실현 압박이 광범위하게 작용 중.</p>
+        <p>■ NBIS의 대규모 자본 조달은 성장성 확보 신호이나 기존 주주 희석 우려로 긍정 평가 제한.</p>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 대체육/배양육</div><div class="sector-badge dn-b">-1.32%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=BYND" target="_blank" class="ticker-link">BYND</a></span><span class="stock-pct up fw8">+2.00%</span><span class="stock-desc">Beyond Meat - 1:30 역분할 효과적화로 주가 복구 신호 전송</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=CAG" target="_blank" class="ticker-link">CAG</a></span><span class="stock-pct up fw8">+0.98%</span><span class="stock-desc">Conagra Brands - Peanuts 테마 제품 출시로 마케팅 시너지</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=TSN" target="_blank" class="ticker-link">TSN</a></span><span class="stock-pct up fw8">+0.14%</span><span class="stock-desc">The Simply Good Foods - 뉴스 없음</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=STKH" target="_blank" class="ticker-link">STKH</a></span><span class="stock-pct dn fw8">-9.16%</span><span class="stock-desc">Steakholder Foods - 최대 $10.5M 비공개 모금과 ADS 비율 조정으로 자금조달 압박 신호</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=ADM" target="_blank" class="ticker-link">ADM</a></span><span class="stock-pct dn fw8">-1.71%</span><span class="stock-desc">Archer-Daniels-Midland - 우크라이나 곡물 수출 우려와 Barclays 컨퍼런스 발표</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=INGR" target="_blank" class="ticker-link">INGR</a></span><span class="stock-pct dn fw8">-0.17%</span><span class="stock-desc">Ingredion - 뉴스 없음</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ STKH의 긴급 자금조달이 대체육 산업의 채산성 악화 신호로 인식되며 섹터 심리 위축.</p>
+        <p>■ BYND는 역분할로 기술적 반등을 시도하나 월스트리트 숏 거래 대상 지정으로 낙관 제한.</p>
+        <p>■ ADM 등 곡물 기업들의 약세는 우크라이나 곡물 공급 우려와 겹쳐 대체육 원재료 비용 구조 개선 기대감 약화로 평가.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- S30: 특징섹터 -->
+<div class="slide" data-label="조선군함" data-sector-dir="down">
+  <div class="slide-fill">
+    <div class="stag red">특징섹터</div>
+    <div class="stitle">조선(군함/잠수함)</div>
+    <div style="flex:1;">
+    <div class="card" style="display:flex;flex-direction:column;">
+      <div class="sector-header"><div class="sector-name">📊 조선(군함/잠수함)</div><div class="sector-badge dn-b">-1.27%</div></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=GD" target="_blank" class="ticker-link">GD</a></span><span class="stock-pct dn fw8">-0.46%</span><span class="stock-desc">General Dynamics - Boeing 주가 평가 논란 및 인수도 지연 관련 뉴스</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=HII" target="_blank" class="ticker-link">HII</a></span><span class="stock-pct dn fw8">-1.06%</span><span class="stock-desc">Huntington Ingalls Industries - John F. Kennedy 항모(CVN 79) 인수검사 완료에도 매수 제한</span></div>
+        <div class="stock-row"><span class="stock-ticker"><a href="https://www.tradingview.com/chart/?symbol=NOC" target="_blank" class="ticker-link">NOC</a></span><span class="stock-pct dn fw8">-2.28%</span><span class="stock-desc">Northrop Grumman - Rocket Lab 주가 장기 하락세 영향</span></div>
+      <div class="sector-analysis" style="flex:1;">
+        <p>■ 조선 방위사업 일감 확충 신호(CVN 79 항모 인수검사 완료)에도 방위산업 대표주들이 약세를 면치 못함.</p>
+        <p>■ Boeing 주가 약세와의 연쇄 약화, ROI 기대감 부족 등이 동반되며 섹터 투자자심리 침체.</p>
+        <p>■ 중동 배치 및 건설 진전 같은 긍정 뉴스들이 충분한 매수 유인으로 작용하지 못하고 있음.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- Commodities -->
+<div class="slide" data-label="원자재">
+  <div class="slide-fill">
+    <div class="stag gold">COMMODITIES</div>
+    <div class="stitle">원자재 시장</div>
+    <div class="g3" style="margin-bottom:12px;">
+      <a href="https://www.tradingview.com/chart/?symbol=COMEX:GC1!" target="_blank" class="card comm-card"><div class="comm-icon">🥇</div><div class="comm-name">금 (Gold)</div><div class="comm-price">$4,667.10</div><div class="comm-chg up">▲ +1.66%</div></a>
+      <a href="https://www.tradingview.com/chart/?symbol=COMEX:SI1!" target="_blank" class="card comm-card"><div class="comm-icon">🥈</div><div class="comm-name">은 (Silver)</div><div class="comm-price">$69.00</div><div class="comm-chg up">▲ +0.08%</div></a>
+      <a href="https://www.tradingview.com/chart/?symbol=TVC:USOIL" target="_blank" class="card comm-card"><div class="comm-icon">🛢️</div><div class="comm-name">WTI 원유</div><div class="comm-price">$86.77</div><div class="comm-chg up">▲ +0.36%</div></a>
+    </div>
+    <div class="g3" style="margin-bottom:12px;">
+      <a href="https://www.tradingview.com/chart/?symbol=TVC:UKOIL" target="_blank" class="card comm-card"><div class="comm-icon">🔥</div><div class="comm-name">브렌트유</div><div class="comm-price">$94.05</div><div class="comm-chg dn">▲ +0.47%</div></a>
+      <a href="https://www.tradingview.com/chart/?symbol=COMEX:HG1!" target="_blank" class="card comm-card"><div class="comm-icon">🟠</div><div class="comm-name">구리</div><div class="comm-price">$6.58/lb</div><div class="comm-chg up">▲ +0.65%</div></a>
+      <a href="https://www.tradingview.com/chart/?symbol=NYMEX:NG1!" target="_blank" class="card comm-card"><div class="comm-icon">💧</div><div class="comm-name">천연가스</div><div class="comm-price">$2.80</div><div class="comm-chg dn">▲ +1.56%</div></a>
+    </div>
+    <div class="summary-box" style="border-left-color:var(--gold);flex:1;">
+        <p>■ <span class="highlight">원유 시장의 완만한 상승세</span>
+
+WTI유는 배럴당 86.77달러로 전일 대비 0.36% 상승했으며, 브렌트유는 94.05달러로 0.47% 올랐음.</p>
+        <p>■ 유가는 OPEC+의 감산 기조 유지 의지와 중동 지정학적 긴장으로 지지받았으나, 세계 경기 둔화 우려가 상승폭을 제한했음.</p>
+        <p>■ 특히 중국 경제 데이터 부진이 수요 전망을 약화시킨 가운데, 미국 석유 재고 증가 뉴스가 추가 상승을 억제했음.</p>
+        <p>■ <span class="highlight">귀금속의 강한 상승세</span>
+
+금은 온스당 4,667.10달러로 전일 대비 76.20달러(+1.66%) 상승하며 강한 모습을 보였음.</p>
+        <p>■ 이는 지정학적 위험 회피 수요, 인플레이션 헤지 관심, 그리고 주요 중앙은행의 꾸준한 금 매입 기조가 복합적으로 작용한 결과임.</p>
+        <p>■ 실질금리 하락 가능성과 달러 약세 흐름도 금 가격 상승을 뒷받침했음.</p>
+        <p>■ 반면 은은 69.00달러로 거의 보합(+0.08%)을 유지하며 금만큼의 강도 있는 상승을 보이지 못했음.</p>
+        <p>■ <span class="highlight">기초 금속의 다색상 전개</span>
+
+구리는 온스당 6.58달러로 0.65% 상승했으며, 이는 중국의 경극약 인프라 투자 재개 기대 및 전기차·신재생에너지 산업의 구리 수요 증가로 지지받았음.</p>
+        <p>■ 천연가스는 2.80달러로 1.56% 상승하며 계절적 수요 증가와 공급 우려가 반영되었음.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Crypto -->
+<div class="slide" data-label="크립토">
+  <div class="slide-fill">
+    <div class="stag cyan">CRYPTO MARKET</div>
+    <div class="stitle">크립토 마켓</div>
+    <div class="g2" style="flex:1;">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <a href="https://www.tradingview.com/chart/?symbol=COINBASE:BTCUSD" target="_blank" class="crypto-row flex1" style="text-decoration:none;color:inherit;"><span class="cr-sym">BTC</span><span class="cr-name">비트코인</span><span class="cr-val">$77,441.38</span><span class="cr-pct up">▲ +6.06%</span></a>
+        <a href="https://www.tradingview.com/chart/?symbol=COINBASE:ETHUSD" target="_blank" class="crypto-row flex1" style="text-decoration:none;color:inherit;"><span class="cr-sym">ETH</span><span class="cr-name">이더리움</span><span class="cr-val">$2,437.96</span><span class="cr-pct up">▲ +4.80%</span></a>
+        <a href="https://www.tradingview.com/chart/?symbol=COINBASE:SOLUSD" target="_blank" class="crypto-row flex1" style="text-decoration:none;color:inherit;"><span class="cr-sym">SOL</span><span class="cr-name">솔라나</span><span class="cr-val">$91.74</span><span class="cr-pct up">▲ +4.68%</span></a>
+      </div>
+      <div class="summary-box flex1" style="border-left-color:var(--cyan);">
+        <p>■ <span class="highlight">전반적 강세의 크립토 시장</span>
+
+비트코인은 77,441.38달러로 4,425.45달러(+6.06%) 상승하며 주요 지표 자산으로서의 강한 모습을 보였음.</p>
+        <p>■ 이더리움은 2,437.96달러로 111.61달러(+4.80%) 올랐으며, 솔라나는 91.74달러로 4.10달러(+4.68%) 상승했음.</p>
+        <p>■ 이러한 광범위한 상승은 기관투자자의 크립토 자산 편입 증가, 스팟 비트코인 ETF에 대한 꾸준한 순유입, 그리고 규제 불확실성 완화에 따른 긍정 심리로 해석됨.</p>
+        <p>■ <span class="highlight">소형 알트코인의 상대적 강세</span>
+
+리플(XRP)은 1.37달러(+8.00%), 도지코인은 0.09달러(+8.02%), 카르다노(ADA)는 0.22달러(+9.89%)로 기록되며 비트코인과 이더리움보다 높은 상승률을 나타냈음.</p>
+        <p>■ 이는 리스크 선호도 회복에 따른 소형 자산 랠리, 각 프로젝트의 네트워크 개선 소식, 그리고 상대적 저가 매수 심리가 복합적으로 작용했음을 시사함.</p>
+        <p>■ 체인링크(LINK)는 11.78달러(+10.21%)로 블록체인 기반 인프라 개선 전망에 힘입어 최고의 상승률을 기록했음.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ETF -->
+<div class="slide" data-label="ETF">
+  <div class="slide-fill">
+    <div class="stag blue">ETF TRENDS</div>
+    <div class="stitle">ETF 동향</div>
+    <div class="g2" style="flex:1;">
+      <div style="display:flex;flex-direction:column;">
+        <div style="font-size:22px;font-weight:800;color:var(--up);margin-bottom:12px;">▲ 상승 ETF</div>
+        <div class="etf-row"><span class="etf-name">금속·광산</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=XME" target="_blank" class="ticker-link">XME</a></span><span class="etf-desc">— 원자재 가격 상승에 따른 채굴·정제업체 실적 개선 기대</span><span class="etf-pct up">+4.05%</span></div>
+        <div class="etf-row"><span class="etf-name">기초 소재</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=XLB" target="_blank" class="ticker-link">XLB</a></span><span class="etf-desc">— 구리·알루미늄 등 기초 금속 가격 반등으로 소재 기업의 마진율 개선 전망</span><span class="etf-pct up">+2.14%</span></div>
+        <div class="etf-row"><span class="etf-name">금</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=GLD" target="_blank" class="ticker-link">GLD</a></span><span class="etf-desc">— 금 현물가 1.66% 상승에 직결된 연동 상승</span><span class="etf-pct up">+1.95%</span></div>
+        <div class="etf-row"><span class="etf-name">대마</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=MSOS" target="_blank" class="ticker-link">MSOS</a></span><span class="etf-desc">— 미국 연방 대마초 규제 완화 움직임과 주(州) 차원의 합법화 추진에 따른 산업 성장성 재평가</span><span class="etf-pct up">+4.64%</span></div>
+        <div class="etf-row"><span class="etf-name">헬스케어</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=ARKG" target="_blank" class="ticker-link">ARKG</a></span><span class="etf-desc">— 제약·바이오텍 기업들의 신약 파이프라인 진전 및 임상 결과 개선 기대</span><span class="etf-pct up">+3.80%</span></div>
+        <div class="etf-row"><span class="etf-name">혁신 기술</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=ARKK" target="_blank" class="ticker-link">ARKK</a></span><span class="etf-desc">— 성장주·기술주 전반의 반등, 인플레이션 완화 신호에 따른 고금리 우려 해소</span><span class="etf-pct up">+3.53%</span></div>
+        <div class="etf-row"><span class="etf-name">핀텍</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=ARKF" target="_blank" class="ticker-link">ARKF</a></span><span class="etf-desc">— 디지털 금융 전환 가속화와 블록체인 기반 금융 솔루션 수요 증가</span><span class="etf-pct up">+3.51%</span></div>
+        <div class="etf-row"><span class="etf-name">2차전지</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=LIT" target="_blank" class="ticker-link">LIT</a></span><span class="etf-desc">— 전기차 판매 회복 기대 및 리튬·코발트 등 배터리 원소 가격 상승</span><span class="etf-pct up">+2.72%</span></div>
+        <div class="etf-row"><span class="etf-name">차세대 인터넷</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=ARKW" target="_blank" class="ticker-link">ARKW</a></span><span class="etf-desc">— AI·클라우드·메타버스 관련 기술주 재평가</span><span class="etf-pct up">+2.72%</span></div>
+        <div class="etf-row"><span class="etf-name">가상화폐</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=BITQ" target="_blank" class="ticker-link">BITQ</a></span><span class="etf-desc">— 크립토 시장 전반의 6% 이상 상승과 기관투자자 관심 증대</span><span class="etf-pct up">+2.36%</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;">
+        <div style="font-size:22px;font-weight:800;color:var(--down);margin-bottom:12px;">▼ 하락 ETF</div>
+        <div class="etf-row"><span class="etf-name">유틸리티</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=XLU" target="_blank" class="ticker-link">XLU</a></span><span class="etf-desc">— 금리 인상 우려에 따른 방어주 선회 매도 및 배당주로의 자금 이동 역풍</span><span class="etf-pct dn">-2.28%</span></div>
+        <div class="etf-row"><span class="etf-name">반도체</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=SOXX" target="_blank" class="ticker-link">SOXX</a></span><span class="etf-desc">— 개별 반도체 기업의 실적 부진 뉴스 및 공급망 불안 심화</span><span class="etf-pct dn">-0.44%</span></div>
+        <div class="etf-row"><span class="etf-name">에너지</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=XLE" target="_blank" class="ticker-link">XLE</a></span><span class="etf-desc">— 유가 상승률이 미미(+0.36%)한 데다 전기차 보급 확대에 따른 장기 수요 우려</span><span class="etf-pct dn">-0.17%</span></div>
+        <div class="etf-row"><span class="etf-name">물가연동국채</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=TIP" target="_blank" class="ticker-link">TIP</a></span><span class="etf-desc">— 실질 금리 상승에 따른 인플레이션 연계채의 매력도 감소</span><span class="etf-pct dn">-0.36%</span></div>
+        <div class="etf-row"><span class="etf-name">고배당 MLP</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=AMLP" target="_blank" class="ticker-link">AMLP</a></span><span class="etf-desc">— 유가 약세 및 에너지 인프라 자산에 대한 재평가</span><span class="etf-pct dn">-0.29%</span></div>
+        <div class="etf-row"><span class="etf-name">농산물</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=DBA" target="_blank" class="ticker-link">DBA</a></span><span class="etf-desc">— 곡물 가격의 약세 지속 및 수확기 공급 증가 전망</span><span class="etf-pct dn">-0.21%</span></div>
+        <div class="etf-row"><span class="etf-name">천연가스</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=UNG" target="_blank" class="ticker-link">UNG</a></span><span class="etf-desc">— 천연가스 1.56% 소폭 상승에도 불구하고 하절기 수요 약화 우려</span><span class="etf-pct dn">-0.20%</span></div>
+        <div class="etf-row"><span class="etf-name">국채(7-10년)</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=IEF" target="_blank" class="ticker-link">IEF</a></span><span class="etf-desc">— 장기 금리 상승 압력으로 채권 가격 하락</span><span class="etf-pct dn">-0.19%</span></div>
+        <div class="etf-row"><span class="etf-name">종합채권</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=BND" target="_blank" class="ticker-link">BND</a></span><span class="etf-desc">— 금리 인상 기조에서 채권 자산의 광범위한 약세</span><span class="etf-pct dn">-0.15%</span></div>
+        <div class="etf-row"><span class="etf-name">회사채 투자등급</span><span class="etf-tick"><a href="https://www.tradingview.com/chart/?symbol=LQD" target="_blank" class="ticker-link">LQD</a></span><span class="etf-desc">— 신용 스프레드 확대 우려에 따른 회사채 매도 심화</span><span class="etf-pct dn">-0.13%</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+
+  <div class="bottom-bar">
+    <div class="slide-counter"><span id="cur">1</span> / <span id="tot">0</span></div>
+    <div class="slide-dots" id="dots"></div>
+    <div class="nav-buttons">
+      <button class="auto-btn" id="autoBtn" onclick="toggleAuto()">▶ Auto 10s</button>
+      <button class="nav-btn" onclick="go(current-1)">◀</button>
+      <button class="nav-btn" onclick="go(current+1)">▶</button>
+    </div>
+  </div>
+</div>
+
+<script>
+let current=0,autoId=null;
+const w=document.getElementById('slidesWrapper'),slides=w.children,total=slides.length,pb=document.getElementById('progressBar'),dc=document.getElementById('dots');
+document.getElementById('tot').textContent=total;
+for(let i=0;i<total;i++){
+  const label=slides[i].getAttribute('data-label')||('S'+(i+1));
+  const dir=slides[i].getAttribute('data-sector-dir')||'';
+  const d=document.createElement('div');
+  d.className='dot-item'+(i===0?' active':'')+(dir?' sector-'+dir:'');
+  d.title=label;
+  d.innerHTML='<div class="dot-bar"></div><div class="dot-label">'+label+'</div>';
+  d.onclick=()=>go(i);
+  dc.appendChild(d);
+}
+function go(i){if(i<0)i=total-1;if(i>=total)i=0;current=i;w.style.transform='translateX(-'+(current*100)+'vw)';document.getElementById('cur').textContent=current+1;pb.style.width=(((current+1)/total)*100)+'%';document.querySelectorAll('.dot-item').forEach((d,j)=>d.classList.toggle('active',j===current));}
+function toggleAuto(){const b=document.getElementById('autoBtn');if(autoId){clearInterval(autoId);autoId=null;b.classList.remove('on');b.innerHTML='▶ Auto 10s';}else{autoId=setInterval(()=>go(current+1),10000);b.classList.add('on');b.innerHTML='■ Stop';}}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();go(current+1);}if(e.key==='ArrowLeft'){e.preventDefault();go(current-1);}});
+go(0);
+</script>
+</body>
+</html>
